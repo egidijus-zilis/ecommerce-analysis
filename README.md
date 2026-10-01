@@ -42,7 +42,7 @@ using Python, SQL and Power BI.
 
 ## Tools
 
-Python (pandas, matplotlib, seaborn), SQL, Power BI
+Python, SQL, Power BI
 
 ## Project structure
 
