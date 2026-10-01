@@ -24,7 +24,7 @@ Python (pandas, matplotlib, seaborn), SQL, Power BI
 ## Project structure
 
 - `data/` - CSV files
-- `EDA.py` - exploratory data analysis
+- `notebooks/` - Jupyter notebooks with exploratory data analysis
 - `sql/` - SQL queries
 - `powerbi/` - dashboard
 
