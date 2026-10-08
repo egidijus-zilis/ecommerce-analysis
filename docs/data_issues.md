@@ -20,3 +20,4 @@
 | DQ-16 | marketing_spend (paid_social) | Fully duplicated rows (prospecting and retargeting have 1006 rows instead of 1004) | 4 | profile() key and duplicate check | to investigate | – |
 | DQ-17 | marketing_spend (paid_search) | Missing days: brand and non_brand have 1001 rows instead of 1004 (one per day) | 6 rows (3 days × 2 campaign types) | profile() value list | to investigate | – |
 | DQ-18 | orders.delivered_date | delivered_date is 1–2 days before the order date | 15 | Q3 check (order_date_local vs delivered_date) | to investigate | – |
+| DQ-19 | user_events (visitor_id 4410023875) | Bot: 2,548 product views in 26 sessions, 3 seconds apart, at night, no purchases | 2,548 events | Q4 check (events per session, time between events) | to investigate | – |
