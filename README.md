@@ -16,7 +16,7 @@ checking data quality, writing SQL, and building a dashboard.
 |---|---|---|
 | 0 | Set up the repository and Python environment | Done |
 | 1a | Profile each table in Python (find data problems) | Done |
-| 1b | Check how the tables match each other (cross-table checks) | Planned |
+| 1b | Check how the tables match each other (cross-table checks) | In progress |
 | 2 | Load the data into PostgreSQL and clean it | Planned |
 | 3 | Answer the business questions with SQL | Planned |
 | 4 | Build a Power BI dashboard | Planned |
@@ -83,7 +83,8 @@ ecommerce-analysis/
 │   ├── data_dictionary.md            what each column means
 │   └── data_issues.md                log of data problems found
 ├── notebooks/
-│   └── 01_profiling.ipynb            checks each table on its own
+│   ├── 01_profiling.ipynb            checks each table on its own
+│   └── 02_cross_table_checks.ipynb   checks how the tables match each other
 ├── sql/                              SQL files for cleaning and analysis (coming later)
 ├── powerbi/                          Power BI file and screenshots (coming later)
 ├── requirements.txt
@@ -131,6 +132,7 @@ Next step (notebook 02):
 These questions will be answered with SQL. **Not answered yet.**
 
 **Growth and seasonality**
+
 1. Is the business growing profitably? How do revenue, gross profit and order volume change month over month and year over year, and how much of the change comes from new customers, repeat customers and order value?
 2. How seasonal is demand, overall and by category, and which months should inventory and campaign planning be built around?
 
