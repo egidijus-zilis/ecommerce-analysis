@@ -15,8 +15,8 @@ checking data quality, writing SQL, and building a dashboard.
 | Stage | What | Status |
 |---|---|---|
 | 0 | Set up the repository and Python environment | Done |
-| 1 | Profile each table in Python (find data problems) | Done |
-| 1 | Check how the tables match each other (cross-table checks) | Planned |
+| 1a | Profile each table in Python (find data problems) | Done |
+| 1b | Check how the tables match each other (cross-table checks) | Planned |
 | 2 | Load the data into PostgreSQL and clean it | Planned |
 | 3 | Answer the business questions with SQL | Planned |
 | 4 | Build a Power BI dashboard | Planned |
