@@ -13,12 +13,12 @@
 | DQ-09 | orders (all columns) | Fully duplicated rows: same order_id with identical values in all columns | 10 | profile() key and duplicate check | to investigate | – |
 | DQ-10 | orders.order_total, order_items.unit_price | Orders with order_total 0.01 and order lines with unit_price 0.01, far below the cheapest product (orders 2, 3, 8 seen so far) | 3 orders | profile() min/max, nsmallest() | to investigate | – |
 | DQ-11 | order_items.return_reason | Returned lines with no return reason | 94 | profile() NULL check | to investigate | – |
-| DQ-12 | order_items.quantity | Very large quantity. 3 lines have 10, but order_total fits 1 (orders 5516, 5558, 5708). The other 5 look like real bulk orders. | 8 lines, 3 wrong | 01 profiling, 02 B1 | Fix the 3 lines to 1 | SQL clean |
+| DQ-12 | order_items.quantity | Very large quantity. 3 lines have 10, but order_total fits 1 (orders 5516, 5558, 5708). The other 5 look like real bulk orders. | 8 lines, 3 wrong | 01 profiling, 02 B1 | Set quantity to 1 in the 3 wrong lines | SQL clean |
 | DQ-13 | order_items.unit_price | Lines sold at 0.00 with large quantities (order 1240: 12 and 10 units) | 2 | profile() min/max, nsmallest() | to investigate | – |
 | DQ-14 | user_events.traffic_source | Traffic source missing (field not marked as optional in the data dictionary) | 11944 events (1.98%) | profile() NULL check | to investigate | – |
 | DQ-15 | user_events (purchase) | 106 sessions have the purchase event twice. The two rows are identical except event_id. Probably tracking fired twice (e.g. page reload). | 106 extra events | 02 B3 (purchase events vs orders) | Keep one purchase event per session | SQL clean |
 | DQ-16 | marketing_spend (paid_social) | Fully duplicated rows (prospecting and retargeting have 1006 rows instead of 1004) | 4 | profile() key and duplicate check | to investigate | – |
 | DQ-17 | marketing_spend (paid_search) | Missing days: brand and non_brand have 1001 rows instead of 1004 (one per day) | 6 rows (3 days × 2 campaign types) | profile() value list | to investigate | – |
 | DQ-18 | orders.delivered_date | delivered_date is 1–2 days before the order date | 15 | Q3 check (order_date_local vs delivered_date) | to investigate | – |
-| DQ-19 | user_events (visitor_id 4410023875) | Bot: 2,548 product views in 26 sessions, 3 seconds apart, at night, no purchases | 2,548 events | Q4 check (events per session, time between events) | to investigate | – |
+| DQ-19 | user_events (visitor_id 4410023875) | Bot: 2548 product views in 26 sessions, 3 seconds apart, at night, no purchases | 2548 events | Q4 check (events per session, time between events) | to investigate | – |
 | DQ-20 | orders.order_total | Lower than lines + shipping, no coupon. 16 orders by a round amount, 8 by 10 %. Looks like manual compensations. | 24 orders | 02 B1 | Keep. Use order_total as revenue | SQL analytics |

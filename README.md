@@ -16,8 +16,8 @@ checking data quality, writing SQL, and building a dashboard.
 |---|---|---|
 | 0 | Set up the repository and Python environment | Done |
 | 1a | Profile each table in Python (find data problems) | Done |
-| 1b | Check how the tables match each other (cross-table checks) | In progress |
-| 2 | Load the data into PostgreSQL and clean it | Planned |
+| 1b | Check how the tables match each other (cross-table checks) | Done |
+| 2 | Load the data into PostgreSQL and clean it | In progress |
 | 3 | Answer the business questions with SQL | Planned |
 | 4 | Build a Power BI dashboard | Planned |
 | 5 | Write up findings and recommendations | Planned |
@@ -67,7 +67,7 @@ All columns are described in [docs/data_dictionary.md](docs/data_dictionary.md).
 
 ## Tools
 
-- **Python (pandas)** in Jupyter notebooks – data profiling
+- **Python (pandas)** in Jupyter notebooks – data profiling and cross-table checks
 - **PostgreSQL** (with DBeaver) – data cleaning and analysis
 - **Power BI** – dashboard
 - **Git and GitHub** – version control
@@ -108,22 +108,21 @@ ecommerce-analysis/
 
 ## Data quality: what I found so far
 
-Profiling found **19 data problems**. The full list is in [docs/data_issues.md](docs/data_issues.md).
+I found **20 data problems** (19 in profiling, 1 in cross-table checks). The full list is in [docs/data_issues.md](docs/data_issues.md).
 Here they are grouped by what they would break if not fixed:
 
 | Area | Examples | Issues |
 |---|---|---|
-| Revenue, orders and products | duplicated orders, test orders, suspicious prices and quantities, cost 10× too high for 2 products, delivery before order | DQ-01, DQ-07 – DQ-13, DQ-18 |
+| Revenue, orders and products | duplicated orders, test orders, suspicious prices and quantities, cost 10× too high for 2 products, delivery before order, manual compensations | DQ-07 – DQ-13, DQ-18, DQ-20 |
 | Customers | duplicate accounts, a test account, city written in many ways, two gender codes, impossible birth years | DQ-01 – DQ-06 |
-| Web traffic and conversion | a bot, purchase events that don't match orders (cause not known yet), missing traffic source | DQ-14, DQ-15, DQ-19 |
+| Web traffic and conversion | a bot, purchase events saved twice, missing traffic source | DQ-14, DQ-15, DQ-19 |
 | Marketing spend | 2 days counted twice, 3 days missing | DQ-16, DQ-17 |
 
-Next step (notebook 02):
-- Were products sold before their launch date or after they were discontinued?
-- Do the large quantities match the order total?
-- Why do purchase events not match orders?
-- Does `order_total` equal the sum of order lines plus shipping fee?
-- Is every return date after the delivery date?
+What the cross-table checks (notebook 02) showed:
+- All IDs match between tables.
+- 44 orders don't match the sum of lines + shipping: 17 by 1 cent (rounding), 24 look like manual compensations, 3 have a wrong quantity.
+- 106 purchase events are saved twice.
+- Dates are in a logical order, and all returns are in completed orders.
 
 ---
 
