@@ -85,7 +85,7 @@ ecommerce-analysis/
 ├── notebooks/
 │   ├── 01_profiling.ipynb            checks each table on its own
 │   └── 02_cross_table_checks.ipynb   checks how the tables match each other
-├── sql/                              SQL files for cleaning and analysis (coming later)
+├── sql/                              SQL files for loading, cleaning and analysis
 ├── powerbi/                          Power BI file and screenshots (coming later)
 ├── requirements.txt
 └── README.md
