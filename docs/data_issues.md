@@ -8,8 +8,8 @@
 | DQ-04 | customers.city | City missing; field is not marked as optional in the data dictionary | 439 (5.87%) | profile() NULL check | to investigate | – |
 | DQ-05 | customers.gender | Two encodings for the same values: F/M/X and Female/Male/Other | 1297 Female/Male/Other vs 5703 F/M/X | profile() value list | to investigate | – |
 | DQ-06 | customers.birth_year | Impossible years: min 1900 (age 120+) and max 2026 (age 0) | to count | profile() min/max | to investigate | – |
-| DQ-07 | products.unit_cost | unit_cost higher than list_price (e.g. product_id 1: 84.00 vs 19.99) | to count | First look | to investigate | – |
-| DQ-08 | products.category | Inconsistent category labels: 'Electronics ' (trailing space) and 'Home and Kitchen' vs 'Home & Kitchen' | 3 | profile() value list | to investigate | – |
+| DQ-07 | products.unit_cost | unit_cost about 10× higher than list_price (decimal point in the wrong place) | 2 (product_id 1, 242) | First look, SQL check of cost/price ratio | Fix: divide unit_cost by 10. After the fix the cost/price ratio (0.40–0.42) is in the normal range for the category (0.35–0.77) | sql/03_clean_products.sql |
+| DQ-08 | products.category | Inconsistent category labels: 'Electronics ' (trailing space) and 'Home and Kitchen' vs 'Home & Kitchen' | 3 | profile() value list, SQL check | Fix: 'Electronics ' → 'Electronics', 'Home and Kitchen' → 'Home & Kitchen' | sql/03_clean_products.sql |
 | DQ-09 | orders (all columns) | Fully duplicated rows: same order_id with identical values in all columns | 10 | profile() key and duplicate check | to investigate | – |
 | DQ-10 | orders.order_total, order_items.unit_price | Orders with order_total 0.01 and order lines with unit_price 0.01, far below the cheapest product (orders 2, 3, 8 seen so far) | 3 orders | profile() min/max, nsmallest() | to investigate | – |
 | DQ-11 | order_items.return_reason | Returned lines with no return reason | 94 | profile() NULL check | to investigate | – |
