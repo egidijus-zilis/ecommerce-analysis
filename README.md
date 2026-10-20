@@ -85,7 +85,7 @@ ecommerce-analysis/
 ├── notebooks/
 │   ├── 01_profiling.ipynb            checks each table on its own
 │   └── 02_cross_table_checks.ipynb   checks how the tables match each other
-├── sql/                              SQL files for loading, cleaning and analysis
+├── sql/                              SQL files: load (01–02), clean (03–09), analytics views (10+)
 ├── powerbi/                          Power BI file and screenshots (coming later)
 ├── requirements.txt
 └── README.md
@@ -106,10 +106,10 @@ ecommerce-analysis/
 
 ---
 
-## Data quality: what I found so far
+## Data quality
 
-I found **20 data problems** (19 in profiling, 1 in cross-table checks). The full list is in [docs/data_issues.md](docs/data_issues.md).
-Here they are grouped by what they would break if not fixed:
+I found **20 data problems** (19 in profiling, 1 in cross-table checks). All of them are fixed or documented in the `clean` layer.
+The full list, with the decision for each problem, is in [docs/data_issues.md](docs/data_issues.md).
 
 | Area | Examples | Issues |
 |---|---|---|
@@ -123,6 +123,11 @@ What the cross-table checks (notebook 02) showed:
 - 44 orders don't match the sum of lines + shipping: 17 by 1 cent (rounding), 24 look like manual compensations, 3 have a wrong quantity.
 - 106 purchase events are saved twice.
 - Dates are in a logical order, and all returns are in completed orders.
+
+How the problems were handled:
+- **Fixed:** wrong values were corrected (e.g. cost, quantity, category names, city spelling).
+- **Removed:** rows that are not real (test account, duplicates, bot).
+- **Flagged or kept:** real data that needs care in analysis (e.g. zero-price lines, duplicate accounts linked with `main_customer_id`, missing marketing days).
 
 ---
 
@@ -211,6 +216,7 @@ Coming after the analysis.
 
 ## How to run
 
+**Python (notebooks)**
 ```
 git clone https://github.com/egidijus-zilis/ecommerce-analysis.git
 cd ecommerce-analysis
@@ -218,8 +224,12 @@ python -m venv .venv
 .venv\Scripts\activate          # Windows
 pip install -r requirements.txt
 ```
+Then open the notebooks in the `notebooks/` folder.
 
-Then open the notebooks in the `notebooks/` folder. The SQL and Power BI steps will be added later.
+**PostgreSQL**
+1. Create a database and run `sql/01_create_raw_tables.sql`.
+2. Load the CSV files from `data/raw/` into the `raw` tables (I used DBeaver: Import Data, empty strings as NULL).
+3. Run the other files in `sql/` in number order (02, 03, 04, ...). Each file can be run again: it drops and creates its table or view.
 
 ---
 
