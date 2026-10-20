@@ -86,6 +86,7 @@ ecommerce-analysis/
 │   ├── 01_profiling.ipynb            checks each table on its own
 │   └── 02_cross_table_checks.ipynb   checks how the tables match each other
 ├── sql/                              SQL files: load (01–02), clean (03–09), analytics views (10+)
+├── analysis/                         answers to the business questions (one file per question)
 ├── powerbi/                          Power BI file and screenshots (coming later)
 ├── requirements.txt
 └── README.md
@@ -137,7 +138,7 @@ These questions will be answered with SQL. **Not answered yet.**
 
 **Growth and seasonality**
 
-1. Is the business growing profitably? How do revenue, gross profit and order volume change month over month and year over year, and how much of the change comes from new customers, repeat customers and order value?
+1. Is the business growing profitably? How do revenue, gross profit and order volume change month over month and year over year, and how much of the change comes from new customers, repeat customers and order value? ([answer](analysis/q01_growth.md))
 2. How seasonal is demand, overall and by category, and which months should inventory and campaign planning be built around?
 
 **Profitability and products**
