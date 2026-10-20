@@ -17,8 +17,8 @@ checking data quality, writing SQL, and building a dashboard.
 | 0 | Set up the repository and Python environment | Done |
 | 1a | Profile each table in Python (find data problems) | Done |
 | 1b | Check how the tables match each other (cross-table checks) | Done |
-| 2 | Load the data into PostgreSQL and clean it | In progress |
-| 3 | Answer the business questions with SQL | Planned |
+| 2 | Load the data into PostgreSQL and clean it | Done |
+| 3 | Answer the business questions with SQL | In progress |
 | 4 | Build a Power BI dashboard | Planned |
 | 5 | Write up findings and recommendations | Planned |
 
@@ -170,7 +170,27 @@ Each answer will have the same parts: question → what I expected → method (S
 
 ## Metric definitions
 
-Will be written before the analysis starts. For example: revenue, gross profit, new vs returning customer, conversion rate, late delivery.
+These rules are used in all SQL views, answers and the dashboard, so the numbers always match.
+More metrics will be added when a business question needs them.
+
+**Orders**
+- Number of orders with status `completed`.
+
+**Revenue**
+- Only `completed` orders.
+- Products only: `order_total` − `shipping_fee`. Shipping is not counted, because we don't know what delivery costs the shop.
+- **gross_revenue**: before returns.
+- **net_revenue**: gross_revenue minus the value of returned lines. This is the main revenue number.
+
+**Gross profit**
+- net_revenue − cost of the items the customer kept (returned items go back to stock).
+- Cost = quantity × unit_cost.
+- **Gross margin %** = gross profit / net_revenue.
+
+**New vs returning customer**
+- Counted by `main_customer_id` (one person = one customer, even with two accounts).
+- **New customer**: the person's first completed order is in this period.
+- **Returning customer**: the person had a completed order before this period.
 
 ---
 
@@ -184,6 +204,8 @@ Coming after the analysis.
 
 - The data is synthetic, so the findings describe a made-up store, not a real business.
 - The analysis shows relationships in the data. It does not prove what causes what.
+- `unit_cost` is today's cost. Older costs are not known, so gross profit in earlier periods may be a bit off.
+- Paid search spend is missing for 12–14 August 2025 (DQ-17), so marketing spend for August 2025 is slightly too low.
 
 ---
 
