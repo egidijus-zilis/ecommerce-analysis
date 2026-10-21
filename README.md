@@ -134,7 +134,7 @@ How the problems were handled:
 
 ## Business questions
 
-These questions are answered with SQL. Each answer is in the `analysis/` folder. **Answered so far: Q1, Q2.**
+These questions are answered with SQL. Each answer is in the `analysis/` folder. **Answered so far: Q1, Q2, Q3**
 
 **Growth and seasonality**
 
@@ -143,7 +143,7 @@ These questions are answered with SQL. Each answer is in the `analysis/` folder.
 
 **Profitability and products**
 
-3. Which categories and products earn the most and the least gross profit after discounts and returns, and which should we reprice, promote or drop?
+3. Which categories and products earn the most and the least gross profit after discounts and returns, and which should we reprice, promote or drop? ([answer](analysis/q03_product_profit.md))
 4. What do sale periods and coupons cost us in margin, and what do we get back in extra orders, new customers and repeat purchases?
 5. Which products and categories are bought together, and where is there a bundle or cross-sell opportunity?
 
