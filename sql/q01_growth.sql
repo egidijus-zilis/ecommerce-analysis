@@ -15,7 +15,7 @@ WHERE order_status = 'completed'
 GROUP BY 1, 2
 ORDER BY 1, 2;
 
--- 2. Full years (2026 has only Jan–Sep)
+-- 2. Full years (2026 has only Jan-Sep)
 SELECT
     EXTRACT(YEAR FROM order_date_local)::int AS year,
     ROUND(SUM(net_revenue), 2)  AS net_revenue,
@@ -26,7 +26,7 @@ WHERE order_status = 'completed'
 GROUP BY 1
 ORDER BY 1;
 
--- 3. Same period every year (Jan–Sep) and growth
+-- 3. Same period every year (Jan-Sep) and growth
 WITH yearly AS (
     SELECT
         EXTRACT(YEAR FROM order_date_local)::int AS year,
@@ -50,7 +50,7 @@ SELECT
 FROM yearly
 ORDER BY year;
 
--- 4. New vs returning customers (Jan–Sep)
+-- 4. New vs returning customers (Jan-Sep)
 SELECT
     EXTRACT(YEAR FROM order_date_local)::int AS year,
     CASE
