@@ -134,12 +134,12 @@ How the problems were handled:
 
 ## Business questions
 
-These questions will be answered with SQL. **Not answered yet.**
+These questions are answered with SQL. Each answer is in the `analysis/` folder. **Answered so far: Q1, Q2.**
 
 **Growth and seasonality**
 
 1. Is the business growing profitably? How do revenue, gross profit and order volume change month over month and year over year, and how much of the change comes from new customers, repeat customers and order value? ([answer](analysis/q01_growth.md))
-2. How seasonal is demand, overall and by category, and which months should inventory and campaign planning be built around?
+2. How seasonal is demand, overall and by category, and which months should inventory and campaign planning be built around? ([answer](analysis/q02_seasonality.md))
 
 **Profitability and products**
 
