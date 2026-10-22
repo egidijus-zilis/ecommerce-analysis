@@ -30,7 +30,7 @@ A small online store based in Vilnius. It sells to customers in Lithuania, Latvi
 
 - 260 products in 8 categories: Fashion, Home & Kitchen, Beauty & Care, Sports & Outdoors, Electronics, Toys & Kids, Pets, Garden
 - Delivery: courier, parcel locker, or pickup at the Vilnius showroom
-- Data period: **1 January 2024 – 30 September 2026**
+- Data period: **1 January 2024 - 30 September 2026**
 
 ---
 
@@ -67,10 +67,10 @@ All columns are described in [docs/data_dictionary.md](docs/data_dictionary.md).
 
 ## Tools
 
-- **Python (pandas)** in Jupyter notebooks – data profiling and cross-table checks
-- **PostgreSQL** (with DBeaver) – data cleaning and analysis
-- **Power BI** – dashboard
-- **Git and GitHub** – version control
+- **Python (pandas)** in Jupyter notebooks - data profiling and cross-table checks
+- **PostgreSQL** (with DBeaver) - data cleaning and analysis
+- **Power BI** - dashboard
+- **Git and GitHub** - version control
 
 ---
 
@@ -85,7 +85,7 @@ ecommerce-analysis/
 ├── notebooks/
 │   ├── 01_profiling.ipynb            checks each table on its own
 │   └── 02_cross_table_checks.ipynb   checks how the tables match each other
-├── sql/                              SQL files: load (01–02), clean (03–09), analytics views (10+)
+├── sql/                              SQL files: load (01-02), clean (03-09), analytics views (10+), answer queries (q01, q02, ...)
 ├── analysis/                         answers to the business questions (one file per question)
 ├── powerbi/                          Power BI file and screenshots (coming later)
 ├── requirements.txt
@@ -114,8 +114,8 @@ The full list, with the decision for each problem, is in [docs/data_issues.md](d
 
 | Area | Examples | Issues |
 |---|---|---|
-| Revenue, orders and products | duplicated orders, test orders, suspicious prices and quantities, cost 10× too high for 2 products, delivery before order, manual compensations | DQ-07 – DQ-13, DQ-18, DQ-20 |
-| Customers | duplicate accounts, a test account, city written in many ways, two gender codes, impossible birth years | DQ-01 – DQ-06 |
+| Revenue, orders and products | duplicated orders, test orders, suspicious prices and quantities, cost 10× too high for 2 products, delivery before order, manual compensations | DQ-07 - DQ-13, DQ-18, DQ-20 |
+| Customers | duplicate accounts, a test account, city written in many ways, two gender codes, impossible birth years | DQ-01 - DQ-06 |
 | Web traffic and conversion | a bot, purchase events saved twice, missing traffic source | DQ-14, DQ-15, DQ-19 |
 | Marketing spend | 2 days counted twice, 3 days missing | DQ-16, DQ-17 |
 
@@ -134,7 +134,7 @@ How the problems were handled:
 
 ## Business questions
 
-These questions are answered with SQL. Each answer is in the `analysis/` folder. **Answered so far: Q1, Q2, Q3**
+These questions are answered with SQL. Each answer is in the `analysis/` folder. **Answered so far: Q1, Q2, Q3.**
 
 **Growth and seasonality**
 
@@ -144,33 +144,33 @@ These questions are answered with SQL. Each answer is in the `analysis/` folder.
 **Profitability and products**
 
 3. Which categories and products earn the most and the least gross profit after discounts and returns, and which should we reprice, promote or drop? ([answer](analysis/q03_product_profit.md))
-4. What do sale periods and coupons cost us in margin, and what do we get back in extra orders, new customers and repeat purchases?
-5. Which products and categories are bought together, and where is there a bundle or cross-sell opportunity?
+4. Are discounts worth it? What do sale periods and coupons cost us, and do they bring more orders, new customers and customers who come back?
+5. Which products are often bought together? Can we use this for sets or "you may also like" offers?
 
 **Customers**
 
-6. What share of customers buy again, how soon, and are newer cohorts retaining better or worse than earlier ones?
+6. What share of customers buy again and how soon? Do newer cohorts come back more or less than older ones?
 7. How much revenue depends on our best customers, what do they have in common, and how much revenue is at risk if they stop buying?
-8. How do our markets (LT, LV, EE) and customer segments (city, age, gender) differ in customer value, and where should growth efforts focus?
+8. Which countries (LT, LV, EE) and customer groups (city, age, gender) bring the most value per customer? Where should we focus to grow?
 
 **Acquisition and marketing**
 
-9. Which acquisition channels bring customers worth keeping (repeat rate, revenue and gross profit per customer), not just sign-ups?
-10. What does it cost to acquire a customer in each paid channel, how has that cost changed over time, and how long does it take to pay back?
-11. Can we rely on ad platforms' reported conversions when allocating budget? How do they compare with the orders we can attribute to each channel ourselves?
+9. Which channels bring customers who buy again and bring profit, not just sign-ups?
+10. How much does one new customer cost in each paid channel? How did this change over time, and how many months until the customer pays it back?
+11. Do ad platforms report more orders than they really bring? How do their numbers compare with our own data?
 
 **Conversion**
 
-12. Where do shoppers drop out of the purchase funnel, and does it differ by device or traffic source?
-13. How long do shoppers take from first product view to purchase, does it differ for new and returning customers, and what does that mean for remarketing timing?
+12. Where do shoppers stop before buying? Is it different by device or traffic source?
+13. How long does it take from first product view to purchase? Is it different for new and returning customers, and when should we show remarketing ads?
 
 **Operations**
 
-14. How does delivery performance (on time vs late) relate to returns and repeat purchases, and does it differ by delivery method?
-15. What do returns and cancellations cost us, where are they concentrated, and what are the main reasons?
-16. How do order values relate to our shipping fees and free-shipping threshold, and are they set at the right level?
+14. Do late deliveries lead to more returns and fewer repeat orders? Is it different by delivery method?
+15. How much do returns cost us, and what are the main reasons? Where do returns and cancellations happen most?
+16. Do order values group just above the free-shipping limit? Are our shipping fees and the limit set at a good level?
 
-Each answer will have the same parts: question → what I expected → method (SQL file) → result → what it means → recommendation → limitations.
+Each answer has the same parts: question → what I expected → result → expected vs result → so what → limitations.
 
 ---
 
@@ -211,7 +211,7 @@ Coming after the analysis.
 - The data is synthetic, so the findings describe a made-up store, not a real business.
 - The analysis shows relationships in the data. It does not prove what causes what.
 - `unit_cost` is today's cost. Older costs are not known, so gross profit in earlier periods may be a bit off.
-- Paid search spend is missing for 12–14 August 2025 (DQ-17), so marketing spend for August 2025 is slightly too low.
+- Paid search spend is missing for 12-14 August 2025 (DQ-17), so marketing spend for August 2025 is slightly too low.
 
 ---
 
@@ -236,4 +236,4 @@ Then open the notebooks in the `notebooks/` folder.
 
 ## Author
 
-Egidijus Žilis – [LinkedIn](https://www.linkedin.com/in/egidijus-%C5%BEilis-a15134225/)
+Egidijus Žilis - [LinkedIn](https://www.linkedin.com/in/egidijus-%C5%BEilis-a15134225/)
