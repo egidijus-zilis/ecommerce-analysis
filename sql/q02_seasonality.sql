@@ -1,8 +1,11 @@
--- Q2. How seasonal is demand, overall and by category?
--- Data: completed orders. Main year 2025, 2026 (Jan-Sep) as a check. 2024 left out (launch year).
+-- Q2. How seasonal is demand?
+-- Data: analytics.orders_enriched, completed orders only.
+-- Main year is 2025. 2026 (Jan-Sep) is a check. 2024 is left out (launch year).
 
 
--- A. Orders and units by month, 2025 and 2026 side by side
+-- Part 1. Overall
+
+-- 1a. Orders and units by month, 2025 and 2026
 WITH items AS (
     SELECT
         oi.order_id,
@@ -23,65 +26,23 @@ FROM items
 GROUP BY month
 ORDER BY month;
 
-
--- B. Units by month and category (2025)
-WITH items AS (
+-- 1b. November vs average month (2025)
+WITH monthly AS (
     SELECT
-        oi.quantity,
-        p.category,
-        EXTRACT(YEAR FROM oe.order_date_local)::int  AS year,
-        EXTRACT(MONTH FROM oe.order_date_local)::int AS month
-    FROM clean.order_items oi
-    JOIN clean.products p             ON oi.product_id = p.product_id
-    JOIN analytics.orders_enriched oe ON oi.order_id = oe.order_id
-    WHERE oe.order_status = 'completed'
+        EXTRACT(MONTH FROM order_date_local)::int AS month,
+        COUNT(*) AS orders
+    FROM analytics.orders_enriched
+    WHERE order_status = 'completed'
+      AND EXTRACT(YEAR FROM order_date_local) = 2025
+    GROUP BY 1
 )
 SELECT
-    month,
-    SUM(quantity) FILTER (WHERE category = 'Fashion')           AS fashion,
-    SUM(quantity) FILTER (WHERE category = 'Home & Kitchen')    AS home_kitchen,
-    SUM(quantity) FILTER (WHERE category = 'Beauty & Care')     AS beauty_care,
-    SUM(quantity) FILTER (WHERE category = 'Sports & Outdoors') AS sports_outdoors,
-    SUM(quantity) FILTER (WHERE category = 'Electronics')       AS electronics,
-    SUM(quantity) FILTER (WHERE category = 'Toys & Kids')       AS toys_kids,
-    SUM(quantity) FILTER (WHERE category = 'Pets')              AS pets,
-    SUM(quantity) FILTER (WHERE category = 'Garden')            AS garden,
-    SUM(quantity)                                               AS total
-FROM items
-WHERE year = 2025
-GROUP BY month
-ORDER BY month;
+    ROUND(AVG(orders), 1)                                 AS avg_orders_per_month,
+    MAX(orders) FILTER (WHERE month = 11)                 AS orders_november,
+    ROUND(MAX(orders) FILTER (WHERE month = 11) / AVG(orders), 2) AS november_vs_average
+FROM monthly;
 
-
--- C. Units by month and category (2026, Jan-Sep): check
-WITH items AS (
-    SELECT
-        oi.quantity,
-        p.category,
-        EXTRACT(YEAR FROM oe.order_date_local)::int  AS year,
-        EXTRACT(MONTH FROM oe.order_date_local)::int AS month
-    FROM clean.order_items oi
-    JOIN clean.products p             ON oi.product_id = p.product_id
-    JOIN analytics.orders_enriched oe ON oi.order_id = oe.order_id
-    WHERE oe.order_status = 'completed'
-)
-SELECT
-    month,
-    SUM(quantity) FILTER (WHERE category = 'Fashion')           AS fashion,
-    SUM(quantity) FILTER (WHERE category = 'Home & Kitchen')    AS home_kitchen,
-    SUM(quantity) FILTER (WHERE category = 'Beauty & Care')     AS beauty_care,
-    SUM(quantity) FILTER (WHERE category = 'Sports & Outdoors') AS sports_outdoors,
-    SUM(quantity) FILTER (WHERE category = 'Electronics')       AS electronics,
-    SUM(quantity) FILTER (WHERE category = 'Toys & Kids')       AS toys_kids,
-    SUM(quantity) FILTER (WHERE category = 'Pets')              AS pets,
-    SUM(quantity) FILTER (WHERE category = 'Garden')            AS garden,
-    SUM(quantity)                                               AS total
-FROM items
-WHERE year = 2026
-GROUP BY month
-ORDER BY month;
-
--- D. Orders per day in January and February (2025)
+-- 1c. Orders per day in January and February (2025)
 SELECT
     EXTRACT(MONTH FROM order_date_local)::int AS month,
     COUNT(*) AS orders,
@@ -92,3 +53,50 @@ WHERE order_status = 'completed'
   AND EXTRACT(MONTH FROM order_date_local) IN (1, 2)
 GROUP BY 1
 ORDER BY 1;
+
+
+-- Part 2. By category
+
+-- 2a. Units by month and category (2025)
+SELECT
+    EXTRACT(MONTH FROM oe.order_date_local)::int AS month,
+    SUM(oi.quantity) FILTER (WHERE p.category = 'Fashion')           AS fashion,
+    SUM(oi.quantity) FILTER (WHERE p.category = 'Home & Kitchen')    AS home_kitchen,
+    SUM(oi.quantity) FILTER (WHERE p.category = 'Beauty & Care')     AS beauty_care,
+    SUM(oi.quantity) FILTER (WHERE p.category = 'Sports & Outdoors') AS sports_outdoors,
+    SUM(oi.quantity) FILTER (WHERE p.category = 'Electronics')       AS electronics,
+    SUM(oi.quantity) FILTER (WHERE p.category = 'Toys & Kids')       AS toys_kids,
+    SUM(oi.quantity) FILTER (WHERE p.category = 'Pets')              AS pets,
+    SUM(oi.quantity) FILTER (WHERE p.category = 'Garden')            AS garden,
+    SUM(oi.quantity)                                                 AS total
+FROM clean.order_items oi
+JOIN clean.products p             ON oi.product_id = p.product_id
+JOIN analytics.orders_enriched oe ON oi.order_id = oe.order_id
+WHERE oe.order_status = 'completed'
+  AND EXTRACT(YEAR FROM oe.order_date_local) = 2025
+GROUP BY 1
+ORDER BY 1;
+
+-- 2b. Units by month and category (2026, Jan-Sep), to check 2025
+SELECT
+    EXTRACT(MONTH FROM oe.order_date_local)::int AS month,
+    SUM(oi.quantity) FILTER (WHERE p.category = 'Fashion')           AS fashion,
+    SUM(oi.quantity) FILTER (WHERE p.category = 'Home & Kitchen')    AS home_kitchen,
+    SUM(oi.quantity) FILTER (WHERE p.category = 'Beauty & Care')     AS beauty_care,
+    SUM(oi.quantity) FILTER (WHERE p.category = 'Sports & Outdoors') AS sports_outdoors,
+    SUM(oi.quantity) FILTER (WHERE p.category = 'Electronics')       AS electronics,
+    SUM(oi.quantity) FILTER (WHERE p.category = 'Toys & Kids')       AS toys_kids,
+    SUM(oi.quantity) FILTER (WHERE p.category = 'Pets')              AS pets,
+    SUM(oi.quantity) FILTER (WHERE p.category = 'Garden')            AS garden,
+    SUM(oi.quantity)                                                 AS total
+FROM clean.order_items oi
+JOIN clean.products p             ON oi.product_id = p.product_id
+JOIN analytics.orders_enriched oe ON oi.order_id = oe.order_id
+WHERE oe.order_status = 'completed'
+  AND EXTRACT(YEAR FROM oe.order_date_local) = 2026
+GROUP BY 1
+ORDER BY 1;
+
+
+-- Part 3. Months to plan around
+-- No query here. This part is based on the results of parts 1 and 2.

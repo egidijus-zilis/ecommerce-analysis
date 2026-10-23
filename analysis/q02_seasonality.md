@@ -2,15 +2,27 @@
 
 **Question:** How seasonal is demand, overall and by category, and which months should inventory and campaign planning be built around?
 
-**Expected:**
+**SQL:** `sql/q02_seasonality.sql`
+
+**Period:** the main year is 2025. 2024 is left out: it was the first year, and orders grew from 62 in January to 342 in December, so growth hides the season. 2026 has data only until September, so it is used to check if the pattern repeats.
+
+**Expected** (written before SQL):
 - November and December have the most sales (Black Friday, Christmas).
 - January has the lowest sales.
 - Garden sells most in spring and summer.
 - Sports & Outdoors sells more from mid spring.
 
-**Result:**
+## Answer
 
-The main year is 2025. 2024 is left out: it was the first year, and orders grew from 62 in January to 342 in December, so growth hides the season. 2026 has data only until September, so it is used to check if the pattern repeats.
+**How seasonal is demand? Quite seasonal.** In November there are about 1.5 times more orders than in an average month, and February is the quietest month.
+
+1. Overall: November is the busiest month, December is second, February is the quietest. People buy about 2 items per order in every month.
+2. By category: Garden and Sports & Outdoors sell most in April-May. Home & Kitchen, Beauty & Care, Fashion, Electronics and Toys & Kids sell most in November-December. Pets changes little.
+3. Months to plan around: April-May (spring season), November-December (Black Friday and Christmas) and February (quiet month).
+
+Expected: November and December have the most sales - **yes**. January has the lowest sales - **no**, February is the lowest. Garden sells most in spring and summer - **yes**, most in May. Sports & Outdoors sells more from mid spring - **yes**, most in April-May.
+
+## 1. How seasonal is demand overall?
 
 Orders and units by month:
 
@@ -29,10 +41,12 @@ Orders and units by month:
 | **Nov** | **526** | - | **1006** | - |
 | Dec | 450 | - | 836 | - |
 
-- November is the busiest month. December is second.
-- February is the quietest month in both years.
-- In 2025 summer was a bit lower than May and September. In 2026 it was not.
+- November is the busiest month (about 1.5 times more orders than an average month). December is second.
+- February is the quietest month in both years, even per day (2025: 8.7 orders per day in February, 9.4 in January).
+- In 2025 summer was a bit lower than May and September. In 2026 only June was lower.
 - People buy about 2 items per order in every month, in both years. In busy months more people buy, but not more items each.
+
+## 2. How seasonal is demand by category?
 
 Units by category (2025):
 
@@ -67,8 +81,6 @@ Units by category (2025):
 
 </details>
 
-2026 (Jan-Sep) shows the same: Garden and Sports sell most in spring, February is quiet. Other categories change from year to year. Nov-Dec 2026 is not known yet.
-
 <details>
 <summary>Check: units by month and category (2026, Jan-Sep)</summary>
 
@@ -86,20 +98,27 @@ Units by category (2025):
 
 </details>
 
-**Expected vs result:**
-- November and December have the most sales: **yes.**
-- January has the lowest sales: **no.** February is the lowest, even per day (8.7 orders per day vs 9.4 in January). Probably because people already spent money on holidays, and January still has after-Christmas sales.
-- Garden sells most in spring and summer: **yes.** Most in May, still good in June-July.
-- Sports & Outdoors sells more from mid spring: **yes.** Most in April-May.
+- In 2025 Garden and Sports & Outdoors sell most in April-May. All other categories, except Pets, sell most in November-December.
+- 2026 (January-September) shows the same for Garden and Sports & Outdoors: both sell most in May. Other categories change from year to year.
 
-**So what:**
-- There are two main seasons:
-  - **Spring (April-May):** Garden and Sports. Have stock ready in March.
-  - **November-December:** Home & Kitchen, Beauty, Electronics, Fashion, Toys. Have stock ready in October.
-- Black Friday is the main campaign. Toys sell best in December.
-- In November there are about 1.6 times more orders than in a normal month. Baskets are not bigger, so the shop needs more people for packing and delivery.
-- February is quiet. Good time for small campaigns or other work.
+## 3. Which months should planning be built around?
 
-**Limitations:**
+| Months | Why |
+|---|---|
+| April-May | Garden and Sports & Outdoors sell the most |
+| November | The busiest month (Black Friday) |
+| December | The second busiest month. Toys & Kids sell the most |
+| February | The quietest month |
+
+## Recommendations
+
+1. **Have Garden and Sports & Outdoors stock ready in March.** They sell most in April-May. (part 2)
+2. **Have stock for Home & Kitchen, Beauty & Care, Fashion, Electronics and Toys & Kids ready in October.** They sell most in November-December. (part 2)
+3. **Make Black Friday the main campaign. Plan a Toys & Kids campaign for December.** (parts 1, 2)
+4. **Plan more people for packing and delivery in November.** There are more orders, but baskets are not bigger. (part 1)
+5. **Order less stock for February.** It is the quietest month, and a good time for stocktaking. (part 1)
+
+## Limitations
+
 - Only one full year (2025) can show the season. 2024 was the launch year, and 2026 has no data for October-December yet.
 - I looked at units, not revenue. Many cheap items can make a month look bigger than it is in euros.
