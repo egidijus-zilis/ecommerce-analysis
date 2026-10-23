@@ -1,8 +1,10 @@
--- Q4: Are discounts worth it?
--- Data: analytics.orders_discount (see sql/13_analytics_orders_discount.sql)
+-- Q4. Are discounts worth it?
+-- Data: analytics.orders_discount (see sql/13_analytics_orders_discount.sql), completed orders only.
 
 
--- 1. Cost: money given as discount and margin by order type
+-- Part 1. What do discounts cost?
+
+-- 1a. Money given as discount and margin by order type
 SELECT
     what_discount,
     COUNT(*) AS orders,
@@ -13,8 +15,7 @@ SELECT
 FROM analytics.orders_discount
 GROUP BY what_discount;
 
-
--- 2. Check: margin of sale and coupon orders if we add the discount back
+-- 1b. Margin if we add the discount back
 SELECT
     what_discount,
     ROUND((SUM(gross_profit) + SUM(discount_eur)) / (SUM(net_revenue) + SUM(discount_eur)) * 100, 2) AS margin_without_discount
@@ -22,7 +23,9 @@ FROM analytics.orders_discount
 GROUP BY what_discount;
 
 
--- 3. Sale share by month (to find sale periods)
+-- Part 2. Do discounts bring more orders?
+
+-- 2a. Sale share by month (to find sale periods)
 SELECT
     DATE_TRUNC('month', order_date_local)::date AS month,
     COUNT(*) AS all_orders,
@@ -32,8 +35,7 @@ FROM analytics.orders_discount
 GROUP BY 1
 ORDER BY 1;
 
-
--- 4. Sale share by day around the July 2025 sale
+-- 2b. Sale share by day around the July 2025 sale
 SELECT
     order_date_local,
     COUNT(*) AS all_orders,
@@ -44,8 +46,7 @@ WHERE order_date_local BETWEEN DATE '2025-06-30' AND DATE '2025-08-20'
 GROUP BY order_date_local
 ORDER BY 1;
 
-
--- 5. July sale vs June and August (2025 and 2026)
+-- 2c. July sale vs June and August (2025 and 2026)
 SELECT
     TO_CHAR(order_date_local, 'YYYY-MM') AS year_month,
     COUNT(DISTINCT order_id) AS orders,
@@ -61,7 +62,9 @@ GROUP BY year_month
 ORDER BY year_month;
 
 
--- 6. New customers per day: July sale vs June and August
+-- Part 3. Do discounts bring new customers?
+
+-- 3a. New customers per day: July sale vs June and August
 SELECT
     TO_CHAR(order_date_local, 'YYYY-MM') AS year_month,
     ROUND(SUM(is_first_order) / MAX(EXTRACT(DAY FROM order_date_local)), 2) AS new_customers_per_day
@@ -70,8 +73,7 @@ WHERE TO_CHAR(order_date_local, 'YYYY-MM') IN ('2025-06', '2025-07', '2025-08', 
 GROUP BY year_month
 ORDER BY year_month;
 
-
--- 7. Share of first orders by order type
+-- 3b. Share of first orders by order type
 SELECT
     what_discount,
     COUNT(*) AS orders,
@@ -81,8 +83,7 @@ FROM analytics.orders_discount
 GROUP BY what_discount
 ORDER BY what_discount DESC;
 
-
--- 7b. First orders by coupon code
+-- 3c. First orders by coupon code
 SELECT
     coupon_code,
     COUNT(*) AS orders,
@@ -93,7 +94,9 @@ GROUP BY coupon_code
 ORDER BY coupon_code DESC;
 
 
--- 8. Do customers come back? Grouped by the type of their first order
+-- Part 4. Do discounts bring customers who come back?
+
+-- 4a. Return rate, grouped by the type of the customer's first order
 WITH all_orders AS (
 SELECT
     main_customer_id,
