@@ -1,7 +1,21 @@
 -- Q1. Is the business growing profitably?
 -- Data: analytics.orders_enriched, completed orders only.
 
--- 1. By month
+
+-- Part 1. Month over month
+
+-- 1a. Net revenue by month, one column per year
+SELECT
+    EXTRACT(MONTH FROM order_date_local)::int AS month,
+    ROUND(SUM(CASE WHEN EXTRACT(YEAR FROM order_date_local) = 2024 THEN net_revenue END), 0) AS y2024,
+    ROUND(SUM(CASE WHEN EXTRACT(YEAR FROM order_date_local) = 2025 THEN net_revenue END), 0) AS y2025,
+    ROUND(SUM(CASE WHEN EXTRACT(YEAR FROM order_date_local) = 2026 THEN net_revenue END), 0) AS y2026
+FROM analytics.orders_enriched
+WHERE order_status = 'completed'
+GROUP BY 1
+ORDER BY 1;
+
+-- 1b. Revenue, profit, orders and margin by month
 SELECT
     EXTRACT(YEAR FROM order_date_local)::int  AS year,
     EXTRACT(MONTH FROM order_date_local)::int AS month,
@@ -15,18 +29,10 @@ WHERE order_status = 'completed'
 GROUP BY 1, 2
 ORDER BY 1, 2;
 
--- 2. Full years (2026 has only Jan-Sep)
-SELECT
-    EXTRACT(YEAR FROM order_date_local)::int AS year,
-    ROUND(SUM(net_revenue), 2)  AS net_revenue,
-    ROUND(SUM(gross_profit), 2) AS gross_profit,
-    COUNT(order_id)             AS orders
-FROM analytics.orders_enriched
-WHERE order_status = 'completed'
-GROUP BY 1
-ORDER BY 1;
 
--- 3. Same period every year (Jan-Sep) and growth
+-- Part 2. Year over year
+
+-- 2a. Same period every year (Jan-Sep) and growth
 WITH yearly AS (
     SELECT
         EXTRACT(YEAR FROM order_date_local)::int AS year,
@@ -50,7 +56,21 @@ SELECT
 FROM yearly
 ORDER BY year;
 
--- 4. New vs returning customers (Jan-Sep)
+-- 2b. Full years (2026 has only Jan-Sep)
+SELECT
+    EXTRACT(YEAR FROM order_date_local)::int AS year,
+    ROUND(SUM(net_revenue), 2)  AS net_revenue,
+    ROUND(SUM(gross_profit), 2) AS gross_profit,
+    COUNT(order_id)             AS orders
+FROM analytics.orders_enriched
+WHERE order_status = 'completed'
+GROUP BY 1
+ORDER BY 1;
+
+
+-- Part 3. Where the growth comes from
+
+-- 3a. New vs returning customers (Jan-Sep)
 SELECT
     EXTRACT(YEAR FROM order_date_local)::int AS year,
     CASE
@@ -65,14 +85,3 @@ WHERE order_status = 'completed'
   AND EXTRACT(MONTH FROM order_date_local) <= 9
 GROUP BY 1, 2
 ORDER BY 1, 2;
-
--- 5. Net revenue by month, one column per year
-SELECT
-    EXTRACT(MONTH FROM order_date_local)::int AS month,
-    ROUND(SUM(CASE WHEN EXTRACT(YEAR FROM order_date_local) = 2024 THEN net_revenue END), 0) AS y2024,
-    ROUND(SUM(CASE WHEN EXTRACT(YEAR FROM order_date_local) = 2025 THEN net_revenue END), 0) AS y2025,
-    ROUND(SUM(CASE WHEN EXTRACT(YEAR FROM order_date_local) = 2026 THEN net_revenue END), 0) AS y2026
-FROM analytics.orders_enriched
-WHERE order_status = 'completed'
-GROUP BY 1
-ORDER BY 1;

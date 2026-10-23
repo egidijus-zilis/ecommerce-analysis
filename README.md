@@ -170,7 +170,7 @@ These questions are answered with SQL. Each answer is in the `analysis/` folder.
 15. How much do returns cost us, and what are the main reasons? Where do returns and cancellations happen most?
 16. Do order values group just above the free-shipping limit? Are our shipping fees and the limit set at a good level?
 
-Each answer has the same parts: question → what I expected → result → expected vs result → so what → limitations.
+Each answer has the same parts: question → what I expected → short answer → one section for each part of the question → recommendations → limitations. (Q1 uses this structure. Q2-Q4 will be updated soon.)
 
 ---
 
