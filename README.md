@@ -155,7 +155,7 @@ These questions are answered with SQL. Each answer is in the `analysis/` folder.
 
 **Acquisition and marketing**
 
-9. Which channels bring customers who buy again and bring profit, not just sign-ups?
+9. Which channels bring customers who buy again and bring profit, not just sign-ups? ([answer](analysis/q09_channels.md))
 10. How much does one new customer cost in each paid channel? How did this change over time, and how many months until the customer pays it back?
 11. Do ad platforms report more orders than they really bring? How do their numbers compare with our own data?
 
