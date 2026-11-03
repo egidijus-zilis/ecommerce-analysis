@@ -151,7 +151,7 @@ These questions are answered with SQL. Each answer is in the `analysis/` folder.
 
 6. What share of customers buy again and how soon? Do newer cohorts come back more or less than older ones? ([answer](analysis/q06_repeat_customers.md))
 7. How much revenue depends on our best customers, what do they have in common, and how much revenue is at risk if they stop buying? ([answer](analysis/q07_best_customers.md))
-8. Which countries (LT, LV, EE) and customer groups (city, age, gender) bring the most value per customer? Where should we focus to grow?
+8. Which countries (LT, LV, EE) and customer groups (city, age, gender) bring the most value per customer? Where should we focus to grow? ([answer](analysis/q08_customer_groups.md))
 
 **Acquisition and marketing**
 
