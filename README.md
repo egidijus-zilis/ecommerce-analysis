@@ -18,9 +18,10 @@ checking data quality, writing SQL, and building a dashboard.
 | 1a | Profile each table in Python (find data problems) | Done |
 | 1b | Check how the tables match each other (cross-table checks) | Done |
 | 2 | Load the data into PostgreSQL and clean it | Done |
-| 3 | Answer the business questions with SQL | In progress |
+| 3 | Answer the main business questions with SQL | Done |
 | 4 | Build a Power BI dashboard | Planned |
 | 5 | Write up findings and recommendations | Planned |
+| 6 | Answer the extra questions | Planned |
 
 ---
 
@@ -134,7 +135,9 @@ How the problems were handled:
 
 ## Business questions
 
-These questions are answered with SQL. Each answer is in the `analysis/` folder. **Answered so far: Q1, Q2, Q3, Q4.**
+These questions are answered with SQL. Each answer is in the `analysis/` folder.
+
+### Main questions (answered)
 
 **Growth and seasonality**
 
@@ -145,7 +148,6 @@ These questions are answered with SQL. Each answer is in the `analysis/` folder.
 
 3. Which categories and products earn the most and the least gross profit after discounts and returns, and which should we reprice, promote or drop? ([answer](analysis/q03_product_profit.md))
 4. Are discounts worth it? What do sale periods and coupons cost us, and do they bring more orders, new customers and customers who come back? ([answer](analysis/q04_discounts.md))
-5. Which products are often bought together? Can we use this for sets or "you may also like" offers?
 
 **Customers**
 
@@ -156,21 +158,22 @@ These questions are answered with SQL. Each answer is in the `analysis/` folder.
 **Acquisition and marketing**
 
 9. Which channels bring customers who buy again and bring profit, not just sign-ups? ([answer](analysis/q09_channels.md))
-10. How much does one new customer cost in each paid channel? How did this change over time, and how many months until the customer pays it back?
-11. Do ad platforms report more orders than they really bring? How do their numbers compare with our own data?
 
 **Conversion**
 
-12. Where do shoppers stop before buying? Is it different by device or traffic source?
-13. How long does it take from first product view to purchase? Is it different for new and returning customers, and when should we show remarketing ads?
-
-**Operations**
-
-14. Do late deliveries lead to more returns and fewer repeat orders? Is it different by delivery method?
-15. How much do returns cost us, and what are the main reasons? Where do returns and cancellations happen most?
-16. Do order values group just above the free-shipping limit? Are our shipping fees and the limit set at a good level?
+12. Where do shoppers stop before buying? Is it different by device or traffic source? ([answer](analysis/q12_funnel.md))
 
 Each answer has the same parts: question → what I expected → short answer → one section for each part of the question → recommendations → limitations.
+
+### Extra questions (not answered yet)
+
+- **Q5.** Which products are often bought together? Can we use this for sets or "you may also like" offers?
+- **Q10.** How much does one new customer cost in each paid channel? How did this change over time, and how many months until the customer pays it back?
+- **Q11.** Do ad platforms report more orders than they really bring? How do their numbers compare with our own data?
+- **Q13.** How long does it take from first product view to purchase? Is it different for new and returning customers, and when should we show remarketing ads?
+- **Q14.** Do late deliveries lead to more returns and fewer repeat orders? Is it different by delivery method?
+- **Q15.** How much do returns cost us, and what are the main reasons? Where do returns and cancellations happen most?
+- **Q16.** Do order values group just above the free-shipping limit? Are our shipping fees and the limit set at a good level?
 
 ---
 
@@ -202,7 +205,11 @@ More metrics will be added when a business question needs them.
 
 ## Key findings
 
-Coming after the analysis.
+1. **A small group of customers brings a big part of the revenue.** The top 10% of customers bring 43.26% of net revenue. 190 of them have not ordered for longer than usual. So far they spent about 62,400 € per year. ([Q7](analysis/q07_best_customers.md))
+2. **Discounts cost a lot, and I found no sign that they pay back.** Discounts cost about 25,400 €. The July sale did not bring more orders or new customers, and customers who started with a coupon came back less often (25.8% vs 30.9% for full price). ([Q4](analysis/q04_discounts.md))
+3. **Electronics brings the most revenue, but has the lowest margin (19.7%).** Groups that buy a lot of Electronics bring less profit than their revenue suggests. The top 10% of customers spend 48.79% on Electronics and bring 43.26% of revenue, but only 34.80% of profit. Men spend 38.66% on Electronics: they spend 28% more than women, but bring only 6% more profit. ([Q3](analysis/q03_product_profit.md), [Q7](analysis/q07_best_customers.md), [Q8](analysis/q08_customer_groups.md))
+4. **Email and referral bring the best customers.** About 1 in 5 of their buyers come back within 90 days, and each sign-up brings about 33 € profit in 180 days. Paid_social and affiliate bring the weakest customers: about 1 in 10 come back. ([Q9](analysis/q09_channels.md))
+5. **Many mobile shoppers leave at the payment step.** On mobile 80.77% go from checkout to payment, on desktop 92.35%. Mobile has 68% of all sessions, so this one step affects the most people. ([Q12](analysis/q12_funnel.md))
 
 ---
 
