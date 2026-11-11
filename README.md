@@ -209,7 +209,7 @@ More metrics will be added when a business question needs them.
 2. **Discounts cost a lot, and I found no sign that they pay back.** Discounts cost about 25,400 €. The July sale did not bring more orders or new customers, and customers who started with a coupon came back less often (25.8% vs 30.9% for full price). ([Q4](analysis/q04_discounts.md))
 3. **Electronics brings the most revenue, but has the lowest margin (19.7%).** Groups that buy a lot of Electronics bring less profit than their revenue suggests. The top 10% of customers spend 48.79% on Electronics and bring 43.26% of revenue, but only 34.80% of profit. Men spend 38.66% on Electronics: they spend 28% more than women, but bring only 6% more profit. ([Q3](analysis/q03_product_profit.md), [Q7](analysis/q07_best_customers.md), [Q8](analysis/q08_customer_groups.md))
 4. **Email and referral bring the best customers.** About 1 in 5 of their buyers come back within 90 days, and each sign-up brings about 33 € profit in 180 days. Paid_social and affiliate bring the weakest customers: about 1 in 10 come back. ([Q9](analysis/q09_channels.md))
-5. **Many mobile shoppers leave between checkout and payment.** On mobile 80.77% go from checkout to payment, on desktop 92.35%. Mobile has 68% of all sessions, so this one step affects the most people. ([Q12](analysis/q12_funnel.md))
+5. Many mobile sessions end between checkout and payment. On mobile 80.77% go from checkout to payment, on desktop 92.35%. Mobile has 68% of all sessions. If this step worked like desktop, my rough estimate is about 7,000 EUR more gross profit per year, more likely less. ([Q12](analysis/q12_funnel.md))
 
 ---
 
