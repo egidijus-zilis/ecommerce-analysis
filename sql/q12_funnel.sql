@@ -95,3 +95,46 @@ SELECT
     ROUND(mobile_payment::numeric / mobile_checkout * 100, 2) AS mobile_checkout_to_payment
 FROM steps
 ORDER BY mobile_view_to_purchase DESC;
+
+
+-- Part 4. What if the mobile checkout step worked like desktop?
+
+-- 4a. Gross profit from mobile orders
+-- An order gets its device from its session (clean.orders.session_id).
+-- Cancelled orders have gross_profit 0.
+SELECT
+    ROUND(SUM(aoe.gross_profit), 2) AS gross_profit_mobile
+FROM analytics.orders_enriched aoe
+JOIN clean.orders o ON aoe.order_id = o.order_id
+JOIN analytics.session_funnel asf ON o.session_id = asf.session_id
+WHERE asf.device = 'mobile';
+
+-- Check: orders with a known device should equal purchase sessions in part 1 (9,673).
+SELECT
+    COUNT(*) AS orders_with_device
+FROM analytics.orders_enriched aoe
+JOIN clean.orders o ON aoe.order_id = o.order_id
+JOIN analytics.session_funnel asf ON o.session_id = asf.session_id;
+
+
+-- 4b. Extra gross profit if mobile checkout -> payment was like desktop
+-- Funnel conversion is a product of steps. If only one step changes,
+-- new = old * (new step rate / old step rate).
+-- I assume the other steps and profit per order stay the same.
+-- 2.75 = years in the data (2024-01 to 2026-09, 33 months).
+WITH rates AS (
+SELECT
+    SUM(has_payment) FILTER (WHERE device = 'mobile')::numeric / SUM(has_checkout) FILTER (WHERE device = 'mobile') AS checkout_to_payment_mobile,
+    SUM(has_payment) FILTER (WHERE device = 'desktop')::numeric / SUM(has_checkout) FILTER (WHERE device = 'desktop') AS checkout_to_payment_desktop
+FROM analytics.session_funnel),
+mobile_profit AS (
+SELECT
+    SUM(aoe.gross_profit) FILTER (WHERE asf.device = 'mobile') AS gross_profit_mobile
+FROM analytics.orders_enriched aoe
+LEFT JOIN clean.orders o ON aoe.order_id = o.order_id
+LEFT JOIN analytics.session_funnel asf ON o.session_id = asf.session_id)
+SELECT
+    ROUND(gross_profit_mobile * (checkout_to_payment_desktop / checkout_to_payment_mobile), 2) AS new_gross_profit_mobile,
+    ROUND(gross_profit_mobile * (checkout_to_payment_desktop / checkout_to_payment_mobile) - gross_profit_mobile, 2) AS extra_gross_profit,
+    ROUND((gross_profit_mobile * (checkout_to_payment_desktop / checkout_to_payment_mobile) - gross_profit_mobile) / 2.75, 2) AS extra_gross_profit_per_year
+FROM rates, mobile_profit;
