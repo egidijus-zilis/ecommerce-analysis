@@ -1,6 +1,6 @@
 # Q1. Is the business growing profitably?
 
-**Question:** Is the business growing profitably? How do revenue, gross profit and order volume change month over month and year over year, and how much of the change comes from new customers, repeat customers and order value?
+**Question:** Is the business growing profitably? How do net revenue, gross profit and order volume change month over month and year over year, and how much of the change comes from new customers, repeat customers and order value?
 
 **SQL:** `sql/q01_growth.sql`
 
@@ -10,7 +10,7 @@
 
 ## Answer
 
-**Is the business growing profitably? Yes.** Revenue and gross profit grow every year, and the margin stays about the same (38-39 %).
+**Is the business growing profitably? Yes.** Revenue and gross profit grow every year, and the gross margin stays about the same (38-39 %).
 
 1. Month over month: revenue, gross profit and orders are lowest in February and highest in November (2024 is different, because it was the launch year and grew almost every month). Margin is lower in November.
 2. Year over year: the shop grows every year, but slower: +133 % in 2025, +20 % in 2026.
@@ -39,7 +39,7 @@ Net revenue by month (€):
 
 - February is the weakest month in 2025 and 2026. November is the strongest month in 2024 and 2025, December is second (2026 has no November yet).
 - In 2025 summer (June-August) was lower than May and September. In 2026 only June was lower.
-- In 2026 the first months grew only a little (January-March about +6 % vs 2025, and January was even lower). April-August grew much more (about +32 %). September grew only about 3 %.
+- In 2026 the first months grew only a little (January-March about +6 % vs 2025, and January was even lower). April-August grew much more (about +32 %). September is not complete. Data was taken on 2026-10-01, and 32 orders from the last days of September are still 'shipped' or 'processing', so they are not counted yet. Right now September is about +2.6 % vs 2025. If none of these orders are cancelled or returned, it would be around +15.4 %.
 - Gross profit and orders follow the same pattern: lowest in February (2025, 2026), highest in November (2024, 2025).
 - Margin is lowest in January 2025 (33 %), November 2024 and 2025 (34 %) and July 2026 (35 %). Other months are 35-46 %.
 
@@ -122,4 +122,5 @@ Net revenue from new and returning customers (January-September):
 
 - 2026 has data only until September, so I compared January-September of every year.
 - Profit uses today's product cost. Older costs are not known, so profit in 2024 may be a bit off.
+- September 2026 is not complete (DQ-21). 32 orders from 2026-09-26 to 09-30 are still 'shipped' or 'processing', so they are not in net revenue yet. This makes September 2026 and January-September 2026 look lower than they will be. Right now January-September 2026 is +19.6 % vs 2025. If all open orders are completed and nothing is returned, it would be up to +21.4 %.
 - A customer counts as "new" for the whole year of their first order. So their second and third orders that year are also counted as "new".
