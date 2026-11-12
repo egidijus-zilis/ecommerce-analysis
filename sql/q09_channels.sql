@@ -22,20 +22,22 @@ FROM buyers;
 
 -- 1b. Share of sign-ups who bought, by channel
 -- Only sign-ups up to 2026-08-31, so everyone had at least 30 days.
+-- Bought = first completed order within 30 days of sign-up.
 WITH customer_source AS (
 SELECT
     cc.main_customer_id,
     cc.acquisition_source,
     cc.signup_date,
-    COALESCE(cv.orders, 0) AS orders
+    COALESCE(cv.orders, 0) AS orders,
+    cv.first_order_date
 FROM clean.customers cc
 LEFT JOIN analytics.customer_value cv ON cv.main_customer_id = cc.main_customer_id
 WHERE cc.customer_id = cc.main_customer_id)
 SELECT
     acquisition_source,
     COUNT(*) AS sign_ups,
-    COUNT(*) FILTER (WHERE orders > 0) AS bought,
-    ROUND(COUNT(*) FILTER (WHERE orders > 0)::numeric / COUNT(*) * 100, 2) AS bought_share
+    COUNT(*) FILTER (WHERE orders > 0 AND first_order_date - signup_date  <= 30) AS bought,
+    ROUND(COUNT(*) FILTER (WHERE orders > 0 AND first_order_date - signup_date  <= 30)::numeric / COUNT(*) * 100, 2) AS bought_share
 FROM customer_source
 WHERE signup_date <= DATE '2026-08-31'
 GROUP BY acquisition_source
