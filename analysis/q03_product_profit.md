@@ -15,7 +15,7 @@
 **Home & Kitchen and Fashion earn the most profit, Pets earns the least. No active product loses money, so no product needs to be dropped immediately.**
 
 1. Most and least profit: Home & Kitchen and Fashion earn almost the same, together about half of all profit. Pets earns the least. The best product earns about 298 € per month, the weakest about 2 €.
-2. Reprice, promote or drop: of the active products, 35 are in "keep", 74 in "reprice", 65 in "promote" and 57 in "review". 1 discontinued product did well before it was removed.
+2. Reprice, promote or drop: of the active products, 37 are in "keep", 73 in "reprice", 65 in "promote" and 56 in "review".
 
 Expected: Home & Kitchen and Fashion earn the most profit - **yes**. Garden earns the least - **no**, Pets earns the least. Garden is sixth.
 
@@ -64,12 +64,12 @@ Top 5 and bottom 5 active products by profit per month:
 How the groups are made (two steps):
 - Months on sale: from launch date (or 2024-01-01) to discontinued date (or 2026-09-30).
 - **Step 1, ABC analysis.** Active products are sorted by profit per month. A = products that together make the first 80 % of profit, B = the next 15 %, C = the last 5 %. C products always go to "review".
-- **Step 2, menu engineering.** A and B products are compared with the median of active products: 2.3 units per month and 13.43 € profit per unit.
+- **Step 2, menu engineering.** A and B products are compared with the median of active products: 2.08 units per month and 14.31 € profit per unit. Units are kept units only: returned units are not counted, the same as in profit.
 
-| | Profit per unit ≥ 13.43 € | Profit per unit < 13.43 € |
+| | Profit per unit ≥ 14.31 € | Profit per unit < 14.31 € |
 |---|---|---|
-| **Units per month ≥ 2.3** | keep | reprice |
-| **Units per month < 2.3** | promote | review |
+| **Units per month ≥ 2.08** | keep | reprice |
+| **Units per month < 2.08** | promote | review |
 
 I first used margin % instead of profit per unit. But then expensive products with a low margin looked weak: the laptop, one of the top 5 products, was in "review". Profit per unit in euros fixes this. The ABC step was added because, without it, products that sell once in 4 months were in "promote".
 
@@ -86,59 +86,54 @@ Active products by group:
 
 | Group | Products | Gross profit (EUR) | Share of profit |
 |---|---|---|---|
-| keep | 35 | 64,961 | 28.4% |
-| reprice | 74 | 76,155 | 33.3% |
-| promote | 65 | 67,813 | 29.7% |
-| review | 57 | 19,526 | 8.55% |
+| keep | 37 | 69,881 | 30.6% |
+| reprice | 73 | 71,837 | 31.4% |
+| promote | 65 | 67,710 | 29.6% |
+| review | 56 | 19,027 | 8.3% |
 
-- No active product loses money, so no product is marked "drop". The weakest group is "review": 57 products bring only 8.55% of profit.
+- No active product loses money, so no product is marked "drop". The weakest group is "review": 56 products bring only 8.3% of profit.
 - 1 active product has no sales: Domus Steam Iron (id 239), launched on 2026-03-22.
 
 **Top 5 reprice:** people buy them often, but each sale earns little. Sorted by units per month.
 
 | id | Product | Category | Units / month | Profit / unit (EUR) | Profit / month (EUR) |
 |---|---|---|---|---|---|
-| 111 | Verdane Linen Cushion Cover 45x45 | Home & Kitchen | 13.52 | 8.91 | 120.43 |
-| 98 | Petia Grain-Free Dog Treats 300g | Pets | 10.85 | 1.94 | 21.04 |
-| 148 | Linea Women's High-Waist Leggings | Fashion | 10.85 | 11.44 | 124.14 |
-| 242 | Lumea Scented Candle Amber 200g | Home & Kitchen | 10.49 | 8.38 | 87.91 |
-| 134 | Greenly Garden Gloves 3-Pack | Garden | 9.37 | 5.30 | 49.62 |
+| 111 | Verdane Linen Cushion Cover 45x45 | Home & Kitchen | 12.76 | 9.44 | 120.43 |
+| 98 | Petia Grain-Free Dog Treats 300g | Pets | 10.76 | 1.96 | 21.04 |
+| 242 | Lumea Scented Candle Amber 200g | Home & Kitchen | 10.14 | 8.67 | 87.91 |
+| 134 | Greenly Garden Gloves 3-Pack | Garden | 8.79 | 5.64 | 49.62 |
+| 58 | Dermia Mineral Sunscreen SPF50 100ml | Beauty & Care | 8.09 | 8.21 | 66.48 |
 
 **Top 5 promote:** each sale earns a lot, but people buy them rarely. Sorted by profit per unit.
 
 | id | Product | Category | Units / month | Profit / unit (EUR) | Profit / month (EUR) |
 |---|---|---|---|---|---|
-| 176 | Nordtek AirBook 16 Laptop i7 16GB 1TB | Electronics | 1.36 | 136.16 | 185.69 |
-| 237 | Peakline 4-Person Family Tent | Sports & Outdoors | 1.34 | 90.83 | 121.28 |
+| 176 | Nordtek AirBook 16 Laptop i7 16GB 1TB | Electronics | 1.28 | 144.67 | 185.69 |
+| 237 | Peakline 4-Person Family Tent | Sports & Outdoors | 1.19 | 102.18 | 121.28 |
+| 225 | Fjord Wear Women's Down Parka | Fashion | 0.41 | 100.14 | 40.71 |
+| 3 | Fjord Wear Men's Down Parka | Fashion | 0.45 | 98.30 | 44.70 |
 | 247 | Nordtek AirBook 14 Laptop i5 16GB 512GB | Electronics | 0.83 | 85.88 | 71.57 |
-| 3 | Fjord Wear Men's Down Parka | Fashion | 0.58 | 77.61 | 44.70 |
-| 81 | Hortus Garden Bench 120cm | Garden | 0.58 | 74.48 | 42.90 |
 
 **Top 5 review:** earn the least per month. Sorted by profit per month, lowest first.
 
 | id | Product | Category | Units / month | Profit / unit (EUR) | Profit / month (EUR) |
 |---|---|---|---|---|---|
 | 10 | Dermia Men's Face Moisturizer 75ml | Beauty & Care | 0.21 | 9.19 | 1.95 |
-| 209 | Furro Orthopedic Dog Bed L | Pets | 0.23 | 19.38 | 4.36 |
+| 209 | Furro Orthopedic Dog Bed L | Pets | 0.17 | 25.84 | 4.36 |
 | 216 | Lumiere Lab Citrus Homme Eau de Toilette 100ml | Beauty & Care | 0.24 | 22.24 | 5.28 |
 | 127 | Whiskr Cat Tree 120cm | Pets | 0.15 | 36.09 | 5.47 |
 | 57 | Dermia Hyaluronic Acid Serum 30ml | Beauty & Care | 0.52 | 11.95 | 6.16 |
 
-**Discontinued products:** 28 products are not sold anymore. They have no ABC class, so only the step 2 rules are used. With these rules, 1 would be in "keep", 13 in "promote", 7 in "reprice" and 7 in "review".
-
-| id | Product | Category | Removed | Units / month | Profit / unit (EUR) | Profit / month (EUR) |
-|---|---|---|---|---|---|---|
-| 164 | Casaro Wicker Storage Basket | Home & Kitchen | 2026-02-17 | 3.51 | 13.62 | 47.86 |
+**Discontinued products:** 28 products are not sold anymore. They have no ABC class, so only the step 2 rules are used. With these rules, 16 would be in "promote", 9 in "reprice" and 3 in "review". None would be in "keep", so no removed product needs to come back.
 
 ## Recommendations
 
 1. **Improve the Electronics margin.** Electronics has the biggest revenue, but only 19.7% margin, so it earns less than Home & Kitchen and Fashion. Talk with suppliers about lower purchase prices and avoid big discounts on electronics. (part 1)
 2. **Keep Home & Kitchen and Fashion always in stock.** Together they bring about half of all profit. Start campaigns for them only when the stock is ready. (part 1)
 3. **Never let the top 5 products run out of stock.** Each of them earns 186-298 € per month. (part 1)
-4. **Test a small price increase on the top 5 "reprice" products.** People buy them often, but each sale earns little. For example, Petia Grain-Free Dog Treats sell about 11 units per month, but earn only 1.94 € per unit. If sales stay the same, do the same for other "reprice" products. (part 2)
-5. **Advertise the top 5 "promote" products more.** Each sale earns a lot (74-136 € per unit), but people buy them rarely. If sales grow, do the same for other "promote" products. (part 2)
+4. **Test a small price increase on the top 5 "reprice" products.** People buy them often, but each sale earns little. For example, Petia Grain-Free Dog Treats sell about 11 units per month, but earn only 1.96 € per unit. If sales stay the same, do the same for other "reprice" products. (part 2)
+5. **Advertise the top 5 "promote" products more.** Each sale earns a lot (86-145 € per unit), but people buy them rarely. If sales grow, do the same for other "promote" products. (part 2)
 6. **Stop ordering new stock for the 5 weakest "review" products and use this money for "keep" and "promote" products.** Together the 5 weakest products earn only about 23 € per month, so the same money can earn more on stronger products. Run this analysis again in a few months, because some "review" products can move to another group. (part 2)
-7. **Consider bringing back Casaro Wicker Storage Basket.** Before it was removed, it sold 3.5 units per month and earned about 48 € per month. (part 2)
 
 ## Limitations
 

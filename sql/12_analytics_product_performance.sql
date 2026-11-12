@@ -14,7 +14,7 @@ FROM clean.products p),
 sales AS (
 SELECT
     product_id,
-    SUM(quantity) FILTER (WHERE order_status = 'completed') AS units,
+    SUM(quantity) FILTER (WHERE order_status = 'completed' AND is_returned = 0) AS units,
     ROUND(SUM(net_revenue), 2)  AS net_revenue,
     ROUND(SUM(gross_profit), 2) AS gross_profit,
     ROUND(SUM(gross_profit) / NULLIF(SUM(net_revenue), 0) * 100, 2) AS gross_margin
