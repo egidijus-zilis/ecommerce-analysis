@@ -22,7 +22,7 @@
 
 **Email and referral bring the best customers. They come back more often and bring the most profit per sign-up (about 33 €). Paid_social and affiliate are the weakest in every part.**
 
-1. Sign-ups who buy: 80.89% (paid_social) to 88.73% (direct). Referral is in the middle (85.85%).
+1. Sign-ups who buy: 80.89% (paid_social) to 88.63% (direct). Referral is in the middle (85.85%).
 2. Buy again: email 22.73% and referral 21.20% come back within 90 days. Paid_social (11.25%) and affiliate (10.59%) only about half as often.
 3. Profit: email (33.52 €) and referral (33.33 €) bring the most per sign-up, affiliate the least (22.09 €).
 
@@ -42,7 +42,7 @@ Sign-ups up to 2026-08-31:
 
 | Channel | Sign-ups | Bought | Share |
 |---|---|---|---|
-| direct | 1,003 | 890 | 88.73% |
+| direct | 1,003 | 889 | 88.63% |
 | paid_search | 1,236 | 1,085 | 87.78% |
 | email | 381 | 334 | 87.66% |
 | referral | 629 | 540 | 85.85% |
@@ -61,7 +61,7 @@ Buyers with the first order before 2026-07-01:
 |---|---|---|---|
 | email | 308 | 70 | 22.73% |
 | referral | 500 | 106 | 21.20% |
-| direct | 819 | 149 | 18.19% |
+| direct | 818 | 149 | 18.22% |
 | paid_search | 1,018 | 178 | 17.49% |
 | organic_search | 1,601 | 270 | 16.86% |
 | paid_social | 1,013 | 114 | 11.25% |
@@ -78,7 +78,7 @@ Profit in the first 180 days, divided by all sign-ups (people who didn't buy cou
 |---|---|---|---|
 | email | 327 | 33.52 | 20.47 |
 | referral | 525 | 33.33 | 18.43 |
-| direct | 812 | 27.87 | 19.03 |
+| direct | 812 | 28.12 | 19.03 |
 | organic_search | 1,692 | 27.44 | 17.15 |
 | paid_search | 1,016 | 26.65 | 18.30 |
 | paid_social | 1,105 | 24.16 | 13.73 |
@@ -90,7 +90,7 @@ Profit in the first 180 days, divided by all sign-ups (people who didn't buy cou
 
 ## Recommendations
 
-1. **Send a reminder to paid_social sign-ups who did not buy.** Paid_social turns the fewest sign-ups into buyers (80.89% vs 88.73% for direct). Test it on half of them to see if it helps. (part 1)
+1. **Send a reminder to paid_social sign-ups who did not buy.** Paid_social turns the fewest sign-ups into buyers (80.89% vs 88.63% for direct). Test it on half of them to see if it helps. (part 1)
 2. **Send the Q6 reminder email (60 days after the first order) to paid_social and affiliate buyers first.** Only about 11% of them buy again within 90 days, while email and referral buyers do it about twice as often (21-23%). (part 2)
 
 ## Limitations

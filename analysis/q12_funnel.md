@@ -99,7 +99,7 @@ Expected:
 
 Mobile orders brought **133,284.39 EUR** gross profit over the whole period. An order gets its device from its session. Cancelled orders have 0 gross profit.
 
-- Check: orders with a known device (9,673) are the same number as purchase sessions in part 1 (9,673).
+- Check: orders with a known device (9,672) plus order 1240, which is left out (DQ-13), equal purchase sessions in part 1 (9,673).
 
 ## 4b. What if the mobile checkout step worked like desktop?
 

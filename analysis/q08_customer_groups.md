@@ -21,7 +21,7 @@
 
 **Lithuania brings the most value per customer, about 10% more than Latvia and Estonia. Between cities, age groups and gender the differences are small, so they are not a good way to choose where to focus.**
 
-1. Countries: LT customers bring 38.77 € profit each (median 25.20 €), LV and EE about 35 €.
+1. Countries: LT customers bring 38.82 € profit each (median 25.20 €), LV and EE about 35 €.
 2. Cities: among cities with 100+ customers, Panevėžys (42.55 €) and Šiauliai (41.11 €) are on top, Alytus (32.15 €) is the lowest. Medians are close, 23-27 €, except Alytus (17.52 €).
 3. Age: all groups are between 36.28 € and 39.05 €. 25-34 is first, but 45-54 is only 0.18 € lower.
 4. Gender: men spend 28% more than women (113.66 € vs 88.60 €), but bring only 6% more profit (39.71 € vs 37.40 €). By median, women are a bit higher.
@@ -36,7 +36,7 @@ Expected:
 
 | Country | Customers | Net revenue per customer (EUR) | Median net revenue (EUR) | Profit per customer (EUR) | Median profit (EUR) |
 |---|---|---|---|---|---|
-| LT | 5,064 | 100.91 | 57.46 | 38.77 | 25.20 |
+| LT | 5,063 | 100.93 | 57.46 | 38.82 | 25.20 |
 | EE | 551 | 93.44 | 49.92 | 35.11 | 22.02 |
 | LV | 692 | 90.46 | 52.98 | 35.01 | 23.42 |
 
@@ -46,7 +46,7 @@ Expected:
 
 ## 2. Which cities bring the most value per customer?
 
-Only cities with 100+ customers. Smaller cities had only a few customers, and they jumped to the top by chance (for example, Haapsalu with 2 customers). 366 customers have no city, so they are not in this table.
+Only cities with 100+ customers. Smaller cities had only a few customers, and they jumped to the top by chance (for example, Haapsalu with 2 customers). 365 customers have no city, so they are not in this table.
 
 | City | Customers | Net revenue per customer (EUR) | Median net revenue (EUR) | Profit per customer (EUR) | Median profit (EUR) |
 |---|---|---|---|---|---|
@@ -74,7 +74,7 @@ Only cities with 100+ customers. Smaller cities had only a few customers, and th
 | 45-54 | 1,249 | 99.50 | 55.46 | 38.87 | 24.18 |
 | 55-64 | 534 | 98.44 | 59.98 | 38.41 | 25.85 |
 | 65+ | 171 | 93.70 | 55.47 | 37.95 | 24.10 |
-| unknown | 860 | 103.03 | 56.98 | 38.51 | 25.35 |
+| unknown | 859 | 103.15 | 56.98 | 38.79 | 25.35 |
 
 - 25-34 is first by mean (39.05 €) and by median (26.30 €).
 - But all groups are between 36.28 € and 39.05 €. A difference of a few euros can come from a few big customers.
@@ -86,7 +86,7 @@ Only cities with 100+ customers. Smaller cities had only a few customers, and th
 |---|---|---|---|---|---|---|
 | Male | 2,605 | 113.66 | 58.48 | 39.71 | 24.57 | 34.94% |
 | Female | 3,224 | 88.60 | 55.47 | 37.40 | 25.35 | 42.21% |
-| Unknown | 401 | 94.32 | 54.88 | 34.06 | 22.80 | 36.11% |
+| Unknown | 400 | 94.55 | 54.93 | 34.64 | 22.82 | 36.64% |
 | Other | 77 | 71.79 | 50.48 | 29.09 | 21.02 | 40.52% |
 
 - Men spend much more (113.66 € vs 88.60 €), but the profit is almost the same (39.71 € vs 37.40 €). Their margin is lower: 34.94% vs 42.21%.
@@ -118,7 +118,7 @@ Why men's margin is lower, by category (share of each group's spending):
 
 - The differences between age groups and cities are small. I did not run a statistical test, so some of them can be just chance.
 - The city table has only cities with 100+ customers. For LV and EE only the capitals are left.
-- 366 customers have no city and 860 have no birth year. They are not in the city table and are "unknown" in the age table.
+- 365 customers have no city and 859 have no birth year. They are not in the city table and are "unknown" in the age table.
 - Age is counted by year only (2026 - birth_year), so it can be 1 year off.
 - "Other" gender has only 77 customers.
 - The category table uses order lines, so the totals are a bit different from order totals (DQ-20).

@@ -109,7 +109,7 @@ JOIN clean.orders o ON aoe.order_id = o.order_id
 JOIN analytics.session_funnel asf ON o.session_id = asf.session_id
 WHERE asf.device = 'mobile';
 
--- Check: orders with a known device should equal purchase sessions in part 1 (9,673).
+-- Check: orders with a known device + order 1240 (left out, DQ-13) should equal purchase sessions in part 1 (9,672 + 1 = 9,673).
 SELECT
     COUNT(*) AS orders_with_device
 FROM analytics.orders_enriched aoe

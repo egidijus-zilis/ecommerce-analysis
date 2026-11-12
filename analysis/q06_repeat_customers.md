@@ -19,7 +19,7 @@
 **About 3 in 10 customers buy again, and half of them come back within about 2.5 months. Newer cohorts come back about as often as older ones.**
 
 1. Share that buys again: 29.46% of all customers bought again. Within 90 days: 16.40%.
-2. How soon: the median time to the second order is 79 days. 53.44% of returning customers come back within 90 days, 61.52% within 180 days.
+2. How soon: the median time to the second order is 79 days. 53.44% of returning customers come back within 90 days, 72.39% within 180 days.
 3. Newer vs older cohorts: from 2024 Q3, every cohort returns at about the same rate, 15-19% within 90 days. Only the first two cohorts (launch period) are lower.
 
 Expected: About 25% of customers buy again - **partly**, it is a bit more (29.46%). Newer and older cohorts come back about the same - **yes**.
@@ -28,8 +28,8 @@ Expected: About 25% of customers buy again - **partly**, it is a bit more (29.46
 
 | | Customers | Bought again | Share |
 |---|---|---|---|
-| All customers | 6,307 | 1,858 | 29.46% |
-| Within 90 days (first order before 2026-07-01) | 5,684 | 932 | 16.40% |
+| All customers | 6,306 | 1,858 | 29.46% |
+| Within 90 days (first order before 2026-07-01) | 5,683 | 932 | 16.40% |
 
 - The real share is higher than 29.46%. Customers who made their first order in the last months had little time to come back before the data ends.
 - The 90-day share is lower, because it counts only quick returns. It is used to compare cohorts in part 3.
@@ -40,11 +40,11 @@ Time from the first to the second order (only customers who bought again):
 
 | Median | Average | Back within 90 days | Back within 180 days |
 |---|---|---|---|
-| 79 days | 147 days | 53.44% | 61.52% |
+| 79 days | 147 days | 53.44% | 72.39% |
 
 - Half of returning customers come back within 79 days.
 - The average is much higher than the median, because some customers come back after a very long time.
-- 38% of returning customers come back after more than 180 days.
+- 28% of returning customers come back after more than 180 days.
 
 ## 3. Do newer cohorts come back more or less than older ones?
 
@@ -54,7 +54,7 @@ Share of customers who came back within 90 days, by cohort:
 |---|---|---|---|
 | 2024 Q1 | 260 | 28 | 10.77% |
 | 2024 Q2 | 430 | 63 | 14.65% |
-| 2024 Q3 | 519 | 97 | 18.69% |
+| 2024 Q3 | 518 | 97 | 18.73% |
 | 2024 Q4 | 704 | 123 | 17.47% |
 | 2025 Q1 | 565 | 104 | 18.41% |
 | 2025 Q2 | 611 | 98 | 16.04% |

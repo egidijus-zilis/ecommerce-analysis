@@ -15,7 +15,7 @@
 **Home & Kitchen and Fashion earn the most profit, Pets earns the least. No active product loses money, so no product needs to be dropped immediately.**
 
 1. Most and least profit: Home & Kitchen and Fashion earn almost the same, together about half of all profit. Pets earns the least. The best product earns about 298 € per month, the weakest about 2 €.
-2. Reprice, promote or drop: of the active products, 35 are in "keep", 73 in "reprice", 65 in "promote" and 58 in "review". 1 discontinued product did well before it was removed.
+2. Reprice, promote or drop: of the active products, 35 are in "keep", 74 in "reprice", 65 in "promote" and 57 in "review". 1 discontinued product did well before it was removed.
 
 Expected: Home & Kitchen and Fashion earn the most profit - **yes**. Garden earns the least - **no**, Pets earns the least. Garden is sixth.
 
@@ -31,7 +31,7 @@ Profit by category (all products):
 | Sports & Outdoors | 35 | 74,366 | 27,191 | 36.6% |
 | Beauty & Care | 35 | 53,638 | 25,314 | 47.2% |
 | Garden | 20 | 38,292 | 15,785 | 41.2% |
-| Toys & Kids | 25 | 38,622 | 15,055 | 39.0% |
+| Toys & Kids | 25 | 38,622 | 15,256 | 39.5% |
 | Pets | 20 | 21,755 | 7,591 | 34.9% |
 
 - Home & Kitchen and Fashion earn almost the same. Together it is about half of all profit.
@@ -51,13 +51,13 @@ Top 5 and bottom 5 active products by profit per month:
 | id | Bottom 5 | Profit / month (EUR) | Margin | List price (EUR) | Group (part 2) |
 |---|---|---|---|---|---|
 | 10 | Dermia Men's Face Moisturizer 75ml | 1.95 | 50.7% | 19.99 | review |
-| 259 | Wonda Magnetic Drawing Board | 4.17 | 20.2% | 14.99 | review |
 | 209 | Furro Orthopedic Dog Bed L | 4.36 | 37.5% | 79.99 | review |
 | 216 | Lumiere Lab Citrus Homme Eau de Toilette 100ml | 5.28 | 40.4% | 54.99 | review |
 | 127 | Whiskr Cat Tree 120cm | 5.47 | 51.9% | 74.99 | review |
+| 57 | Dermia Hyaluronic Acid Serum 30ml | 6.16 | 58.2% | 22.99 | review |
 
 - Price does not decide profit. Two of the top 5 products cost only 49.99 € and 69.99 €, and three of the bottom 5 cost more than 50 €. Profit depends on how often people buy and how much one sale earns.
-- Margin % alone does not decide profit either. The smartphone and the laptop have a low margin (12-15 %), but they are in the top 5. Products 10 and 127 have a margin over 50 %, but they are in the bottom 5.
+- Margin % alone does not decide profit either. The smartphone and the laptop have a low margin (12-15 %), but they are in the top 5. Products 10, 57 and 127 have a margin over 50 %, but they are in the bottom 5.
 
 ## 2. Which products should we reprice, promote or drop?
 
@@ -78,20 +78,20 @@ Active products by ABC class:
 | Class | Products | Gross profit (EUR) |
 |---|---|---|
 | A | 124 | 178,945 |
-| B | 64 | 37,074 |
-| C | 43 | 12,235 |
+| B | 65 | 37,503 |
+| C | 42 | 12,007 |
 | no sales | 1 | - |
 
 Active products by group:
 
 | Group | Products | Gross profit (EUR) | Share of profit |
 |---|---|---|---|
-| keep | 35 | 64,961 | 28.5% |
-| reprice | 73 | 75,726 | 33.2% |
+| keep | 35 | 64,961 | 28.4% |
+| reprice | 74 | 76,155 | 33.3% |
 | promote | 65 | 67,813 | 29.7% |
-| review | 58 | 19,754 | 8.7% |
+| review | 57 | 19,526 | 8.55% |
 
-- No active product loses money, so no product is marked "drop". The weakest group is "review": 58 products bring only 8.7% of profit.
+- No active product loses money, so no product is marked "drop". The weakest group is "review": 57 products bring only 8.55% of profit.
 - 1 active product has no sales: Domus Steam Iron (id 239), launched on 2026-03-22.
 
 **Top 5 reprice:** people buy them often, but each sale earns little. Sorted by units per month.
@@ -119,10 +119,10 @@ Active products by group:
 | id | Product | Category | Units / month | Profit / unit (EUR) | Profit / month (EUR) |
 |---|---|---|---|---|---|
 | 10 | Dermia Men's Face Moisturizer 75ml | Beauty & Care | 0.21 | 9.19 | 1.95 |
-| 259 | Wonda Magnetic Drawing Board | Toys & Kids | 1.97 | 2.12 | 4.17 |
 | 209 | Furro Orthopedic Dog Bed L | Pets | 0.23 | 19.38 | 4.36 |
 | 216 | Lumiere Lab Citrus Homme Eau de Toilette 100ml | Beauty & Care | 0.24 | 22.24 | 5.28 |
 | 127 | Whiskr Cat Tree 120cm | Pets | 0.15 | 36.09 | 5.47 |
+| 57 | Dermia Hyaluronic Acid Serum 30ml | Beauty & Care | 0.52 | 11.95 | 6.16 |
 
 **Discontinued products:** 28 products are not sold anymore. They have no ABC class, so only the step 2 rules are used. With these rules, 1 would be in "keep", 13 in "promote", 7 in "reprice" and 7 in "review".
 
@@ -137,7 +137,7 @@ Active products by group:
 3. **Never let the top 5 products run out of stock.** Each of them earns 186-298 € per month. (part 1)
 4. **Test a small price increase on the top 5 "reprice" products.** People buy them often, but each sale earns little. For example, Petia Grain-Free Dog Treats sell about 11 units per month, but earn only 1.94 € per unit. If sales stay the same, do the same for other "reprice" products. (part 2)
 5. **Advertise the top 5 "promote" products more.** Each sale earns a lot (74-136 € per unit), but people buy them rarely. If sales grow, do the same for other "promote" products. (part 2)
-6. **Stop ordering new stock for the 5 weakest "review" products and use this money for "keep" and "promote" products.** Together the 5 weakest products earn only about 21 € per month, so the same money can earn more on stronger products. Run this analysis again in a few months, because some "review" products can move to another group. (part 2)
+6. **Stop ordering new stock for the 5 weakest "review" products and use this money for "keep" and "promote" products.** Together the 5 weakest products earn only about 23 € per month, so the same money can earn more on stronger products. Run this analysis again in a few months, because some "review" products can move to another group. (part 2)
 7. **Consider bringing back Casaro Wicker Storage Basket.** Before it was removed, it sold 3.5 units per month and earned about 48 € per month. (part 2)
 
 ## Limitations
@@ -148,3 +148,4 @@ Active products by group:
 - New products have only a few months of data, so their numbers per month are less stable.
 - The data does not show why a product was removed.
 - The data has no stock or storage costs, so the gain from removing weak products can't be measured.
+- Order 1240 is left out: its 2 lines were sold at 0 € (DQ-13).

@@ -30,9 +30,9 @@ Expected: Discounts bring new customers, and later they spend more than the disc
 
 | Group | Orders | Given as discount (EUR) | Net revenue (EUR) | Gross profit (EUR) | Margin | Margin if no discount |
 |---|---|---|---|---|---|---|
-| full_price | 6,675 | 0 | 433,402 | 172,495 | 39.8% | 39.8% |
-| coupon | 1,799 | 11,388 | 104,364 | 37,031 | 35.5% | 41.8% |
-| sale | 1,480 | 14,004 | 87,318 | 30,386 | 34.8% | 43.8% |
+| full_price | 6,674 | 0 | 433,402 | 172,696 | 39.8% | 39.8% |
+| coupon | 1,799 | 11,391 | 104,364 | 37,031 | 35.5% | 41.8% |
+| sale | 1,480 | 14,007 | 87,318 | 30,386 | 34.8% | 43.8% |
 
 - Discounts on kept items cost about 25,400 €.
 - "Margin if no discount" adds the discount back. Sale and coupon orders have products with a higher margin than full price orders, so the lower margin comes from the discount, not from the products. The discount takes about 9 points of margin in sale orders (43.8% → 34.8%) and about 6 points in coupon orders (41.8% → 35.5%).
@@ -79,7 +79,7 @@ Share of first orders (the customer's first order with us):
 |---|---|---|---|
 | coupon | 1,799 | 1,619 | 90.0% |
 | sale | 1,480 | 930 | 62.8% |
-| full_price | 6,675 | 3,758 | 56.3% |
+| full_price | 6,674 | 3,757 | 56.3% |
 
 By coupon:
 
@@ -98,7 +98,7 @@ Customers grouped by the type of their first order:
 
 | First order | Customers | Bought again | Return rate |
 |---|---|---|---|
-| full_price | 3,758 | 1,162 | 30.9% |
+| full_price | 3,757 | 1,162 | 30.9% |
 | sale | 930 | 279 | 30.0% |
 | coupon | 1,619 | 417 | 25.8% |
 

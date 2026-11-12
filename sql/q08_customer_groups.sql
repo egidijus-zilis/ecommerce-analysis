@@ -34,6 +34,12 @@ GROUP BY city
 HAVING COUNT(*) >= 100
 ORDER BY gross_profit_per_customer DESC;
 
+-- 2b. Customers with no city (left out of 2a)
+SELECT
+    COUNT(*) AS customers_no_city
+FROM analytics.customer_value
+WHERE city = 'Unknown';
+
 
 -- Part 3. Age
 

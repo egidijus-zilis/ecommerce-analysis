@@ -10,7 +10,7 @@
 
 ## Answer
 
-**Is the business growing profitably? Yes.** Revenue and gross profit grow every year, and the gross margin stays about the same (38-39 %).
+**Is the business growing profitably? Yes.** Revenue and gross profit grow every year, and the gross margin stays about the same (38-40 %).
 
 1. Month over month: revenue, gross profit and orders are lowest in February and highest in November (2024 is different, because it was the launch year and grew almost every month). Margin is lower in November.
 2. Year over year: the shop grows every year, but slower: +133 % in 2025, +20 % in 2026.
@@ -56,7 +56,7 @@ Net revenue by month (€):
 | 2024-06 | 3,829 | 178 | 42.6 % |
 | 2024-07 | 3,793 | 211 | 37.8 % |
 | 2024-08 | 4,436 | 201 | 38.6 % |
-| 2024-09 | 5,592 | 253 | 36.8 % |
+| 2024-09 | 5,793 | 252 | 38.2 % |
 | 2024-10 | 6,857 | 260 | 42.8 % |
 | 2024-11 | 9,579 | 395 | 34.1 % |
 | 2024-12 | 7,919 | 342 | 39.2 % |
@@ -90,13 +90,13 @@ Same period every year (January-September):
 
 | Year | Net revenue | Growth | Gross profit | Orders | Avg order value | Gross margin |
 |---|---|---|---|---|---|---|
-| 2024 | 77,339 € | - | 30,404 € | 1,441 | 53.67 € | 39.3 % |
+| 2024 | 77,339 € | - | 30,604 € | 1,440 | 53.71 € | 39.6 % |
 | 2025 | 180,534 € | +133 % | 69,498 € | 2,826 | 63.88 € | 38.5 % |
 | 2026 | 215,895 € | +20 % | 84,394 € | 3,372 | 64.03 € | 39.1 % |
 
 Full years: 2024 - 141,656 €, 2025 - 267,533 €.
 
-- Revenue, gross profit and orders grow every year. In 2025: revenue +133 %, gross profit +129 %, orders +96 %. In 2026: revenue +20 %, gross profit +21 %, orders +19 %.
+- Revenue, gross profit and orders grow every year. In 2025: revenue +133 %, gross profit +127 %, orders +96 %. In 2026: revenue +20 %, gross profit +21 %, orders +19 %.
 - Gross margin went down a little in 2025, but in 2026 it went up again.
 
 ## 3. Where does the growth come from?
@@ -124,3 +124,4 @@ Net revenue from new and returning customers (January-September):
 - Profit uses today's product cost. Older costs are not known, so profit in 2024 may be a bit off.
 - September 2026 is not complete (DQ-21). 32 orders from 2026-09-26 to 09-30 are still 'shipped' or 'processing', so they are not in net revenue yet. This makes September 2026 and January-September 2026 look lower than they will be. Right now January-September 2026 is +19.6 % vs 2025. If all open orders are completed and nothing is returned, it would be up to +21.4 %.
 - A customer counts as "new" for the whole year of their first order. So their second and third orders that year are also counted as "new".
+- Order 1240 is left out: its 2 lines were sold at 0 € (DQ-13).

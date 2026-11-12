@@ -13,9 +13,9 @@
 
 ## Answer
 
-**We depend on them a lot. The top 10% bring 43.26% of net revenue, but only 34.80% of gross profit. 190 of them are at risk now, and they bring about 62,400 € per year.**
+**We depend on them a lot. The top 10% bring 43.26% of net revenue, but only 34.77% of gross profit. 190 of them are at risk now, and they bring about 62,400 € per year.**
 
-1. How much depends on them: 43.26% of revenue and 34.80% of profit. Profit share is lower because their margin is only 30.87%.
+1. How much depends on them: 43.26% of revenue and 34.77% of profit. Profit share is lower because their margin is only 30.87%.
 2. What they have in common: they order more often (3.47 orders each) and spend more per order (123.37 €). Almost half of their money goes to Electronics. More of them came from referral and email. Country is about the same as for other customers.
 3. Revenue at risk: 190 top customers (30.11%) have not ordered for longer than usual. Together they bring 62,395 € per year. 182 more have not ordered for over a year, so I count them as lost.
 
@@ -25,19 +25,19 @@ Expected: The top 10% bring about 35% of net revenue - **no**, it is more, 43.26
 
 | Group | Customers | Net revenue (EUR) | Share of revenue | Gross profit (EUR) | Share of profit | Margin | Orders per customer | AOV (EUR) |
 |---|---|---|---|---|---|---|---|---|
-| 1 (top 10%) | 631 | 270,437 | 43.26% | 83,478 | 34.80% | 30.87% | 3.47 | 123.37 |
-| 2 | 631 | 104,554 | 16.73% | 44,686 | 18.63% | 42.74% | 2.18 | 76.04 |
-| 3 | 631 | 70,372 | 11.26% | 31,472 | 13.12% | 44.72% | 1.78 | 62.78 |
+| 1 (top 10%) | 631 | 270,437 | 43.26% | 83,478 | 34.77% | 30.87% | 3.47 | 123.37 |
+| 2 | 631 | 104,554 | 16.73% | 44,686 | 18.61% | 42.74% | 2.18 | 76.04 |
+| 3 | 631 | 70,372 | 11.26% | 31,472 | 13.11% | 44.72% | 1.78 | 62.78 |
 | 4 | 631 | 52,059 | 8.33% | 22,871 | 9.53% | 43.93% | 1.52 | 54.34 |
-| 5 | 631 | 40,338 | 6.45% | 18,019 | 7.51% | 44.67% | 1.33 | 48.08 |
-| 6 | 631 | 31,312 | 5.01% | 14,247 | 5.94% | 45.50% | 1.21 | 41.04 |
-| 7 | 631 | 23,085 | 3.69% | 10,250 | 4.27% | 44.40% | 1.15 | 31.71 |
-| 8 | 630 | 17,050 | 2.73% | 7,740 | 3.23% | 45.40% | 1.06 | 25.56 |
-| 9 | 630 | 11,232 | 1.80% | 5,268 | 2.20% | 46.90% | 1.05 | 16.92 |
-| 10 | 630 | 4,644 | 0.74% | 1,881 | 0.78% | 40.50% | 1.03 | 7.18 |
+| 5 | 631 | 40,338 | 6.45% | 18,019 | 7.50% | 44.67% | 1.33 | 48.08 |
+| 6 | 631 | 31,312 | 5.01% | 14,247 | 5.93% | 45.50% | 1.21 | 41.04 |
+| 7 | 630 | 23,054 | 3.69% | 10,233 | 4.26% | 44.39% | 1.15 | 31.71 |
+| 8 | 630 | 17,057 | 2.73% | 7,743 | 3.22% | 45.39% | 1.06 | 25.57 |
+| 9 | 630 | 11,241 | 1.80% | 5,275 | 2.20% | 46.93% | 1.05 | 16.93 |
+| 10 | 630 | 4,658 | 0.75% | 2,089 | 0.87% | 44.84% | 1.03 | 7.20 |
 
 - The top 10% bring more revenue (43.26%) than groups 2, 3 and 4 together (36.32%).
-- In profit the picture is different. Their share drops to 34.80%, because their margin is 30.87%. Other groups have 40-47%.
+- In profit the picture is different. Their share drops to 34.77%, because their margin is 30.87%. Other groups have 43-47%.
 
 ## 2. What do best customers have in common?
 
@@ -65,12 +65,12 @@ Where they came from (acquisition channel):
 
 | Channel | Top 10% | Other 90% | Channel customers in top 10% |
 |---|---|---|---|
-| organic_search | 27.42% | 28.15% | 9.77% |
+| organic_search | 27.42% | 28.16% | 9.77% |
 | paid_search | 15.85% | 17.85% | 8.98% |
-| direct | 15.53% | 14.46% | 10.66% |
-| paid_social | 14.90% | 18.55% | 8.20% |
+| direct | 15.53% | 14.45% | 10.68% |
+| paid_social | 14.90% | 18.56% | 8.20% |
 | referral | 13.95% | 8.14% | 16.00% |
-| email | 7.61% | 5.14% | 14.12% |
+| email | 7.61% | 5.15% | 14.12% |
 | affiliate | 4.75% | 7.70% | 6.42% |
 
 - Referral (16.00%) and email (14.12%) bring more top customers than other channels.
@@ -80,9 +80,9 @@ Country:
 
 | Country | Top 10% | Other 90% |
 |---|---|---|
-| LT | 83.84% | 79.90% |
+| LT | 83.84% | 79.89% |
 | LV | 8.40% | 11.26% |
-| EE | 7.77% | 8.84% |
+| EE | 7.77% | 8.85% |
 
 - The split is almost the same as for other customers.
 

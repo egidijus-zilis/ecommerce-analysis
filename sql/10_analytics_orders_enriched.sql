@@ -43,12 +43,13 @@ SELECT
     END AS is_first_order
 FROM clean.orders o
 LEFT JOIN items i ON o.order_id = i.order_id
-LEFT JOIN clean.customers c ON o.customer_id = c.customer_id;
+LEFT JOIN clean.customers c ON o.customer_id = c.customer_id
+WHERE o.order_id <> 1240;   -- DQ-13: all items sold at 0 €, left out of analysis
 
 
 -- checks
 
--- same number of rows as clean.orders (10 256)
+-- same number of rows as clean.orders minus order 1240 (10 255)   -- DQ-13
 SELECT COUNT(*) FROM analytics.orders_enriched;
 
 -- one first order per person who bought (both numbers must match)
