@@ -10,7 +10,7 @@
 
 ## Answer
 
-**Is the business growing profitably? Yes.** Revenue and gross profit grow every year, and the gross margin stays about the same (38-40 %).
+**Is the business growing profitably? Yes.** Revenue and gross profit grow every year, and the gross margin stays about the same (38-40 %). After marketing spend, profit also grows (+19.8 % in 2026), and the margin after marketing stays about the same (22-24 %).
 
 1. Month over month: revenue, gross profit and orders are lowest in February and highest in November (2024 is different, because it was the launch year and grew almost every month). Margin is lower in November.
 2. Year over year: the shop grows every year, but slower: +133 % in 2025, +20 % in 2026.
@@ -88,15 +88,16 @@ Net revenue by month (€):
 
 Same period every year (January-September):
 
-| Year | Net revenue | Growth | Gross profit | Orders | Avg order value | Gross margin |
-|---|---|---|---|---|---|---|
-| 2024 | 77,339 € | - | 30,604 € | 1,440 | 53.71 € | 39.6 % |
-| 2025 | 180,534 € | +133 % | 69,498 € | 2,826 | 63.88 € | 38.5 % |
-| 2026 | 215,895 € | +20 % | 84,394 € | 3,372 | 64.03 € | 39.1 % |
+| Year | Net revenue | Growth | Gross profit | Orders | Avg order value | Gross margin | Marketing spend | Gross profit after marketing | Margin after marketing |
+|---|---|---|---|---|---|---|---|---|---|
+| 2024 | 77,339 € | - | 30,604 € | 1,440 | 53.71 € | 39.6 % | 13,298 € | 17,306 € | 22.4 % |
+| 2025 | 180,534 € | +133 % | 69,498 € | 2,826 | 63.88 € | 38.5 % | 26,829 € | 42,669 € | 23.6 % |
+| 2026 | 215,895 € | +20 % | 84,394 € | 3,372 | 64.03 € | 39.1 % | 33,281 € | 51,113 € | 23.7 % |
 
-Full years: 2024 - 141,656 €, 2025 - 267,533 €.
+Full years: 2024 - 141,656 €, 2025 - 267,533 €. Gross profit after marketing: 2024 - 31,501 €, 2025 - 60,100 €.
 
 - Revenue, gross profit and orders grow every year. In 2025: revenue +133 %, gross profit +127 %, orders +96 %. In 2026: revenue +20 %, gross profit +21 %, orders +19 %.
+- Marketing spend grows too: +24 % in 2026, a bit faster than gross profit (+21 %). Gross profit after marketing still grew: +147 % in 2025, +19.8 % in 2026. The margin after marketing stays about the same (22.4 %, 23.6 %, 23.7 %).
 - Gross margin went down a little in 2025, but in 2026 it went up again.
 
 ## 3. Where does the growth come from?
@@ -125,3 +126,5 @@ Net revenue from new and returning customers (January-September):
 - September 2026 is not complete (DQ-21). 32 orders from 2026-09-26 to 09-30 are still 'shipped' or 'processing', so they are not in net revenue yet. This makes September 2026 and January-September 2026 look lower than they will be. Right now January-September 2026 is +19.6 % vs 2025. If all open orders are completed and nothing is returned, it would be up to +21.4 %.
 - A customer counts as "new" for the whole year of their first order. So their second and third orders that year are also counted as "new".
 - Order 1240 is left out: its 2 lines were sold at 0 € (DQ-13).
+- Gross profit after marketing is not net profit. Other costs (delivery, staff, rent) are not in the data.
+- Marketing spend for 2025 is a bit too low: 3 days of paid_search are missing (DQ-17).

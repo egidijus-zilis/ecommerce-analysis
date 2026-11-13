@@ -55,39 +55,69 @@ FROM september;
 -- Part 2. Year over year
 
 -- 2a. Same period every year (Jan-Sep) and growth
+-- Orders and marketing spend are summed by year first, then joined,
+-- so rows are not duplicated.
 WITH yearly AS (
-    SELECT
-        EXTRACT(YEAR FROM order_date_local)::int AS year,
-        SUM(net_revenue)  AS net_revenue,
-        SUM(gross_profit) AS gross_profit,
-        COUNT(order_id)   AS orders
-    FROM analytics.orders_enriched
-    WHERE order_status = 'completed'
-      AND EXTRACT(MONTH FROM order_date_local) <= 9
-    GROUP BY 1
-)
+SELECT
+    EXTRACT(YEAR FROM order_date_local)::int AS year,
+    SUM(net_revenue)  AS net_revenue,
+    SUM(gross_profit) AS gross_profit,
+    COUNT(order_id)   AS orders
+FROM analytics.orders_enriched
+WHERE order_status = 'completed'
+  AND EXTRACT(MONTH FROM order_date_local) <= 9
+GROUP BY 1),
+spend AS (
+SELECT
+    EXTRACT(YEAR FROM spend_date)::int AS year,
+    SUM(spend_eur) AS marketing_spend
+FROM clean.marketing_spend
+WHERE EXTRACT(MONTH FROM spend_date) <= 9
+GROUP BY 1)
 SELECT
     year,
     ROUND(net_revenue, 2)  AS net_revenue,
     ROUND(gross_profit, 2) AS gross_profit,
     orders,
-    ROUND(net_revenue / orders, 2)                 AS avg_order_value,
-    ROUND(gross_profit / net_revenue * 100, 2)     AS gross_margin_pct,
+    ROUND(net_revenue / orders, 2)             AS avg_order_value,
+    ROUND(gross_profit / net_revenue * 100, 2) AS gross_margin_pct,
     ROUND((net_revenue - LAG(net_revenue) OVER (ORDER BY year))
-          / LAG(net_revenue) OVER (ORDER BY year) * 100, 1) AS revenue_growth_pct
+          / LAG(net_revenue) OVER (ORDER BY year) * 100, 1) AS revenue_growth_pct,
+    ROUND(marketing_spend, 2) AS marketing_spend,
+    ROUND(gross_profit - marketing_spend, 2) AS gross_profit_after_marketing,
+    ROUND((gross_profit - marketing_spend - LAG(gross_profit - marketing_spend) OVER (ORDER BY year))
+          / LAG(gross_profit - marketing_spend) OVER (ORDER BY year) * 100, 1) AS after_marketing_growth_pct,
+    ROUND((gross_profit - marketing_spend) / net_revenue * 100, 2) AS margin_after_marketing_pct
 FROM yearly
+JOIN spend USING (year)
 ORDER BY year;
 
 -- 2b. Full years (2026 has only Jan-Sep)
+WITH yearly AS (
 SELECT
     EXTRACT(YEAR FROM order_date_local)::int AS year,
-    ROUND(SUM(net_revenue), 2)  AS net_revenue,
-    ROUND(SUM(gross_profit), 2) AS gross_profit,
-    COUNT(order_id)             AS orders
+    SUM(net_revenue)  AS net_revenue,
+    SUM(gross_profit) AS gross_profit,
+    COUNT(order_id)   AS orders
 FROM analytics.orders_enriched
 WHERE order_status = 'completed'
-GROUP BY 1
-ORDER BY 1;
+GROUP BY 1),
+spend AS (
+SELECT
+    EXTRACT(YEAR FROM spend_date)::int AS year,
+    SUM(spend_eur) AS marketing_spend
+FROM clean.marketing_spend
+GROUP BY 1)
+SELECT
+    year,
+    ROUND(net_revenue, 2)  AS net_revenue,
+    ROUND(gross_profit, 2) AS gross_profit,
+    orders,
+    ROUND(marketing_spend, 2) AS marketing_spend,
+    ROUND(gross_profit - marketing_spend, 2) AS gross_profit_after_marketing
+FROM yearly
+JOIN spend USING (year)
+ORDER BY year;
 
 -- 2c. January-September 2026 is not complete (DQ-21)
 -- Same as 1c, but for January-September.
