@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS clean.order_items;
+DROP TABLE IF EXISTS clean.order_items CASCADE;
 
 CREATE TABLE clean.order_items AS
 SELECT

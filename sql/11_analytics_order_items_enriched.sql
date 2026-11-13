@@ -1,4 +1,4 @@
-DROP VIEW IF EXISTS analytics.order_items_enriched;
+DROP VIEW IF EXISTS analytics.order_items_enriched CASCADE;
 
 CREATE VIEW analytics.order_items_enriched AS (
 SELECT

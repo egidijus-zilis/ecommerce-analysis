@@ -1,7 +1,7 @@
 -- View: one row per web session, for the funnel (Q12) and Power BI.
 -- Each has_ column is 1 if the session had this event at least once, otherwise 0.
 -- session_date is the local date (Vilnius time) when the session started.
-DROP VIEW IF EXISTS analytics.session_funnel;
+DROP VIEW IF EXISTS analytics.session_funnel CASCADE;
 CREATE VIEW analytics.session_funnel AS
 SELECT
     session_id,

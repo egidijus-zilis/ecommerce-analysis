@@ -1,3 +1,6 @@
+CREATE SCHEMA IF NOT EXISTS raw;
+
+DROP TABLE IF EXISTS raw.customers;
 CREATE TABLE raw.customers (
     customer_id        integer,
     email_hash         text,
@@ -9,6 +12,7 @@ CREATE TABLE raw.customers (
     acquisition_source text,
     marketing_opt_in   integer
 );
+DROP TABLE IF EXISTS raw.products;
 CREATE TABLE raw.products (
     product_id         integer,
     product_name       text,
@@ -20,6 +24,7 @@ CREATE TABLE raw.products (
     launch_date        date,
     discontinued_date  date
 );
+DROP TABLE IF EXISTS raw.orders;
 CREATE TABLE raw.orders (
     order_id           integer,
     customer_id        integer,
@@ -34,6 +39,7 @@ CREATE TABLE raw.orders (
     promised_date      date,
     delivered_date     date 
 );
+DROP TABLE IF EXISTS raw.order_items;
 CREATE TABLE raw.order_items (
     order_item_id      integer,
     order_id           integer,
@@ -45,6 +51,7 @@ CREATE TABLE raw.order_items (
     return_reason      text,
     return_date        date
 );
+DROP TABLE IF EXISTS raw.user_events;
 CREATE TABLE raw.user_events (
     event_id           integer,
     session_id         integer,
@@ -56,6 +63,7 @@ CREATE TABLE raw.user_events (
     traffic_source     text,
     product_id         integer
 );
+DROP TABLE IF EXISTS raw.marketing_spend;
 CREATE TABLE raw.marketing_spend (
     spend_date           date,
     channel              text,

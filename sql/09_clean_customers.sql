@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS clean.customers;
+DROP TABLE IF EXISTS clean.customers CASCADE;
 
 CREATE TABLE clean.customers AS
 SELECT

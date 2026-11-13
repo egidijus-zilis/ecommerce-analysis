@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS clean.orders;
+DROP TABLE IF EXISTS clean.orders CASCADE;
 
 CREATE TABLE clean.orders AS
 SELECT DISTINCT                -- DQ-09

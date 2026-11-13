@@ -1,6 +1,8 @@
 CREATE SCHEMA IF NOT EXISTS analytics;
 
-CREATE OR REPLACE VIEW analytics.orders_enriched AS
+DROP VIEW IF EXISTS analytics.orders_enriched CASCADE;
+
+CREATE VIEW analytics.orders_enriched AS
 WITH items AS (
     SELECT oi.order_id,
         SUM(CASE

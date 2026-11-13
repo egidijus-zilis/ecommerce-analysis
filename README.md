@@ -237,7 +237,7 @@ Then open the notebooks in the `notebooks/` folder.
 **PostgreSQL**
 1. Create a database and run `sql/01_create_raw_tables.sql`.
 2. Load the CSV files from `data/raw/` into the `raw` tables (I used DBeaver: Import Data, empty strings as NULL).
-3. Run the other files in `sql/` in number order (02, 03, 04, ...). Each file can be run again: it drops and creates its table or view.
+3. Run the other numbered files in `sql/` in order (02, 03, ..., 15). Each file can be run again: it drops and creates its table or view. Files 03-09 also drop the views that use their table (CASCADE), so after running one of them, run 10-15 again.
 
 ---
 

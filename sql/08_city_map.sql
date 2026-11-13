@@ -2,7 +2,7 @@
 -- raw_city = INITCAP(TRIM(city)) from raw.customers, city = correct name.
 -- Prepared with AI help, checked by hand.
 
-DROP TABLE IF EXISTS clean.city_map;
+DROP TABLE IF EXISTS clean.city_map CASCADE;
 
 CREATE TABLE clean.city_map (
     raw_city text,

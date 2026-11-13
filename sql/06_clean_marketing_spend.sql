@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS clean.marketing_spend;
+DROP TABLE IF EXISTS clean.marketing_spend CASCADE;
 
 CREATE TABLE clean.marketing_spend AS
 SELECT DISTINCT *              -- DQ-16

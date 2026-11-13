@@ -1,4 +1,4 @@
-DROP VIEW IF EXISTS analytics.product_performance;
+DROP VIEW IF EXISTS analytics.product_performance CASCADE;
 
 CREATE VIEW analytics.product_performance AS
 WITH product_time AS (

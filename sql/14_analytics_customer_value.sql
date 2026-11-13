@@ -2,7 +2,7 @@
 -- revenue_group: 1 = top 10% of customers by net revenue, 10 = bottom 10%.
 -- main_customer_id breaks ties, so customers with the same revenue always get the same group.
 -- second_order_date is NULL for customers with only 1 order.
-DROP VIEW IF EXISTS analytics.customer_value;
+DROP VIEW IF EXISTS analytics.customer_value CASCADE;
 CREATE VIEW analytics.customer_value AS
 WITH customer_orders AS (
 SELECT

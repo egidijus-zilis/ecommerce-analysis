@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS clean.user_events;
+DROP TABLE IF EXISTS clean.user_events CASCADE;
 
 CREATE TABLE clean.user_events AS
 SELECT

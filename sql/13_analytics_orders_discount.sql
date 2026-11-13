@@ -1,4 +1,4 @@
-DROP VIEW IF EXISTS analytics.orders_discount;
+DROP VIEW IF EXISTS analytics.orders_discount CASCADE;
 
 CREATE VIEW analytics.orders_discount AS
 WITH order_discount AS (

@@ -1,4 +1,6 @@
-DROP TABLE IF EXISTS clean.products;
+CREATE SCHEMA IF NOT EXISTS clean;
+
+DROP TABLE IF EXISTS clean.products CASCADE;
 
 CREATE TABLE clean.products AS
 SELECT
