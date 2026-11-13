@@ -98,7 +98,7 @@ Full years: 2024 - 141,656 €, 2025 - 267,533 €. Gross profit after marketing
 
 - Revenue, gross profit and orders grow every year. In 2025: revenue +133 %, gross profit +127 %, orders +96 %. In 2026: revenue +20 %, gross profit +21 %, orders +19 %.
 - Marketing spend grows too: +24 % in 2026, a bit faster than gross profit (+21 %). Gross profit after marketing still grew: +147 % in 2025, +19.8 % in 2026. The margin after marketing stays about the same (22.4 %, 23.6 %, 23.7 %).
-- Gross margin went down a little in 2025, but in 2026 it went up again.
+- Gross margin stays between 38.5 % and 39.6 % in all three years, so it stays about the same.
 
 ## 3. Where does the growth come from?
 
@@ -128,7 +128,7 @@ Growth split into more orders and bigger orders (January-September). Net revenue
 
 ## Recommendations
 
-1. **Get more new customers.** Growth is slowing down, and in 2026 it came almost only from returning customers. Check which channels bring good new customers (Q9). (part 3)
+1. **Keep returning customers buying.** In 2026, 90 % of the growth came from returning customers (978 people). The list of top customers who stopped buying is in [Q7](q07_best_customers.md). (part 3)
 2. **Try to make orders bigger.** Order value stopped growing in 2026. For example, offer sets or "you may also like" products. (part 3)
 3. **Plan for November.** It is the biggest month, so stock and staff must be ready. (part 1)
 
