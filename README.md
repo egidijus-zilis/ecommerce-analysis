@@ -198,8 +198,8 @@ More metrics will be added when a business question needs them.
 
 **New vs returning customer**
 - Counted by `main_customer_id` (one person = one customer, even with two accounts).
-- **New customer**: the person's first completed order is in this period.
-- **Returning customer**: the person had a completed order before this period.
+- **New customer order**: the person's first completed order.
+- **Returning customer order**: any later completed order of the same person.
 
 ---
 
