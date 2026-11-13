@@ -1,5 +1,6 @@
 -- Q1. Is the business growing profitably?
--- Data: analytics.orders_enriched. Completed orders only, except 1c and 2c:
+-- Data: analytics.orders_enriched, and clean.marketing_spend in 2a and 2b.
+-- Completed orders only, except 1c and 2c:
 -- they also use 'shipped' and 'processing' orders to show how much
 -- September 2026 can still grow (DQ-21).
 
@@ -142,10 +143,12 @@ FROM jan_sep;
 -- Part 3. Where the growth comes from
 
 -- 3a. New vs returning customers (Jan-Sep)
+-- New = the person's first completed order (is_first_order = 1), the same as in Q4.
+-- All later orders are returning.
 SELECT
     EXTRACT(YEAR FROM order_date_local)::int AS year,
     CASE
-        WHEN EXTRACT(YEAR FROM first_order_ts) = EXTRACT(YEAR FROM order_date_local) THEN 'new'
+        WHEN is_first_order = 1 THEN 'new'
         ELSE 'returning'
     END AS customer_type,
     COUNT(DISTINCT main_customer_id) AS customers,

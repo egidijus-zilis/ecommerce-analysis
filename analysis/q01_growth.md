@@ -102,15 +102,18 @@ Full years: 2024 - 141,656 €, 2025 - 267,533 €. Gross profit after marketing
 
 ## 3. Where does the growth come from?
 
+A new customer order is the person's first completed order. All later orders are returning customer orders (the same as in Q4).
+
 Net revenue from new and returning customers (January-September):
 
-| Year | New customers | Returning customers |
-|---|---|---|
-| 2024 | 77,339 € | - |
-| 2025 | 145,295 € | 35,240 € |
-| 2026 | 151,366 € (+4 %) | 64,529 € (+83 %) |
+| Year | New: customers | New: orders | New: net revenue | Returning: customers | Returning: orders | Returning: net revenue |
+|---|---|---|---|---|---|---|
+| 2024 | 1,208 | 1,208 | 65,428 € | 161 | 232 | 11,912 € |
+| 2025 | 1,773 | 1,773 | 117,677 € | 673 | 1,053 | 62,858 € |
+| 2026 | 1,847 | 1,847 | 121,282 € (+3 %) | 978 | 1,525 | 94,612 € (+51 %) |
 
-- In 2026 revenue from new customers grew only 4 %, from returning customers 83 %.
+- In 2026 revenue from new customers grew only 3 %, from returning customers 51 %.
+- Returning customers brought 90 % of the growth in 2026 (31,755 € of 35,360 €).
 - Avg order value grew in 2025 (54 € to 64 €), but in 2026 it stayed the same (see the table in part 2).
 
 ## Recommendations
@@ -124,7 +127,6 @@ Net revenue from new and returning customers (January-September):
 - 2026 has data only until September, so I compared January-September of every year.
 - Profit uses today's product cost. Older costs are not known, so profit in 2024 may be a bit off.
 - September 2026 is not complete (DQ-21). 32 orders from 2026-09-26 to 09-30 are still 'shipped' or 'processing', so they are not in net revenue yet. This makes September 2026 and January-September 2026 look lower than they will be. Right now January-September 2026 is +19.6 % vs 2025. If all open orders are completed and nothing is returned, it would be up to +21.4 %.
-- A customer counts as "new" for the whole year of their first order. So their second and third orders that year are also counted as "new".
 - Order 1240 is left out: its 2 lines were sold at 0 € (DQ-13).
 - Gross profit after marketing is not net profit. Other costs (delivery, staff, rent) are not in the data.
 - Marketing spend for 2025 is a bit too low: 3 days of paid_search are missing (DQ-17).
