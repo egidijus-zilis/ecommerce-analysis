@@ -159,3 +159,39 @@ WHERE order_status = 'completed'
   AND EXTRACT(MONTH FROM order_date_local) <= 9
 GROUP BY 1, 2
 ORDER BY 1, 2;
+
+-- 3b. How much of the growth comes from more orders and from bigger orders (Jan-Sep)
+-- Net revenue = orders x AOV. The change is split into three parts:
+-- orders effect = new orders x last year's AOV,
+-- AOV effect = last year's orders x AOV change,
+-- both = new orders x AOV change.
+-- The three parts add up to the revenue change.
+WITH yearly AS (
+SELECT
+    EXTRACT(YEAR FROM order_date_local)::int AS year,
+    SUM(net_revenue) AS net_revenue,
+    COUNT(order_id) AS orders,
+    SUM(net_revenue) / COUNT(order_id) AS aov
+FROM analytics.orders_enriched
+WHERE order_status = 'completed'
+  AND EXTRACT(MONTH FROM order_date_local) <= 9
+GROUP BY 1),
+changes AS (
+SELECT
+    year,
+    net_revenue,
+    orders,
+    aov,
+    LAG(net_revenue) OVER (ORDER BY year) AS prev_revenue,
+    LAG(orders) OVER (ORDER BY year) AS prev_orders,
+    LAG(aov) OVER (ORDER BY year) AS prev_aov
+FROM yearly)
+SELECT
+    year,
+    ROUND(net_revenue - prev_revenue, 2) AS revenue_change,
+    ROUND((orders - prev_orders) * prev_aov, 2) AS orders_effect,
+    ROUND(prev_orders * (aov - prev_aov), 2) AS aov_effect,
+    ROUND((orders - prev_orders) * (aov - prev_aov), 2) AS both_effect
+FROM changes
+WHERE prev_orders IS NOT NULL
+ORDER BY year;

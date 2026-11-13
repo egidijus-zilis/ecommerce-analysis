@@ -14,7 +14,7 @@
 
 1. Month over month: revenue, gross profit and orders are lowest in February and highest in November (2024 is different, because it was the launch year and grew almost every month). Margin is lower in November.
 2. Year over year: the shop grows every year, but slower: +133 % in 2025, +20 % in 2026.
-3. Where the growth comes from: in 2025 from more orders and bigger orders. In 2026 only from more orders, mostly from returning customers.
+3. Where the growth comes from: in 2025 more orders brought 74,439 € and bigger orders 14,653 € (plus 14,103 € from both together). In 2026 almost all growth came from more orders (34,880 € of 35,360 €), and 90 % of it came from returning customers.
 
 Expected: November and December have the most sales - **yes** (November first, December second). Summer has less - **yes in 2025, mostly no in 2026** (only June was lower). Margin stays the same - **yes**.
 
@@ -115,6 +115,16 @@ Net revenue from new and returning customers (January-September):
 - In 2026 revenue from new customers grew only 3 %, from returning customers 51 %.
 - Returning customers brought 90 % of the growth in 2026 (31,755 € of 35,360 €).
 - Avg order value grew in 2025 (54 € to 64 €), but in 2026 it stayed the same (see the table in part 2).
+
+Growth split into more orders and bigger orders (January-September). Net revenue = orders × avg order value, so the change can be split into three parts that add up to the total:
+
+| Year | Revenue change | More orders | Bigger orders | Both together |
+|---|---|---|---|---|
+| 2025 | +103,195 € | +74,439 € | +14,653 € | +14,103 € |
+| 2026 | +35,360 € | +34,880 € | +402 € | +78 € |
+
+- "More orders" = new orders × last year's avg order value. "Bigger orders" = last year's orders × the change in avg order value. "Both together" = new orders × the change in avg order value.
+- In 2026, 99 % of the growth came from more orders. Bigger orders added only 402 €.
 
 ## Recommendations
 
