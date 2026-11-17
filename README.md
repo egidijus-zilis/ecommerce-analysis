@@ -153,7 +153,7 @@ These questions are answered with SQL. Each answer is in the `analysis/` folder.
 
 6. What share of customers buy again and how soon? Do newer cohorts come back more or less than older ones? ([answer](analysis/q06_repeat_customers.md))
 7. How much revenue depends on our best customers, what do they have in common, and how much revenue is at risk if they stop buying? ([answer](analysis/q07_best_customers.md))
-8. Which countries (LT, LV, EE) and customer groups (city, age, gender) bring the most value per customer? Where should we focus to grow? ([answer](analysis/q08_customer_groups.md))
+8. Which countries (LT, LV, EE) and customer groups (city, age, gender) bring the most value per customer? ([answer](analysis/q08_customer_groups.md))
 
 **Acquisition and marketing**
 
@@ -207,7 +207,7 @@ More metrics will be added when a business question needs them.
 
 1. **A small group of customers brings a big part of the revenue.** The top 10% of customers bring 43.26% of net revenue. 190 of them have not ordered for longer than usual. So far they spent about 62,400 € per year. ([Q7](analysis/q07_best_customers.md))
 2. **Discounts cost a lot, and I found no sign that they pay back.** Discounts cost about 25,400 €. The July sale did not bring more orders or new customers, and customers who started with a coupon came back less often (25.8% vs 30.9% for full price). ([Q4](analysis/q04_discounts.md))
-3. **Electronics brings the most revenue, but has the lowest margin (19.7%).** Groups that buy a lot of Electronics bring less profit than their revenue suggests. The top 10% of customers spend 48.79% on Electronics and bring 43.26% of revenue, but only 34.77% of profit. Men spend 38.66% on Electronics: they spend 28% more than women, but bring only 6% more profit. ([Q3](analysis/q03_product_profit.md), [Q7](analysis/q07_best_customers.md), [Q8](analysis/q08_customer_groups.md))
+3. **Electronics brings the most revenue, but has the lowest margin (19.7%).** Groups that buy a lot of Electronics bring less profit than their revenue suggests. The top 10% of customers spend 48.79% on Electronics and bring 43.26% of revenue, but only 34.77% of profit. In their first 180 days, men spend 40.49% on Electronics: they spend 35% more than women, but bring only 11% more profit. ([Q3](analysis/q03_product_profit.md), [Q7](analysis/q07_best_customers.md), [Q8](analysis/q08_customer_groups.md))
 4. **Email and referral bring the best customers.** About 1 in 5 of their buyers come back within 90 days, and each sign-up brings about 33 € profit in 180 days. Paid_social and affiliate bring the weakest customers: about 1 in 10 come back. ([Q9](analysis/q09_channels.md))
 5. Many mobile sessions end between checkout and payment. On mobile 80.77% go from checkout to payment, on desktop 92.35%. Mobile has 68% of all sessions. If this step worked like desktop, my rough estimate is about 7,000 EUR more gross profit per year, more likely less. ([Q12](analysis/q12_funnel.md))
 
