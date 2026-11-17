@@ -23,13 +23,13 @@
 
 **Customers bring about the same value in all groups. In the first 180 days a customer brings 31-33 € gross profit in each country, and cities, age groups and gender differ only a little. The one clear difference is margin: men buy more Electronics, so their margin is lower.**
 
-1. Countries: LT customers bring 32.92 € each (median 22.58 €), EE 32.29 €, LV 30.73 €. LT is only 2% above EE and 7% above LV.
+1. Countries: LT customers bring 32.92 € each (median 22.58 €), EE 32.29 € (median 21.30 €), LV 30.73 € (median 21.00 €).
 2. Cities: by mean Tallinn (36.11 €), Šiauliai (35.90 €) and Panevėžys (35.32 €) are on top, Klaipėda (28.31 €) is the lowest. By median all cities are between 20.83 € and 25.52 €.
 3. Age: all groups are between 30.63 € and 35.14 €. 45-54 is first by mean, 25-34 is second.
-4. Gender: men spend 35% more than women (101.04 € vs 74.61 €), but bring only 11% more profit (34.64 € vs 31.12 €). By median they are about the same (22.33 € vs 22.45 €). Men's margin is 34.29%, women's 41.70%.
+4. Gender: men spend more than women (101.04 € vs 74.61 €), but the profit is closer (34.64 € vs 31.12 €). By median they are about the same (22.33 € vs 22.45 €). Men's margin is 34.29%, women's 41.70%.
 
 Expected:
-- Value is not highest in Lithuania - **no**, LT is first, but only a little (2% above EE, 7% above LV).
+- Value is not highest in Lithuania - **no**, LT is first, but only a little (32.92 € vs 32.29 € in EE and 30.73 € in LV).
 - 25-34 brings the most - **no**, 45-54 is first by mean (35.14 €), 25-34 is second (32.91 €). The differences are small.
 - Men bring more profit - **yes** by mean (34.64 € vs 31.12 €), **no** by median (22.33 € vs 22.45 €).
 
@@ -41,8 +41,8 @@ Expected:
 | EE | 287 | 94.41 | 49.49 | 32.29 | 21.30 |
 | LV | 381 | 78.58 | 47.99 | 30.73 | 21.00 |
 
-- LT is first by mean and by median, but only 2% above EE and 7% above LV.
-- LT has 79% of these customers (2,499 of 3,167). It is the biggest market, but a LT customer is not much more valuable than a LV or EE customer.
+- LT is first by mean and by median, but the three countries are close: 30.73-32.92 € by mean, 21.00-22.58 € by median.
+- LT has the most customers (2,499), but a LT customer is not much more valuable than a LV or EE customer.
 
 ## 2. Which cities bring the most value per customer?
 
@@ -60,8 +60,7 @@ Only cities with 100+ customers. Smaller cities have only a few customers, and t
 
 - By mean, Tallinn, Šiauliai and Panevėžys are on top (35-36 €), Klaipėda is the lowest (28.31 €).
 - By median, all cities are between 20.83 € and 25.52 €.
-- 5 of 7 cities have fewer than 250 customers, so a few big customers can move the mean. I don't read much into the order.
-- In every city the mean is 1.4-1.5 times the median. A few big customers pull the mean up everywhere.
+- Šiauliai (107) and Panevėžys (101) have only about 100 customers, so a few big customers can move the mean. I don't read much into the order.
 
 ## 3. Which age groups bring the most value per customer?
 
@@ -110,8 +109,8 @@ Why men's margin is lower, by category (share of each group's spending in the sa
 
 ## Recommendations
 
-1. **Don't give different offers by country, city, age or gender.** In the first 180 days a customer brings 31-33 € in each country, and in other groups the medians differ only a few euros. (parts 1-4)
-2. **Start tracking marketing spend by country.** Customers are worth about the same everywhere, so only the cost of a new customer can make one country better to grow in. Now `marketing_spend` has no country, so this can't be checked. (part 1)
+1. **Don't split offers or ads by country, city, age or gender.** In the first 180 days a customer brings 31-33 € in each country, and in other groups the medians differ only a few euros. (parts 1-4)
+2. **Start tracking marketing spend by country.** `marketing_spend` has no country, so now it is not possible to say in which country growing would pay off. (part 1)
 
 ## Limitations
 
