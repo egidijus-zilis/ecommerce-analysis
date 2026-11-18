@@ -8,9 +8,9 @@
 
 **Same time for everyone:** customers who started earlier had more time to buy, so a lifetime total makes older groups look better. So I count value only in the **first 180 days after the first order**. Only customers with the first order on or before 2026-04-03 had the full 180 days before the data ends. 2024 is left out, because it was the launch year with a lower order value (the same as in Q2).
 
-**Value:** gross profit per customer in these 180 days. In Q7 I used net revenue, because that question was about revenue. Here I want to know where we earn the most, so profit is better. Net revenue is shown next to it.
+**Value:** gross profit per customer in these 180 days. I want to know where we earn the most, so profit is better (the same as in Q7). Net revenue is shown next to it.
 
-**Mean and median:** I show both. A few big customers pull the mean up (in Q7 the top 10% brought 43% of revenue), so the median shows a typical customer better.
+**Mean and median:** I show both. A few big customers pull the mean up (in Q7 the top 10% brought 40.37% of net revenue), so the median shows a typical customer better.
 
 **Age groups:** age = 2026 - birth_year. Groups: 18-24, 25-34, 35-44, 45-54, 55-64, 65+. These are common marketing groups (Meta and Google use the same). Customers with no birth year go to "unknown" (most of them left it empty, some had impossible years, DQ-06).
 

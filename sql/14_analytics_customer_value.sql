@@ -1,6 +1,7 @@
 -- View: one row per customer (main_customer_id), completed orders only.
 -- revenue_group: 1 = top 10% of customers by net revenue, 10 = bottom 10%.
--- main_customer_id breaks ties, so customers with the same revenue always get the same group.
+-- profit_group: 1 = top 10% of customers by gross profit, 10 = bottom 10%.
+-- main_customer_id breaks ties, so customers with the same value always get the same group.
 -- second_order_date is NULL for customers with only 1 order.
 -- net_revenue_180d, gross_profit_180d: only orders within 180 days of the first order.
 -- has_180d = 1 if the first order is on or before 2026-04-03,
@@ -41,7 +42,8 @@ SELECT
     last_order_date,
     net_revenue_180d,      -- 180d
     gross_profit_180d,     -- 180d
-    NTILE(10) OVER (ORDER BY net_revenue DESC, main_customer_id) AS revenue_group
+    NTILE(10) OVER (ORDER BY net_revenue DESC, main_customer_id) AS revenue_group,
+    NTILE(10) OVER (ORDER BY gross_profit DESC, main_customer_id) AS profit_group
 FROM customers_net_revenue)
 SELECT
     cg.main_customer_id,
@@ -59,6 +61,7 @@ SELECT
     c.acquisition_source,
     cg.net_revenue_180d,                                                   -- 180d
     cg.gross_profit_180d,                                                  -- 180d
-    CASE WHEN cg.first_order_date <= DATE '2026-04-03' THEN 1 ELSE 0 END AS has_180d   -- 180d
+    CASE WHEN cg.first_order_date <= DATE '2026-04-03' THEN 1 ELSE 0 END AS has_180d,  -- 180d
+    cg.profit_group
 FROM customer_groups cg
 LEFT JOIN clean.customers c ON c.customer_id = cg.main_customer_id;
