@@ -146,8 +146,7 @@ I assume that today's 193 at-risk customers act like last year's at-risk custome
 ## Recommendations
 
 1. **Try a cheap win-back email for at-risk top customers, and test it first.** 193 top customers have not ordered for longer than usual. Winning them back can add at most about 3,500 € gross profit per year (estimate), so the campaign must be cheap. Send it to half of them, and after 90 days compare gross profit with the other half. Give a discount only if the test shows that the extra profit is bigger than the discount cost. (part 3)
-2. **Give a reward for inviting a friend (referral).** 15.09% of referral customers become top customers, while only 6.00% of affiliate customers do. (part 2)
-3. **Offer accessories with Electronics orders.** Top customers spend 39.60% on Electronics, where the margin is only 19.7%, so an accessory with a higher margin raises the profit of the order. (parts 1, 2)
+2. **Offer accessories with Electronics orders.** Top customers spend 39.60% on Electronics, where the margin is only 19.7%, so an accessory with a higher margin raises the profit of the order. (parts 1, 2)
 
 ## Limitations
 
