@@ -20,13 +20,13 @@
 
 ## Answer
 
-**Email and referral bring the best customers. They come back more often and bring the most profit per sign-up (about 33 €). Paid_social and affiliate are the weakest in every part.**
+**Email and referral buyers come back more often than buyers from other channels, and a test shows this is not chance. They also bring the most profit per sign-up (about 33 €), but I did not test this difference. Paid_social and affiliate are the weakest in every part.**
 
 1. Sign-ups who buy within 30 days: 72.25% (paid_social) to 81.36% (email). Referral is 77.74%.
-2. Buy again: email 22.73% and referral 21.20% come back within 90 days. Paid_social (11.25%) and affiliate (10.59%) only about half as often.
+2. Buy again: email 22.73% and referral 21.20% come back within 90 days. Paid_social (11.25%) and affiliate (10.59%) come back less often. For these four channels the difference from other channels is not chance (z test).
 3. Profit: email (33.52 €) and referral (33.33 €) bring the most per sign-up, affiliate the least (22.09 €).
 
-Expected: Referral and email bring customers who stay and buy again - **yes**, they are the top two in part 2. Customers from other channels leave more often - **partly**. Paid_social and affiliate come back half as often, but direct, paid_search and organic_search are in the middle (17-18%).
+Expected: Referral and email bring customers who stay and buy again - **yes**, they are the top two in part 2. Customers from other channels leave more often - **partly**. Paid_social and affiliate come back less often, but direct, paid_search and organic_search are in the middle (17-18%).
 
 ## 1. Which channels turn sign-ups into buyers?
 
@@ -70,6 +70,22 @@ Buyers with the first order before 2026-07-01:
 - Email and referral customers come back the most, about 1 in 5.
 - Paid_social and affiliate customers come back only about 1 in 10.
 
+Is each channel really different from the others? Small groups can look better or worse just by chance (email has only 308 buyers). So I compared each channel with all other channels together (two-proportion z-test):
+
+| Channel | Buyers | Back within 90 days | Other channels | z | Different? |
+|---|---|---|---|---|---|
+| email | 308 | 22.73% | 16.04% | 3.08 | yes |
+| referral | 500 | 21.20% | 15.94% | 3.04 | yes |
+| direct | 818 | 18.22% | 16.09% | 1.52 | no |
+| paid_search | 1,018 | 17.49% | 16.16% | 1.03 | no |
+| organic_search | 1,601 | 16.86% | 16.22% | 0.59 | no |
+| affiliate | 425 | 10.59% | 16.87% | -3.36 | yes |
+| paid_social | 1,013 | 11.25% | 17.52% | -4.88 | yes |
+
+- z shows how big the difference is compared with what chance alone could make. I made 7 tests, so I used a strict line: |z| ≥ 2.69 (Bonferroni, 0.05 / 7).
+- Email and referral come back more often than other channels, paid_social and affiliate less often. This is not chance.
+- Direct, paid_search and organic_search are in the middle. Their differences can be chance.
+
 ## 3. Which channels bring the most profit per sign-up?
 
 Profit in the first 180 days, divided by all sign-ups (people who didn't buy count as 0 €). Sign-ups up to 2026-04-03:
@@ -84,7 +100,7 @@ Profit in the first 180 days, divided by all sign-ups (people who didn't buy cou
 | paid_social | 1,105 | 24.16 | 13.73 |
 | affiliate | 439 | 22.09 | 15.76 |
 
-- Email and referral bring about 33 € per sign-up, affiliate only 22.09 €.
+- Email and referral bring about 33 € per sign-up, affiliate only 22.09 €. I did not test if these differences are chance.
 - By median, direct (19.03 €) is a bit above referral (18.43 €). So referral's higher mean comes partly from a few bigger customers.
 - Paid_social has the lowest median (13.73 €). It also turns the fewest sign-ups into buyers (part 1).
 
@@ -100,3 +116,4 @@ Profit in the first 180 days, divided by all sign-ups (people who didn't buy cou
 - Part 3 counts only the first 180 days. Customers who come back later bring more profit, and this is not counted.
 - The channel is what was saved at sign-up. A customer can come through one channel and buy after an ad from another.
 - Marketing cost is not included here. A channel can bring good customers but still be too expensive. Budget between channels should not be moved before checking the cost per channel.
+- The z test compares each channel with all other channels together, not two channels with each other. So it does not show that email is better than direct, only that email is better than the other channels on average.

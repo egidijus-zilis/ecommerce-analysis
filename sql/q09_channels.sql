@@ -68,6 +68,44 @@ WHERE first_order_date < DATE '2026-07-01'
 GROUP BY acquisition_source
 ORDER BY returning_share DESC;
 
+-- 2b. Is each channel different from all other channels? (two-proportion z-test)
+-- n1, x1 = buyers and returned buyers of this channel. n2, x2 = the same for all other channels.
+-- p = both groups together. se = how much the share can move by chance.
+-- 7 tests at once, so I use a stricter line: |z| >= 2.69 (0.05 / 7 tests, Bonferroni).
+-- is_different = 'yes': the difference is unlikely to be chance.
+WITH counts AS (
+SELECT
+    acquisition_source,
+    COUNT(*) AS n1,
+    COUNT(*) FILTER (WHERE second_order_date - first_order_date <= 90) AS x1
+FROM analytics.customer_value
+WHERE first_order_date < DATE '2026-07-01'
+GROUP BY acquisition_source),
+with_rest AS (
+SELECT
+    acquisition_source,
+    n1,
+    x1,
+    SUM(n1) OVER () - n1 AS n2,
+    SUM(x1) OVER () - x1 AS x2
+FROM counts),
+with_p AS (
+SELECT
+    *,
+    x1::numeric / n1 AS p1,
+    x2::numeric / n2 AS p2,
+    (x1 + x2)::numeric / (n1 + n2) AS p
+FROM with_rest)
+SELECT
+    acquisition_source,
+    n1 AS buyers,
+    ROUND(p1 * 100, 2) AS channel_share,
+    ROUND(p2 * 100, 2) AS other_channels_share,
+    ROUND((p1 - p2) / SQRT(p * (1 - p) * (1.0 / n1 + 1.0 / n2)), 2) AS z,
+    CASE WHEN ABS((p1 - p2) / SQRT(p * (1 - p) * (1.0 / n1 + 1.0 / n2))) >= 2.69 THEN 'yes' ELSE 'no' END AS is_different
+FROM with_p
+ORDER BY z DESC;
+
 
 -- Part 3. Profit per sign-up
 
