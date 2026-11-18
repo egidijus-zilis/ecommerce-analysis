@@ -47,6 +47,7 @@ LIMIT 5;
 -- Part 2. Reprice, promote or drop
 -- Step 1: ABC analysis. C products always go to review.
 -- Step 2: A and B products are put in groups by units per month and profit per unit.
+-- Step 3: many units + low profit per unit is split by margin: below the category margin -> reprice, at or above -> bundle.
 
 -- 2a. Medians (active products only)
 SELECT DISTINCT
@@ -80,28 +81,35 @@ WHERE is_active = 'yes'
 GROUP BY product_recommendation
 ORDER BY gross_profit_share DESC NULLS LAST;
 
--- 2e. Top 5 reprice: people buy them often, but each sale earns little
-SELECT product_id, product_name, category, units_per_month, profit_per_unit, profit_per_month
+-- 2e. Top 5 reprice: people buy them often, each sale earns little, and the margin is below the category margin
+SELECT product_id, product_name, category, units_per_month, profit_per_unit, profit_per_month, gross_margin, category_margin
 FROM analytics.product_performance
 WHERE is_active = 'yes' AND product_recommendation = 'reprice'
 ORDER BY units_per_month DESC
 LIMIT 5;
 
--- 2f. Top 5 promote: each sale earns a lot, but people buy them rarely
+-- 2f. Top 5 bundle: people buy them often, each sale earns little, but the margin is at or above the category margin
+SELECT product_id, product_name, category, units_per_month, profit_per_unit, profit_per_month, gross_margin, category_margin
+FROM analytics.product_performance
+WHERE is_active = 'yes' AND product_recommendation = 'bundle'
+ORDER BY units_per_month DESC
+LIMIT 5;
+
+-- 2g. Top 5 promote: each sale earns a lot, but people buy them rarely
 SELECT product_id, product_name, category, units_per_month, profit_per_unit, profit_per_month
 FROM analytics.product_performance
 WHERE is_active = 'yes' AND product_recommendation = 'promote'
 ORDER BY profit_per_unit DESC
 LIMIT 5;
 
--- 2g. Top 5 review: earn the least per month
+-- 2h. Top 5 review: earn the least per month
 SELECT product_id, product_name, category, units_per_month, profit_per_unit, profit_per_month
 FROM analytics.product_performance
 WHERE is_active = 'yes' AND product_recommendation = 'review'
 ORDER BY profit_per_month ASC
 LIMIT 5;
 
--- 2h. Discontinued products by group
+-- 2i. Discontinued products by group
 SELECT
     product_recommendation,
     COUNT(*) AS products
@@ -109,7 +117,7 @@ FROM analytics.product_performance
 WHERE is_active = 'no'
 GROUP BY product_recommendation;
 
--- 2i. Discontinued products in 'keep': maybe bring back
+-- 2j. Discontinued products in 'keep': maybe bring back
 SELECT product_id, product_name, category, sales_end, units_per_month, profit_per_unit, profit_per_month
 FROM analytics.product_performance
 WHERE is_active = 'no' AND product_recommendation = 'keep'

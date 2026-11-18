@@ -1,3 +1,12 @@
+-- View: one row per product.
+-- product_recommendation (active products):
+--   ABC class C -> review.
+--   Otherwise compared with the medians of active products (units per month, profit per unit):
+--   keep: many units, high profit per unit.
+--   reprice: many units, low profit per unit, margin below the category margin (cheaper than usual for its category).
+--   bundle: many units, low profit per unit, margin at or above the category margin (the product is just cheap).
+--   promote: few units, high profit per unit.
+--   review: few units, low profit per unit.
 DROP VIEW IF EXISTS analytics.product_performance CASCADE;
 
 CREATE VIEW analytics.product_performance AS
@@ -32,6 +41,12 @@ SELECT
     ROUND(s.gross_profit / NULLIF(pt.months_on_sale, 0), 2) AS profit_per_month
 FROM product_time pt
 LEFT JOIN sales s ON pt.product_id = s.product_id),
+category_margins AS (
+SELECT
+    category,
+    ROUND(SUM(gross_profit) / NULLIF(SUM(net_revenue), 0) * 100, 2) AS category_margin
+FROM product_stats
+GROUP BY category),
 medians AS (
 SELECT
     PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY units_per_month) AS median_units_per_month,
@@ -59,17 +74,20 @@ SELECT
     ps.*,
     m.median_units_per_month,
     m.median_profit_per_unit,
+    c.category_margin,
     a.abc_class,
     CASE
         WHEN a.abc_class = 'C' THEN 'review'
         WHEN ps.units_per_month >= m.median_units_per_month AND ps.profit_per_unit >= m.median_profit_per_unit THEN 'keep'
-        WHEN ps.units_per_month >= m.median_units_per_month AND ps.profit_per_unit <  m.median_profit_per_unit THEN 'reprice'
+        WHEN ps.units_per_month >= m.median_units_per_month AND ps.profit_per_unit <  m.median_profit_per_unit AND ps.gross_margin < c.category_margin THEN 'reprice'
+        WHEN ps.units_per_month >= m.median_units_per_month AND ps.profit_per_unit <  m.median_profit_per_unit THEN 'bundle'
         WHEN ps.units_per_month <  m.median_units_per_month AND ps.profit_per_unit >= m.median_profit_per_unit THEN 'promote'
         WHEN ps.units_per_month <  m.median_units_per_month AND ps.profit_per_unit <  m.median_profit_per_unit THEN 'review'
         ELSE 'no_sales'
     END AS product_recommendation
 FROM product_stats ps
 CROSS JOIN medians m
+LEFT JOIN category_margins c ON ps.category = c.category
 LEFT JOIN abc_classes a ON ps.product_id = a.product_id)
 SELECT *
 FROM final;

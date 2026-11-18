@@ -15,7 +15,7 @@
 **Home & Kitchen and Fashion earn the most profit, Pets earns the least. No active product loses money, so no product needs to be dropped immediately.**
 
 1. Most and least profit: Home & Kitchen and Fashion earn almost the same, together about half of all profit. Pets earns the least. The best product earns about 298 € per month, the weakest about 2 €.
-2. Reprice, promote or drop: of the active products, 37 are in "keep", 73 in "reprice", 65 in "promote" and 56 in "review".
+2. Reprice, promote or drop: of the active products, 37 are in "keep", 26 in "reprice", 47 in "bundle", 65 in "promote" and 56 in "review".
 
 Expected: Home & Kitchen and Fashion earn the most profit - **yes**. Garden earns the least - **no**, Pets earns the least. Garden is sixth.
 
@@ -68,8 +68,11 @@ How the groups are made (two steps):
 
 | | Profit per unit ≥ 14.31 € | Profit per unit < 14.31 € |
 |---|---|---|
-| **Units per month ≥ 2.08** | keep | reprice |
+| **Units per month ≥ 2.08** | keep | reprice or bundle (step 3) |
 | **Units per month < 2.08** | promote | review |
+
+- **Step 3, margin.** Products that sell often but earn little per unit can be cheap for two reasons. If their margin is below the margin of their category, they are cheaper than usual for this kind of product, so the price can be tested: **reprice**. If their margin is at or above the category margin, the product is just cheap, and a higher price is not the answer: **bundle** (sell it together with other products).
+- I compare with the category margin, not with one margin for all products, because normal margins are very different between categories (Electronics 19.7%, Fashion 57.5%, part 1).
 
 I first used margin % instead of profit per unit. But then expensive products with a low margin looked weak: the laptop, one of the top 5 products, was in "review". Profit per unit in euros fixes this. The ABC step was added because, without it, products that sell once in 4 months were in "promote".
 
@@ -87,22 +90,35 @@ Active products by group:
 | Group | Products | Gross profit (EUR) | Share of profit |
 |---|---|---|---|
 | keep | 37 | 69,881 | 30.6% |
-| reprice | 73 | 71,837 | 31.4% |
+| reprice | 26 | 20,944 | 9.2% |
+| bundle | 47 | 50,893 | 22.3% |
 | promote | 65 | 67,710 | 29.6% |
 | review | 56 | 19,027 | 8.3% |
 
 - No active product loses money, so no product is marked "drop". The weakest group is "review": 56 products bring only 8.3% of profit.
 - 1 active product has no sales: Domus Steam Iron (id 239), launched on 2026-03-22.
 
-**Top 5 reprice:** people buy them often, but each sale earns little. Sorted by units per month.
+**Top 5 reprice:** people buy them often, each sale earns little, and the margin is below the category margin. Sorted by units per month.
 
-| id | Product | Category | Units / month | Profit / unit (EUR) | Profit / month (EUR) |
-|---|---|---|---|---|---|
-| 111 | Verdane Linen Cushion Cover 45x45 | Home & Kitchen | 12.76 | 9.44 | 120.43 |
-| 98 | Petia Grain-Free Dog Treats 300g | Pets | 10.76 | 1.96 | 21.04 |
-| 242 | Lumea Scented Candle Amber 200g | Home & Kitchen | 10.14 | 8.67 | 87.91 |
-| 134 | Greenly Garden Gloves 3-Pack | Garden | 8.79 | 5.64 | 49.62 |
-| 58 | Dermia Mineral Sunscreen SPF50 100ml | Beauty & Care | 8.09 | 8.21 | 66.48 |
+| id | Product | Category | Units / month | Profit / unit (EUR) | Profit / month (EUR) | Margin | Category margin |
+|---|---|---|---|---|---|---|---|
+| 98 | Petia Grain-Free Dog Treats 300g | Pets | 10.76 | 1.96 | 21.04 | 23.80% | 34.89% |
+| 59 | Silka Repair Shampoo 300ml | Beauty & Care | 7.12 | 3.58 | 25.48 | 35.74% | 47.19% |
+| 64 | Naturo Lavender Bath Salts 500g | Beauty & Care | 6.46 | 4.52 | 29.19 | 44.89% | 47.19% |
+| 94 | Naturo Magnesium Body Spray 100ml | Beauty & Care | 5.94 | 5.39 | 32.00 | 43.28% | 47.19% |
+| 153 | Pumpa Water Blaster 2-Pack | Toys & Kids | 5.50 | 4.45 | 24.48 | 30.54% | 39.50% |
+
+**Top 5 bundle:** people buy them often and each sale earns little, but the margin is at or above the category margin. Sorted by units per month.
+
+| id | Product | Category | Units / month | Profit / unit (EUR) | Profit / month (EUR) | Margin | Category margin |
+|---|---|---|---|---|---|---|---|
+| 111 | Verdane Linen Cushion Cover 45x45 | Home & Kitchen | 12.76 | 9.44 | 120.43 | 53.45% | 45.88% |
+| 242 | Lumea Scented Candle Amber 200g | Home & Kitchen | 10.14 | 8.67 | 87.91 | 59.06% | 45.88% |
+| 134 | Greenly Garden Gloves 3-Pack | Garden | 8.79 | 5.64 | 49.62 | 45.87% | 41.22% |
+| 58 | Dermia Mineral Sunscreen SPF50 100ml | Beauty & Care | 8.09 | 8.21 | 66.48 | 49.44% | 47.19% |
+| 165 | Glowva Full Coverage Concealer | Beauty & Care | 8.01 | 6.92 | 55.42 | 50.70% | 47.19% |
+
+- Bath Salts (44.89% vs 47.19%) and Body Spray (43.28% vs 47.19%) are close to the line. Any line has products near it, so the price is only tested, not raised right away.
 
 **Top 5 promote:** each sale earns a lot, but people buy them rarely. Sorted by profit per unit.
 
@@ -124,16 +140,17 @@ Active products by group:
 | 127 | Whiskr Cat Tree 120cm | Pets | 0.15 | 36.09 | 5.47 |
 | 57 | Dermia Hyaluronic Acid Serum 30ml | Beauty & Care | 0.52 | 11.95 | 6.16 |
 
-**Discontinued products:** 28 products are not sold anymore. They have no ABC class, so only the step 2 rules are used. With these rules, 16 would be in "promote", 9 in "reprice" and 3 in "review". None would be in "keep", so no removed product needs to come back.
+**Discontinued products:** 28 products are not sold anymore. They have no ABC class, so only the step 2 rules are used. With these rules, 16 would be in "promote", 7 in "bundle", 2 in "reprice" and 3 in "review". None would be in "keep", so no removed product needs to come back.
 
 ## Recommendations
 
 1. **Improve the Electronics margin.** Electronics has the biggest revenue, but only 19.7% margin, so it earns less than Home & Kitchen and Fashion. Talk with suppliers about lower purchase prices and avoid big discounts on electronics. (part 1)
 2. **Keep Home & Kitchen and Fashion always in stock.** Together they bring about half of all profit. Start campaigns for them only when the stock is ready. (part 1)
 3. **Never let the top 5 products run out of stock.** Each of them earns 186-298 € per month. (part 1)
-4. **Test a small price increase on the top 5 "reprice" products.** People buy them often, but each sale earns little. For example, Petia Grain-Free Dog Treats sell about 11 units per month, but earn only 1.96 € per unit. If sales stay the same, do the same for other "reprice" products. (part 2)
-5. **Advertise the top 5 "promote" products more.** Each sale earns a lot (86-145 € per unit), but people buy them rarely. If sales grow, do the same for other "promote" products. (part 2)
-6. **Stop ordering new stock for the 5 weakest "review" products and use this money for "keep" and "promote" products.** Together the 5 weakest products earn only about 23 € per month, so the same money can earn more on stronger products. Run this analysis again in a few months, because some "review" products can move to another group. (part 2)
+4. **Test a small price increase on the top 5 "reprice" products.** People buy them often, each sale earns little, and their margin is below their category. For example, Petia Grain-Free Dog Treats sell about 11 units per month, earn only 1.96 € per unit and have a 23.80% margin, while Pets have 34.89%. If sales stay the same, do the same for other "reprice" products. (part 2)
+5. **Sell the top 5 "bundle" products together with other products.** They sell often and already have a good margin for their category, so the price is not the problem: each sale is just small. For example, Verdane Linen Cushion Cover sells about 13 units per month with a 53.45% margin (Home & Kitchen 45.88%). Sets or add-ons at checkout can make the order bigger. (part 2)
+6. **Advertise the top 5 "promote" products more.** Each sale earns a lot (86-145 € per unit), but people buy them rarely. If sales grow, do the same for other "promote" products. (part 2)
+7. **Stop ordering new stock for the 5 weakest "review" products and use this money for "keep" and "promote" products.** Together the 5 weakest products earn only about 23 € per month, so the same money can earn more on stronger products. Run this analysis again in a few months, because some "review" products can move to another group. (part 2)
 
 ## Limitations
 
