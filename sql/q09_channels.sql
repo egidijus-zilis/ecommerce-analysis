@@ -1,6 +1,7 @@
 -- Q9. Which channels bring good customers?
 -- Channel = acquisition_source of the person's main account (customer_id = main_customer_id).
--- Bought = at least one completed order. Data ends 2026-09-30.
+-- Bought (part 1) = kept something: net revenue > 0 from completed orders within 30 days of sign-up.
+-- Data ends 2026-09-30.
 
 
 -- Part 1. Sign-ups who buy
@@ -22,23 +23,32 @@ FROM buyers;
 
 -- 1b. Share of sign-ups who bought, by channel
 -- Only sign-ups up to 2026-08-31, so everyone had at least 30 days.
--- Bought = first completed order within 30 days of sign-up.
+-- Bought = net revenue > 0 from orders within 30 days of sign-up.
+-- So people who returned everything (net revenue 0) count as not bought.
+-- Join on cc.customer_id = main_customer_id: one row per person, signup_date of the main account.
 WITH customer_source AS (
 SELECT
     cc.main_customer_id,
     cc.acquisition_source,
-    cc.signup_date,
-    COALESCE(cv.orders, 0) AS orders,
-    cv.first_order_date
+    cc.signup_date
 FROM clean.customers cc
-LEFT JOIN analytics.customer_value cv ON cv.main_customer_id = cc.main_customer_id
-WHERE cc.customer_id = cc.main_customer_id)
+WHERE cc.customer_id = cc.main_customer_id),
+revenue_30d AS (
+SELECT
+    aoe.main_customer_id,
+    SUM(aoe.net_revenue) AS net_revenue_30d
+FROM analytics.orders_enriched aoe
+JOIN clean.customers cc ON aoe.main_customer_id = cc.customer_id
+WHERE aoe.net_revenue > 0
+  AND aoe.order_date_local - cc.signup_date <= 30
+GROUP BY aoe.main_customer_id)
 SELECT
     acquisition_source,
     COUNT(*) AS sign_ups,
-    COUNT(*) FILTER (WHERE orders > 0 AND first_order_date - signup_date  <= 30) AS bought,
-    ROUND(COUNT(*) FILTER (WHERE orders > 0 AND first_order_date - signup_date  <= 30)::numeric / COUNT(*) * 100, 2) AS bought_share
-FROM customer_source
+    COUNT(*) FILTER (WHERE net_revenue_30d > 0) AS bought,
+    ROUND(COUNT(*) FILTER (WHERE net_revenue_30d > 0)::numeric / COUNT(*) * 100, 2) AS bought_share
+FROM customer_source cs
+LEFT JOIN revenue_30d r ON r.main_customer_id = cs.main_customer_id
 WHERE signup_date <= DATE '2026-08-31'
 GROUP BY acquisition_source
 ORDER BY bought_share DESC;
