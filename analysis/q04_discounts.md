@@ -17,11 +17,11 @@
 
 ## Answer
 
-**Are discounts worth it? Mostly no.** Discounts cost about 25,400 € and lower the margin. The July sale does not bring more orders or new customers, and customers who start with a coupon come back less often.
+**Are discounts worth it? Mostly no.** Discounts cost about 25,400 € and lower the margin. In July I see no clear jump in orders or new customers from the sale, and customers who start with a coupon come back less often.
 
 1. Cost: discounts cost about 25,400 €. The discount takes about 9 points of margin in sale orders and about 6 points in coupon orders.
-2. More orders: no. July (sale) is between June and August, so there is no extra jump in orders.
-3. New customers: the July sale does not bring a jump in new customers. 90% of coupon orders are first orders, but WELCOME10 is given to every new customer, so this does not show that the coupon brought them.
+2. More orders: no clear sign. July (sale) is between June and August, so I see no extra jump in orders.
+3. New customers: I see no jump in new customers in July. 90% of coupon orders are first orders, but WELCOME10 is given to every new customer, so this does not show that the coupon brought them.
 4. Customers who come back: customers who start with a sale come back as often as others (30.0% vs 30.9%). Customers who start with a coupon come back less often (25.8%).
 
 Expected: Discounts bring new customers, and later they spend more than the discount cost us - **no**. New customers did not jump in July, and coupon customers come back less often. How much they spend later was not checked. AOV is higher during sale periods - **no**, July AOV is between June and August.
@@ -66,11 +66,11 @@ July sale vs June and August:
 | **2026-07 (sale)** | **12.90** | **6.77** | **66.81** | **34.9%** |
 | 2026-08 | 13.26 | 7.13 | 64.73 | 39.7% |
 
-- July is between June and August in orders per day and in AOV. In these months the business grows month by month, so July follows this growth. There is no extra jump from the sale.
+- July is between June and August in orders per day and in AOV. In these months the business grows month by month, so July follows this growth. I see no extra jump in July. But the sale happens every July, so I can't compare with a July without a sale. If July would be weaker without the sale, the sale could still bring some orders.
 
 ## 3. Do discounts bring new customers?
 
-- **Sale: no.** New customers per day in July are between June and August, so there is no extra jump (table in part 2).
+- **Sale: no clear sign.** New customers per day in July are between June and August, so I see no extra jump (table in part 2).
 - **Coupons: the data can't show it.** Most coupon orders are first orders, but this is because of how the coupons are given, not proof that they bring new customers (see below).
 
 Share of first orders (the customer's first order with us):
@@ -89,7 +89,7 @@ By coupon:
 | AFF10 | 172 | 171 |
 | EMAIL15 | 170 | 4 |
 
-- Sale orders have a bit more first orders than full price orders (62.8% vs 56.3%). This does not mean that the sale brings new customers: new customers per day do not jump in July. New customers come anyway, and during a sale they simply buy discounted products.
+- Sale orders have a bit more first orders than full price orders (62.8% vs 56.3%). This does not mean that the sale brings new customers: new customers per day do not jump in July. I think new customers come anyway, and during a sale they simply buy discounted products.
 - WELCOME10 is used almost only on first orders, so it looks like a coupon for every new customer. AFF10 is also used almost only on first orders, but we can't tell if these customers would come without the partner. EMAIL15 is used almost only by customers who already bought before.
 
 ## 4. Do discounts bring customers who come back?
@@ -114,7 +114,7 @@ Customers grouped by the type of their first order:
 
 - Only the July sale was checked for extra orders. In November and January the sale and the busy season happen at the same time, so they can't be separated.
 - Coupons are used all year, so there is no period without them to compare with. Extra orders from coupons can't be measured.
-- We don't know what would happen without the sale.
+- The sale happens every July, so there is no July without a sale to compare with. I can't say that the sale had no effect, only that I see no clear jump.
 - In coupon orders, a 15% line can be a sale or EMAIL15. These lines are counted as coupon. A few lines in coupon orders have a smaller discount than the coupon or no discount, and the data does not explain why.
 - What the coupons are for (welcome, email, partners) is guessed from their names. It is not written in the data.
 - Return rate shows only if a customer bought again, not how much they spent.

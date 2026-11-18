@@ -90,8 +90,8 @@ Profit in the first 180 days, divided by all sign-ups (people who didn't buy cou
 
 ## Recommendations
 
-1. **Send a reminder to paid_social sign-ups who did not buy.** Paid_social turns the fewest sign-ups into buyers (72.25% vs 81.36% for email). Test it on half of them to see if it helps. (part 1)
-2. **Send the Q6 reminder email (60 days after the first order) to paid_social and affiliate buyers first.** Only about 11% of them buy again within 90 days, while email and referral buyers do it about twice as often (21-23%). (part 2)
+1. **Send a reminder to sign-ups who did not buy, and compare the result by channel.** Paid_social turns the fewest sign-ups into buyers (72.25% vs 81.36% for email). Send it to half of them, compare with the other half, and check if it helps paid_social more than other channels. (part 1)
+2. **Send the [Q6](q06_repeat_customers.md) reminder email (60 days after the first order) to all buyers, and compare the result by channel.** Paid_social (11.25%) and affiliate (10.59%) buyers come back the least within 90 days, email (22.73%) and referral (21.20%) the most. The test will show if the reminder helps the weak channels. (part 2)
 
 ## Limitations
 
