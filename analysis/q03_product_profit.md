@@ -144,7 +144,7 @@ Active products by group:
 
 ## Recommendations
 
-1. **Improve the Electronics margin.** Electronics has the biggest revenue, but only 19.7% margin, so it earns less than Home & Kitchen and Fashion. Talk with suppliers about lower purchase prices and avoid big discounts on electronics. (part 1)
+1. **Improve the Electronics margin.** Electronics has the biggest revenue, but only 19.7% margin, so it earns less than Home & Kitchen and Fashion. Talk with suppliers about lower purchase prices. Keep discounts on electronics small: with a 19.7% margin, even a small discount takes a big part of the profit. (part 1)
 2. **Keep Home & Kitchen and Fashion always in stock.** Together they bring about half of all profit. Start campaigns for them only when the stock is ready. (part 1)
 3. **Never let the top 5 products run out of stock.** Each of them earns 186-298 € per month. (part 1)
 4. **Test a small price increase on the top 5 "reprice" products.** People buy them often, each sale earns little, and their margin is below their category. For example, Petia Grain-Free Dog Treats sell about 11 units per month, earn only 1.96 € per unit and have a 23.80% margin, while Pets have 34.89%. If sales stay the same, do the same for other "reprice" products. (part 2)
