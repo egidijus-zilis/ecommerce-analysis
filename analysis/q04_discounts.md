@@ -21,7 +21,7 @@
 
 1. Cost: discounts cost about 25,400 €. The discount takes about 9 points of margin in sale orders and about 6 points in coupon orders.
 2. More orders: no clear sign. July (sale) is between June and August, so I see no extra jump in orders.
-3. New customers: I see no jump in new customers in July. 90% of coupon orders are first orders, but WELCOME10 is given to every new customer, so this does not show that the coupon brought them.
+3. New customers: I see no jump in new customers in July. 90% of coupon orders are first orders, but this is because WELCOME10 is used almost only on first orders. It does not show that the coupon brought them.
 4. Customers who come back: customers who start with a sale come back as often as others (30.0% vs 30.9%). Customers who start with a coupon come back less often (25.8%).
 
 Expected: Discounts bring new customers, and later they spend more than the discount cost us - **no**. New customers did not jump in July, and coupon customers come back less often. How much they spend later was not checked. AOV is higher during sale periods - **no**, July AOV is between June and August.
@@ -90,7 +90,7 @@ By coupon:
 | EMAIL15 | 170 | 4 |
 
 - Sale orders have a bit more first orders than full price orders (62.8% vs 56.3%). This does not mean that the sale brings new customers: new customers per day do not jump in July. I think new customers come anyway, and during a sale they simply buy discounted products.
-- WELCOME10 is used almost only on first orders, so it looks like a coupon for every new customer. AFF10 is also used almost only on first orders, but we can't tell if these customers would come without the partner. EMAIL15 is used almost only by customers who already bought before.
+- WELCOME10 is used almost only on first orders (1,444 of 1,457). But only 1,444 of all 6,306 first orders have it, so not every new customer uses it. The data does not say who gets it. AFF10 is also used almost only on first orders, but we can't tell if these customers would come without the partner. EMAIL15 is used almost only by customers who already bought before.
 
 ## 4. Do discounts bring customers who come back?
 
@@ -108,7 +108,7 @@ Customers grouped by the type of their first order:
 ## Recommendations
 
 1. **Test a smaller or shorter July sale.** The July sale lowers the margin, but brings no extra orders or new customers. We don't know what would happen without it, so a smaller sale next July can show if the same orders come with a better margin. (parts 1, 2)
-2. **Test a coupon for the second order instead of only the first.** Customers who start with WELCOME10 come back less often (25.8% vs 30.9%). A second-order coupon costs margin again, but it can show if these customers start to come back. (part 4)
+2. **Test a coupon for the second order instead of only the first.** Customers who start with a coupon (mostly WELCOME10) come back less often (25.8% vs 30.9%). A second-order coupon costs margin again, but it can show if these customers start to come back. (part 4)
 
 ## Limitations
 

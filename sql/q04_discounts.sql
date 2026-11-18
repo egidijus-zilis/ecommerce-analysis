@@ -93,6 +93,14 @@ WHERE what_discount = 'coupon'
 GROUP BY coupon_code
 ORDER BY coupon_code DESC;
 
+-- 3d. Does every first order have WELCOME10?
+-- If WELCOME10 was given to every new customer, almost all first orders would have it.
+SELECT
+    COUNT(*) FILTER (WHERE coupon_code = 'WELCOME10') AS welcome10,
+    COUNT(*) AS first_orders
+FROM analytics.orders_enriched
+WHERE is_first_order = 1;
+
 
 -- Part 4. Do discounts bring customers who come back?
 
