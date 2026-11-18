@@ -18,24 +18,24 @@
 - Email and referral sessions buy the most.
 - Mobile converts the best.
 
-**Expected for part 4** (written after 4a, before 4b):
+**Expected for part 4** (written before the estimate, now part 4c):
 - If the mobile checkout step worked like desktop, we would get at least 15,000 EUR more gross profit over the whole period (2024-01 to 2026-09), at least 5,500 EUR per year.
 
 ## Answer
 
-**Most shoppers stop right after viewing a product, and the second big drop is between the cart and checkout. Mobile and paid_social convert the worst, and on mobile many sessions end between checkout and payment. My rough estimate: if that mobile step worked like desktop, gross profit could be about 7,000 EUR higher per year.**
+**Most shoppers stop right after viewing a product, and the second big drop is between the cart and checkout. Mobile and paid_social convert the worst, and on mobile many sessions end between checkout and payment. My rough estimate: if that mobile step worked like desktop, gross profit could be about 9,500 EUR higher per year.**
 
 1. Where shoppers stop: only 11.57% of sessions add something to the cart. Of those, only 55.44% start checkout. In the end 4.62% of sessions buy.
 2. By device: mobile converts the worst (3.99%), desktop the best (6.14%). The biggest gap is between checkout and payment: 80.77% on mobile vs 92.35% on desktop.
 3. By traffic source: email converts the best (6.85%), paid_social the worst (2.61%). Paid_social is weak on desktop too, but on mobile it is much worse (2.05%).
-4. Value of the mobile checkout step: if mobile checkout → payment was 92.35% like desktop, my rough estimate is 19,116 EUR more gross profit over the whole period, about 6,951 EUR per year. It is not a fact. The real number is more likely lower (see 4b).
+4. Value of the mobile checkout step: in the last 12 months mobile checkout → payment was 80.45%, desktop 92.57%. If mobile worked like desktop, my rough estimate is 9,518-9,580 EUR more gross profit per year. It is not a fact. The real number is more likely lower (see 4c).
 
 Expected:
 - Most shoppers stop after view_item - **yes**, 88.43% don't add anything to the cart.
 - The second biggest drop is from add_to_cart to begin_checkout - **yes**, 44.56% leave there.
 - Email and referral buy the most - **partly**. Email is first, but referral is in the middle (4.66%).
 - Mobile converts the best - **no**, it converts the worst.
-- At least 15,000 EUR more gross profit if mobile checkout worked like desktop - **yes**, the estimate is 19,116 EUR (6,951 EUR per year).
+- At least 5,500 EUR more gross profit per year if mobile checkout worked like desktop - **yes**, the estimate is 9,518-9,580 EUR per year. In the end I did not count the whole period, because the business grows and the last 12 months show the current size better (part 4).
 
 ## 1. Where do shoppers stop before buying?
 
@@ -95,38 +95,51 @@ Expected:
 - But on mobile it is much worse: 2.05%, while other sources are 3.54-6.13%. From checkout to payment only 71.34% continue.
 - 78.15% of paid_social sessions are on mobile, more than any other source (63-68%). So the weak mobile checkout step hits paid_social the most.
 
-## 4a. Gross profit from mobile orders
+## 4a. Gross profit from mobile orders, last 12 months
 
-Mobile orders brought **133,284.39 EUR** gross profit over the whole period. An order gets its device from its session. Cancelled orders have 0 gross profit.
+In part 4 I use the last 12 months (2025-10-01 to 2026-09-30), not the whole period. The business grows, so an average over all years would be too low for the next year.
 
-- Check: orders with a known device (9,672) plus order 1240, which is left out (DQ-13), equal purchase sessions in part 1 (9,673).
+Mobile orders brought **63,155.25 EUR** gross profit in the last 12 months. An order gets its device from its session. Cancelled and open orders have 0 gross profit.
 
-## 4b. What if the mobile checkout step worked like desktop?
+- Check (all data): orders with a known device (9,672) plus order 1240, which is left out (DQ-13), equal purchase sessions in part 1 (9,673).
+
+## 4b. Open mobile orders in September 2026
+
+September 2026 is not complete (DQ-21). Some mobile orders were still open (not completed and not cancelled), so they are not in 4a.
+
+| Open orders | Order total (EUR) | Possible net revenue (EUR) | Possible gross profit (EUR) |
+|---|---|---|---|
+| 17 | 1,644.63 | 1,597.24 | 409.44 |
+
+- "Possible" means: if all of them are completed and nothing is returned. So 409.44 EUR is the most they can add to 4a.
+
+## 4c. What if the mobile checkout step worked like desktop?
 
 Conversion is a product of all steps. If only one step changes, the result changes by the same ratio:
 
 new gross profit = mobile gross profit × (desktop checkout → payment / mobile checkout → payment)
 
-The ratio is 92.35% / 80.77% = 1.143, so mobile would get about 14.3% more purchases.
+In the last 12 months checkout → payment was 80.45% on mobile and 92.57% on desktop.
 
 Assumptions:
 - The other steps stay the same.
 - New orders have the same gross profit per order as now.
 
-| | Gross profit (EUR) |
+| Last 12 months | Gross profit (EUR) |
 |---|---|
-| Mobile now | 133,284.39 |
-| Mobile with the desktop checkout → payment step | 152,400.56 |
-| Extra over the whole period (2.75 years) | 19,116.17 |
-| Extra per year | 6,951.34 |
+| Mobile now | 63,155.25 |
+| Mobile with the desktop checkout → payment step | 72,673.43 |
+| Extra per year | 9,518.18 |
+| Extra per year, if the 17 open orders are completed (4b) | 9,579.89 |
 
 This is a rough estimate, not a fact. I think the real number is more likely lower, because:
 - Sessions are not people. Some people leave on the phone and buy later on a computer. These orders are not lost, they are already counted on desktop. I don't know how many there are.
 - People who leave now may be less ready to buy. Even after a fix, fewer of them might buy than desktop users.
-- Mobile and desktop users may be different people, so mobile may never reach 92.35%.
+- Mobile and desktop users may be different people, so mobile may never reach 92.57%.
 
 It could also be higher, because:
-- 583 orders with unknown device are not counted. Some of them may be mobile.
+- Orders with an unknown device are not counted. Some of them may be mobile.
+- The business grows, so next year's mobile gross profit can be higher than in the last 12 months.
 - Repeat orders from the new buyers later are not counted.
 - A fix could also help the next mobile step (payment → purchase, 83.10% vs 87.49% on desktop).
 
@@ -134,7 +147,7 @@ The estimate does not count the cost of the fix. Compare the cost with this numb
 
 ## Recommendations
 
-1. **Find out why mobile users leave between checkout and payment, then fix it and test it.** On mobile only 80.77% go from checkout to payment, on desktop 92.35%. The data shows only where people leave, not why. Field events, error logs or session recordings (with typed text hidden) can show it. My rough estimate is that a fix could bring about 7,000 EUR more gross profit per year, more likely less. (parts 2 and 4b)
+1. **Find out why mobile users leave between checkout and payment, then fix it and test it.** On mobile only 80.77% go from checkout to payment, on desktop 92.35%. The data shows only where people leave, not why. Field events, error logs or session recordings (with typed text hidden) can show it. My rough estimate is that a fix could bring about 9,500 EUR more gross profit per year, more likely less. (parts 2 and 4c)
 2. **Check paid_social again after the mobile checkout is fixed, before changing its budget.** 78.15% of paid_social sessions are on mobile, and its mobile checkout → payment step is the weakest (71.34%). But paid_social is the weakest on desktop too (4.78%), so a mobile fix will not solve all of it. (part 3)
 
 ## Limitations
@@ -145,3 +158,4 @@ The estimate does not count the cost of the fix. Compare the cost with this numb
 - The data has no events between begin_checkout and add_payment_info. Often there are steps like address and delivery there, but I don't know how this site's checkout looks. So I cannot say which part makes people leave.
 - 4,104 sessions have no traffic source (DQ-14). They are shown as "unknown".
 - 583 orders (5.68%) have no session_id, so part 4 does not know their device.
+- Part 4 uses only the last 12 months, so its rates (80.45% on mobile, 92.57% on desktop) are a bit different from part 2 (80.77%, 92.35%), which uses all data.
