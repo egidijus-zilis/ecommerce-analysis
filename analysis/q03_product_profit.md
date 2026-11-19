@@ -15,7 +15,7 @@
 **Home & Kitchen and Fashion earn the most profit, Pets earns the least. No active product loses money, so no product needs to be dropped immediately.**
 
 1. Most and least profit: Home & Kitchen and Fashion earn almost the same, together about half of all profit. Pets earns the least. The best product earns about 298 € per month, the weakest about 2 €.
-2. Reprice, promote or drop: of the active products, 37 are in "keep", 26 in "reprice", 47 in "bundle", 65 in "promote" and 56 in "review".
+2. Reprice, promote or drop: of the active products, 32 are in "keep", 25 in "reprice", 43 in "bundle", 62 in "promote" and 50 in "review". 19 are on sale for less than 6 months, so they have no group yet.
 
 Expected: Home & Kitchen and Fashion earn the most profit - **yes**. Garden earns the least - **no**, Pets earns the least. Garden is sixth.
 
@@ -38,15 +38,15 @@ Profit by category (all products):
 - Electronics has the biggest revenue, but the lowest margin, so it is only third by profit.
 - Pets earns the least.
 
-Top 5 and bottom 5 active products by profit per month:
+Top 5 and bottom 5 active products by profit per month (without the 19 products on sale for less than 6 months, part 2):
 
 | id | Top 5 | Profit / month (EUR) | Margin | List price (EUR) | Group (part 2) |
 |---|---|---|---|---|---|
 | 232 | Urbana Canvas Backpack 20L | 298.16 | 59.4% | 49.99 | keep |
 | 187 | Nordtek X3 5G Smartphone 256GB | 207.88 | 12.5% | 649.99 | keep |
 | 230 | Baltix Robot Vacuum S6 | 194.69 | 22.1% | 229.99 | keep |
-| 254 | Velora Women's Leather Crossbody Bag | 189.02 | 57.8% | 69.99 | keep |
 | 176 | Nordtek AirBook 16 Laptop i7 16GB 1TB | 185.69 | 14.5% | 949.99 | promote |
+| 7 | Panela Stainless Steel Pot Set 5-Piece | 155.70 | 42.5% | 139.99 | keep |
 
 | id | Bottom 5 | Profit / month (EUR) | Margin | List price (EUR) | Group (part 2) |
 |---|---|---|---|---|---|
@@ -73,6 +73,7 @@ How the groups are made (two steps):
 
 - **Step 3, margin.** Products that sell often but earn little per unit can be cheap for two reasons. If their margin is below the margin of their category, they are cheaper than usual for this kind of product, so the price can be tested: **reprice**. If their margin is at or above the category margin, the product is just cheap, and a higher price is not the answer: **bundle** (sell it together with other products).
 - I compare with the category margin, not with one margin for all products, because normal margins are very different between categories (Electronics 19.7%, Fashion 57.5%, part 1).
+- **Products on sale for less than 6 months** get the group "insufficient_data". With only a few months, one good month looks like a normal pace, so units per month is not reliable yet. They still count in the medians and the ABC step, like before. 6 months is my own line.
 
 I first used margin % instead of profit per unit. But then expensive products with a low margin looked weak: the laptop, one of the top 5 products, was in "review". Profit per unit in euros fixes this. The ABC step was added because, without it, products that sell once in 4 months were in "promote".
 
@@ -89,13 +90,14 @@ Active products by group:
 
 | Group | Products | Gross profit (EUR) | Share of profit |
 |---|---|---|---|
-| keep | 37 | 69,881 | 30.6% |
-| reprice | 26 | 20,944 | 9.2% |
-| bundle | 47 | 50,893 | 22.3% |
-| promote | 65 | 67,710 | 29.6% |
-| review | 56 | 19,027 | 8.3% |
+| keep | 32 | 68,022 | 29.8% |
+| reprice | 25 | 20,837 | 9.1% |
+| bundle | 43 | 49,830 | 21.8% |
+| promote | 62 | 67,136 | 29.4% |
+| review | 50 | 18,659 | 8.2% |
+| insufficient_data | 19 | 3,971 | 1.7% |
 
-- No active product loses money, so no product is marked "drop". The weakest group is "review": 56 products bring only 8.3% of profit.
+- No active product loses money, so no product is marked "drop". The weakest group is "review": 50 products bring only 8.2% of profit.
 - 1 active product has no sales: Domus Steam Iron (id 239), launched on 2026-03-22.
 
 **Top 5 reprice:** people buy them often, each sale earns little, and the margin is below the category margin. Sorted by units per month.
@@ -108,17 +110,17 @@ Active products by group:
 | 94 | Naturo Magnesium Body Spray 100ml | Beauty & Care | 5.94 | 5.39 | 32.00 | 43.28% | 47.19% |
 | 153 | Pumpa Water Blaster 2-Pack | Toys & Kids | 5.50 | 4.45 | 24.48 | 30.54% | 39.50% |
 
+- Bath Salts (44.89% vs 47.19%) and Body Spray (43.28% vs 47.19%) are close to the line. Any line has products near it, so the price is only tested, not raised right away.
+
 **Top 5 bundle:** people buy them often and each sale earns little, but the margin is at or above the category margin. Sorted by units per month.
 
 | id | Product | Category | Units / month | Profit / unit (EUR) | Profit / month (EUR) | Margin | Category margin |
 |---|---|---|---|---|---|---|---|
 | 111 | Verdane Linen Cushion Cover 45x45 | Home & Kitchen | 12.76 | 9.44 | 120.43 | 53.45% | 45.88% |
-| 242 | Lumea Scented Candle Amber 200g | Home & Kitchen | 10.14 | 8.67 | 87.91 | 59.06% | 45.88% |
 | 134 | Greenly Garden Gloves 3-Pack | Garden | 8.79 | 5.64 | 49.62 | 45.87% | 41.22% |
 | 58 | Dermia Mineral Sunscreen SPF50 100ml | Beauty & Care | 8.09 | 8.21 | 66.48 | 49.44% | 47.19% |
 | 165 | Glowva Full Coverage Concealer | Beauty & Care | 8.01 | 6.92 | 55.42 | 50.70% | 47.19% |
-
-- Bath Salts (44.89% vs 47.19%) and Body Spray (43.28% vs 47.19%) are close to the line. Any line has products near it, so the price is only tested, not raised right away.
+| 145 | Aurelo Clear Phone Case | Electronics | 7.64 | 7.25 | 55.39 | 49.73% | 19.67% |
 
 **Top 5 promote:** each sale earns a lot, but people buy them rarely. Sorted by profit per unit.
 
@@ -128,7 +130,9 @@ Active products by group:
 | 237 | Peakline 4-Person Family Tent | Sports & Outdoors | 1.19 | 102.18 | 121.28 |
 | 225 | Fjord Wear Women's Down Parka | Fashion | 0.41 | 100.14 | 40.71 |
 | 3 | Fjord Wear Men's Down Parka | Fashion | 0.45 | 98.30 | 44.70 |
-| 247 | Nordtek AirBook 14 Laptop i5 16GB 512GB | Electronics | 0.83 | 85.88 | 71.57 |
+| 172 | Velora Women's Wool Blend Coat | Fashion | 0.31 | 75.31 | 23.30 |
+
+- The two parkas and the coat are winter products. Their units per month are low partly because they sell only in the cold months.
 
 **Top 5 review:** earn the least per month. Sorted by profit per month, lowest first.
 
@@ -146,10 +150,10 @@ Active products by group:
 
 1. **Improve the Electronics margin.** Electronics has the biggest revenue, but only 19.7% margin, so it earns less than Home & Kitchen and Fashion. Talk with suppliers about lower purchase prices. Keep discounts on electronics small: with a 19.7% margin, even a small discount takes a big part of the profit. (part 1)
 2. **Keep Home & Kitchen and Fashion always in stock.** Together they bring about half of all profit. Start campaigns for them only when the stock is ready. (part 1)
-3. **Never let the top 5 products run out of stock.** Each of them earns 186-298 € per month. (part 1)
+3. **Never let the top 5 products run out of stock.** Each of them earns 156-298 € per month. (part 1)
 4. **Test a small price increase on the top 5 "reprice" products.** People buy them often, each sale earns little, and their margin is below their category. For example, Petia Grain-Free Dog Treats sell about 11 units per month, earn only 1.96 € per unit and have a 23.80% margin, while Pets have 34.89%. If sales stay the same, do the same for other "reprice" products. (part 2)
 5. **Sell the top 5 "bundle" products together with other products.** They sell often and already have a good margin for their category, so the price is not the problem: each sale is just small. For example, Verdane Linen Cushion Cover sells about 13 units per month with a 53.45% margin (Home & Kitchen 45.88%). Sets or add-ons at checkout can make the order bigger. (part 2)
-6. **Advertise the top 5 "promote" products more.** Each sale earns a lot (86-145 € per unit), but people buy them rarely. If sales grow, do the same for other "promote" products. (part 2)
+6. **Advertise the top 5 "promote" products more.** Each sale earns a lot (75-145 € per unit), but people buy them rarely. Advertise the winter products (parkas, coat) before winter. If sales grow, do the same for other "promote" products. (part 2)
 7. **Stop ordering new stock for the 5 weakest "review" products and use this money for "keep" and "promote" products.** Together the 5 weakest products earn only about 23 € per month, so the same money can earn more on stronger products. Run this analysis again in a few months, because some "review" products can move to another group. (part 2)
 
 ## Limitations
@@ -161,3 +165,4 @@ Active products by group:
 - The data does not show why a product was removed.
 - The data has no stock or storage costs, so the gain from removing weak products can't be measured.
 - Order 1240 is left out: its 2 lines were sold at 0 € (DQ-13).
+- 19 products are on sale for less than 6 months, so they have no group yet. The 6-month line is my own choice.

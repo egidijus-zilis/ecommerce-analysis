@@ -1,5 +1,7 @@
 -- View: one row per product.
 -- product_recommendation (active products):
+--   Less than 6 months on sale -> insufficient_data (units per month is not reliable yet).
+--   They still count in the medians and the ABC ranking, like before.
 --   ABC class C -> review.
 --   Otherwise compared with the medians of active products (units per month, profit per unit):
 --   keep: many units, high profit per unit.
@@ -77,6 +79,7 @@ SELECT
     c.category_margin,
     a.abc_class,
     CASE
+        WHEN ps.months_on_sale < 6 THEN 'insufficient_data'
         WHEN a.abc_class = 'C' THEN 'review'
         WHEN ps.units_per_month >= m.median_units_per_month AND ps.profit_per_unit >= m.median_profit_per_unit THEN 'keep'
         WHEN ps.units_per_month >= m.median_units_per_month AND ps.profit_per_unit <  m.median_profit_per_unit AND ps.gross_margin < c.category_margin THEN 'reprice'

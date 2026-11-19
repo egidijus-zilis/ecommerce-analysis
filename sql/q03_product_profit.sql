@@ -15,7 +15,7 @@ FROM analytics.product_performance
 GROUP BY category
 ORDER BY gross_profit DESC;
 
--- 1b. Top 5 active products by profit per month
+-- 1b. Top 5 active products by profit per month (not insufficient_data)
 SELECT
     pp.product_id,
     pp.product_name,
@@ -25,11 +25,11 @@ SELECT
     pp.product_recommendation
 FROM analytics.product_performance pp
 LEFT JOIN clean.products p ON pp.product_id = p.product_id
-WHERE pp.is_active = 'yes'
+WHERE pp.is_active = 'yes' AND pp.product_recommendation <> 'insufficient_data'
 ORDER BY pp.profit_per_month DESC NULLS LAST
 LIMIT 5;
 
--- 1c. Bottom 5 active products by profit per month
+-- 1c. Bottom 5 active products by profit per month (not insufficient_data)
 SELECT
     pp.product_id,
     pp.product_name,
@@ -39,7 +39,7 @@ SELECT
     pp.product_recommendation
 FROM analytics.product_performance pp
 LEFT JOIN clean.products p ON pp.product_id = p.product_id
-WHERE pp.is_active = 'yes'
+WHERE pp.is_active = 'yes' AND pp.product_recommendation <> 'insufficient_data'
 ORDER BY pp.profit_per_month ASC
 LIMIT 5;
 
@@ -48,6 +48,7 @@ LIMIT 5;
 -- Step 1: ABC analysis. C products always go to review.
 -- Step 2: A and B products are put in groups by units per month and profit per unit.
 -- Step 3: many units + low profit per unit is split by margin: below the category margin -> reprice, at or above -> bundle.
+-- Products with less than 6 months on sale -> insufficient_data (no group yet).
 
 -- 2a. Medians (active products only)
 SELECT DISTINCT
