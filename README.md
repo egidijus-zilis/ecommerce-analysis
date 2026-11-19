@@ -19,8 +19,8 @@ checking data quality, writing SQL, and building a dashboard.
 | 1b | Check how the tables match each other (cross-table checks) | Done |
 | 2 | Load the data into PostgreSQL and clean it | Done |
 | 3 | Answer the main business questions with SQL | Done |
-| 4 | Build a Power BI dashboard | Planned |
-| 5 | Write up findings and recommendations | Planned |
+| 4 | Build a Power BI dashboard | In progress |
+| 5 | Write up findings and recommendations | Done |
 | 6 | Answer the extra questions | Planned |
 
 ---
@@ -110,7 +110,7 @@ ecommerce-analysis/
 
 ## Data quality
 
-I found **20 data problems** (19 in profiling, 1 in cross-table checks). All of them are fixed or documented in the `clean` layer.
+I found **21 data problems** (19 in profiling, 1 in cross-table checks, 1 during the analysis). 20 of them are fixed or documented in the `clean` layer. The last one (September 2026 is not complete, DQ-21) is handled in the answers and the dashboard.
 The full list, with the decision for each problem, is in [docs/data_issues.md](docs/data_issues.md).
 
 | Area | Examples | Issues |
@@ -119,12 +119,13 @@ The full list, with the decision for each problem, is in [docs/data_issues.md](d
 | Customers | duplicate accounts, a test account, city written in many ways, two gender codes, impossible birth years | DQ-01 - DQ-06 |
 | Web traffic and conversion | a bot, purchase events saved twice, missing traffic source | DQ-14, DQ-15, DQ-19 |
 | Marketing spend | 2 days counted twice, 3 days missing | DQ-16, DQ-17 |
+| Time | the last month (September 2026) is not complete | DQ-21 |
 
 What the cross-table checks (notebook 02) showed:
 - All IDs match between tables.
 - 44 orders don't match the sum of lines + shipping: 17 by 1 cent (rounding), 24 look like manual compensations, 3 have a wrong quantity.
 - 106 purchase events are saved twice.
-- Dates are in a logical order, and all returns are in completed orders.
+- Dates are in a logical order, except deliveries recorded before the order (DQ-18). All returns are in completed orders.
 
 How the problems were handled:
 - **Fixed:** wrong values were corrected (e.g. cost, quantity, category names, city spelling).
@@ -179,7 +180,7 @@ Each answer has the same parts: question → what I expected → short answer �
 
 ## Metric definitions
 
-These rules are used in all SQL views, answers and the dashboard, so the numbers always match.
+These rules are used in all SQL views, answers and the dashboard, so the numbers match. Totals from order lines are 166 € higher than from orders because of manual compensations (DQ-20).
 More metrics will be added when a business question needs them.
 
 **Orders**
@@ -206,10 +207,10 @@ More metrics will be added when a business question needs them.
 ## Key findings
 
 1. **A small group of customers brings a big part of the profit.** The top 10% of customers by gross profit bring 36.95% of gross profit and 40.37% of net revenue. 193 of them have not ordered for longer than usual. Based on what similar customers did last year, winning them back could add at most about 3,500 € gross profit per year (estimate). ([Q7](analysis/q07_best_customers.md))
-2. **Discounts cost a lot, and I found no sign that they pay back.** Discounts cost about 25,400 €. In July I saw no clear jump in orders or new customers from the sale, and customers who started with a coupon came back less often (25.8% vs 30.9% for full price). ([Q4](analysis/q04_discounts.md))
+2. **Discounts lower the margin, and I found no sign that they pay back.** They take about 9 points of margin in sale orders and about 6 in coupon orders (about 25,400 € in total). In July I saw no clear jump in orders or new customers from the sale. Customers who started with a coupon came back less often (25.8% vs 30.9% for full price), and a test shows this is not chance. ([Q4](analysis/q04_discounts.md))
 3. **Electronics brings the most revenue, but has the lowest margin (19.7%).** Groups that buy a lot of Electronics bring less profit than their revenue suggests. The top 10% of customers by gross profit spend 39.60% on Electronics. They bring 40.37% of revenue, but only 36.95% of profit. In their first 180 days, men spend 40.49% on Electronics. They spend more than women (101.04 € vs 74.61 €), but the profit is closer (34.64 € vs 31.12 €). ([Q3](analysis/q03_product_profit.md), [Q7](analysis/q07_best_customers.md), [Q8](analysis/q08_customer_groups.md))
 4. **Email and referral buyers come back more often than buyers from other channels.** About 1 in 5 of their buyers come back within 90 days, and a test shows this is not chance. Each sign-up brings about 33 € profit in 180 days. Paid_social and affiliate bring the weakest customers: about 1 in 10 come back. ([Q9](analysis/q09_channels.md))
-5. Many mobile sessions end between checkout and payment. On mobile 80.77% go from checkout to payment, on desktop 92.35%. Mobile has 68% of all sessions. If this step worked like desktop, my rough estimate is about 9,500 EUR more gross profit per year, more likely less. ([Q12](analysis/q12_funnel.md))
+5. **Many mobile sessions end between checkout and payment.** On mobile 80.77% go from checkout to payment, on desktop 92.35%. Mobile has 68% of all sessions. If this step worked like desktop, my rough estimate is about 9,500 EUR more gross profit per year, more likely less. ([Q12](analysis/q12_funnel.md))
 
 ---
 
