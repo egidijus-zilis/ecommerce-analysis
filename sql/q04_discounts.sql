@@ -130,3 +130,58 @@ SELECT
     ROUND(COUNT(*) FILTER (WHERE all_orders > 1)::numeric / COUNT(*) * 100, 2) AS return_rate
 FROM customers
 GROUP BY what_discount;
+
+-- 4b. Is the return rate different from full_price? (two-proportion z-test)
+-- n, x = customers and returned customers in the group. n2, x2 = the same for full_price.
+-- 2 tests at once, so I use a stricter line: |z| >= 2.24 (0.05 / 2 tests, Bonferroni).
+WITH all_orders AS (
+SELECT
+    main_customer_id,
+    what_discount,
+    is_first_order
+FROM analytics.orders_discount),
+first_orders AS (
+SELECT *
+FROM all_orders
+WHERE is_first_order = 1),
+customers AS (
+SELECT
+    ao.main_customer_id,
+    fo.what_discount,
+    COUNT(*) AS all_orders
+FROM all_orders ao
+LEFT JOIN first_orders fo ON ao.main_customer_id = fo.main_customer_id
+GROUP BY ao.main_customer_id, fo.what_discount),
+counts AS (
+SELECT
+    what_discount,
+    COUNT(*) AS n,
+    COUNT(*) FILTER (WHERE all_orders > 1) AS x
+FROM customers
+GROUP BY what_discount),
+base AS (
+SELECT
+    n AS n2,
+    x AS x2
+FROM counts
+WHERE what_discount = 'full_price'),
+with_p AS (
+SELECT
+    c.what_discount,
+    c.n,
+    c.x::numeric / c.n AS p1,
+    b.x2::numeric / b.n2 AS p2,
+    (c.x + b.x2)::numeric / (c.n + b.n2) AS p,
+    b.n2
+FROM counts c
+CROSS JOIN base b
+WHERE c.what_discount <> 'full_price')
+SELECT
+    what_discount,
+    n AS customers,
+    ROUND(p1 * 100, 2) AS return_rate,
+    ROUND(p2 * 100, 2) AS full_price_rate,
+    ROUND((p1 - p2) / SQRT(p * (1 - p) * (1.0 / n + 1.0 / n2)), 2) AS z,
+    CASE WHEN ABS((p1 - p2) / SQRT(p * (1 - p) * (1.0 / n + 1.0 / n2))) >= 2.24 THEN 'yes' ELSE 'no' END AS is_different
+FROM with_p
+ORDER BY z;

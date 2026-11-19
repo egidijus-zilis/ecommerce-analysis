@@ -17,12 +17,12 @@
 
 ## Answer
 
-**Are discounts worth it? Mostly no.** Discounts cost about 25,400 € and lower the margin. In July I see no clear jump in orders or new customers from the sale, and customers who start with a coupon come back less often.
+**Are discounts worth it? Mostly no.** We gave about 25,400 € in discounts, and they lower the margin. In July I see no clear jump in orders or new customers from the sale, and customers who start with a coupon come back less often.
 
-1. Cost: discounts cost about 25,400 €. The discount takes about 9 points of margin in sale orders and about 6 points in coupon orders.
+1. Discounts given: about 25,400 €. The discount takes about 9 points of margin in sale orders and about 6 points in coupon orders.
 2. More orders: no clear sign. July (sale) is between June and August, so I see no extra jump in orders.
 3. New customers: I see no jump in new customers in July. 90% of coupon orders are first orders, but this is because WELCOME10 is used almost only on first orders. It does not show that the coupon brought them.
-4. Customers who come back: customers who start with a sale come back as often as others (30.0% vs 30.9%). Customers who start with a coupon come back less often (25.8%).
+4. Customers who come back: customers who start with a sale come back as often as others (30.0% vs 30.9%). Customers who start with a coupon come back less often (25.8%), and a test shows this is not chance.
 
 Expected: Discounts bring new customers, and later they spend more than the discount cost us - **no**. New customers did not jump in July, and coupon customers come back less often. How much they spend later was not checked. AOV is higher during sale periods - **no**, July AOV is between June and August.
 
@@ -34,7 +34,7 @@ Expected: Discounts bring new customers, and later they spend more than the disc
 | coupon | 1,799 | 11,391 | 104,364 | 37,031 | 35.5% | 41.8% |
 | sale | 1,480 | 14,007 | 87,318 | 30,386 | 34.8% | 43.8% |
 
-- Discounts on kept items cost about 25,400 €.
+- Discounts given on kept items: about 25,400 €.
 - "Margin if no discount" adds the discount back. Sale and coupon orders have products with a higher margin than full price orders, so the lower margin comes from the discount, not from the products. The discount takes about 9 points of margin in sale orders (43.8% → 34.8%) and about 6 points in coupon orders (41.8% → 35.5%).
 
 ## 2. Do discounts bring more orders?
@@ -105,9 +105,20 @@ Customers grouped by the type of their first order:
 - Customers who started with a sale come back about as often as customers who paid full price.
 - Customers who started with a coupon come back less often.
 
+Is the difference real or chance? I compared each group with full_price (two-proportion z-test, the same as in Q9):
+
+| First order | Customers | Return rate | Full price | z | Different? |
+|---|---|---|---|---|---|
+| coupon | 1,619 | 25.76% | 30.93% | -3.82 | yes |
+| sale | 930 | 30.00% | 30.93% | -0.55 | no |
+
+- I made 2 tests, so I used a strict line: |z| ≥ 2.24 (Bonferroni, 0.05 / 2).
+- Coupon customers come back less often, and this is not chance.
+- Sale customers come back as often as full price customers. The small difference can be chance.
+
 ## Recommendations
 
-1. **Test a smaller or shorter July sale.** The July sale lowers the margin, but brings no extra orders or new customers. We don't know what would happen without it, so a smaller sale next July can show if the same orders come with a better margin. (parts 1, 2)
+1. **Test a smaller or shorter July sale.** The July sale lowers the margin, and I see no clear jump in orders or new customers. We don't know what would happen without it, so a smaller sale next July can show if the same orders come with a better margin. (parts 1, 2)
 2. **Test a coupon for the second order instead of only the first.** Customers who start with a coupon (mostly WELCOME10) come back less often (25.8% vs 30.9%). A second-order coupon costs margin again, but it can show if these customers start to come back. (part 4)
 
 ## Limitations
