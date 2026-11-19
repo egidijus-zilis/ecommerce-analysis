@@ -13,11 +13,11 @@
 
 ## Answer
 
-**We depend on them a lot. The top 10% bring 36.95% of gross profit and 40.37% of net revenue. 193 of them have not ordered for longer than usual, but winning them back is worth at most about 3,500 € gross profit per year (estimate).**
+**We depend on them a lot. The top 10% bring 36.95% of gross profit and 40.37% of net revenue. 193 of them have not ordered for longer than usual, but winning them back is worth only about 3,500 € gross profit per year (rough estimate).**
 
 1. How much depends on them: 36.95% of profit and 40.37% of revenue. Even the most profitable customers have a lower margin (35.15%) than groups 2-9 (38.86-41.77%).
 2. What they have in common: they order more often (3.72 orders each) and spend more per order (107.53 €). 39.60% of their money goes to Electronics. More of them came from referral and email. Country is about the same as for other customers.
-3. Win-back: 193 top customers (30.59%) have not ordered for longer than usual. Last year, top customers in the same situation brought only 11.07 € gross profit each in the next 12 months, and active ones 29.45 €. So a win-back campaign could add at most about 3,500 € gross profit per year. This is an estimate, and the real number is likely lower. 178 more have not ordered for over a year, so I count them as lost.
+3. Win-back: 193 top customers (30.59%) have not ordered for longer than usual. Last year, top customers in the same situation brought only 11.07 € gross profit each in the next 12 months, and active ones 29.45 €. So a win-back campaign could add about 3,500 € gross profit per year. This is an estimate, and the real number is likely lower. 178 more have not ordered for over a year, so I count them as lost.
 
 Expected: The top 10% bring about 35% of net revenue - **no**, it is more, 40.37%.
 
@@ -136,17 +136,16 @@ I assume that today's 193 at-risk customers act like last year's at-risk custome
 |---|---|
 | We do nothing (193 x 11.07 €) | 2,137 |
 | All of them buy like active customers (193 x 29.45 €) | 5,684 |
-| The most a win-back could add | 3,547 |
+| What a win-back could add (estimate) | 3,547 |
 
 - This is an estimate, not a fact.
-- 3,547 € is a ceiling. It assumes that every at-risk customer starts to buy like an active one. The real result will likely be lower.
+- 3,547 € is a rough estimate from one back-test. It assumes that every at-risk customer starts to buy like an active one, so the real result is likely lower. Another back-test date could also give a quite different number.
 - It is before the campaign cost. A campaign is worth it only if it brings more gross profit than it costs.
 - I count only at-risk customers. Lost customers have not ordered for over a year, so I think it is even less likely that they would buy like active ones.
 
 ## Recommendations
 
-1. **Try a cheap win-back email for at-risk top customers, and test it first.** 193 top customers have not ordered for longer than usual. Winning them back can add at most about 3,500 € gross profit per year (estimate), so the campaign must be cheap. Send it to half of them, and after 90 days compare gross profit with the other half. Give a discount only if the test shows that the extra profit is bigger than the discount cost. (part 3)
-2. **Offer accessories with Electronics orders.** Top customers spend 39.60% on Electronics, where the margin is only 19.7%, so an accessory with a higher margin raises the profit of the order. (parts 1, 2)
+1. **Try a cheap win-back email for at-risk top customers, and test it first.** 193 top customers have not ordered for longer than usual. Winning them back can add about 3,500 € gross profit per year (rough estimate), so the campaign must be cheap. Send it to half of them, and after 90 days compare gross profit with the other half. Give a discount only if the test shows that the extra profit is bigger than the discount cost. (part 3)
 
 ## Limitations
 

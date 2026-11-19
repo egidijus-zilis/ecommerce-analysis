@@ -114,9 +114,8 @@ Units by category (2025):
 
 1. **Have Garden and Sports & Outdoors stock ready in March.** They sell most in April-May. (part 2)
 2. **Have stock for Home & Kitchen, Beauty & Care, Fashion, Electronics and Toys & Kids ready in October.** They sell most in November-December. (part 2)
-3. **Make Black Friday the main campaign. Plan a Toys & Kids campaign for December.** (parts 1, 2)
-4. **Plan more people for packing and delivery in November.** There are more orders, but baskets are not bigger. (part 1)
-5. **Order less stock for February.** It is the quietest month, and a good time for stocktaking. (part 1)
+3. **Plan more people for packing and delivery in November.** There are more orders, but baskets are not bigger. (part 1)
+4. **Order less stock for February.** It is the quietest month, and a good time for stocktaking. (part 1)
 
 ## Limitations
 

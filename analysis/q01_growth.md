@@ -129,7 +129,7 @@ Growth split into more orders and bigger orders (January-September). Net revenue
 ## Recommendations
 
 1. **Keep returning customers buying.** In 2026, 90 % of the growth came from returning customers (978 people). The list of top customers who stopped buying is in [Q7](q07_best_customers.md). (part 3)
-2. **Try to make orders bigger.** Order value stopped growing in 2026. For example, offer sets or "you may also like" products. (part 3)
+2. **Try to make orders bigger.** Order value stopped growing in 2026. (part 3)
 3. **Plan for November.** It is the biggest month, so stock and staff must be ready. (part 1)
 
 ## Limitations

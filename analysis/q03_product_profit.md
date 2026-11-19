@@ -56,7 +56,7 @@ Top 5 and bottom 5 active products by profit per month (without the 19 products 
 | 127 | Whiskr Cat Tree 120cm | 5.47 | 51.9% | 74.99 | review |
 | 57 | Dermia Hyaluronic Acid Serum 30ml | 6.16 | 58.2% | 22.99 | review |
 
-- Price does not decide profit. Two of the top 5 products cost only 49.99 € and 69.99 €, and three of the bottom 5 cost more than 50 €. Profit depends on how often people buy and how much one sale earns.
+- Price alone does not decide profit: the best product costs only 49.99 € (Urbana Canvas Backpack), and three of the bottom 5 cost more than 50 €. Profit depends on how often people buy and how much one sale earns.
 - Margin % alone does not decide profit either. The smartphone and the laptop have a low margin (12-15 %), but they are in the top 5. Products 10, 57 and 127 have a margin over 50 %, but they are in the bottom 5.
 
 ## 2. Which products should we reprice, promote or drop?
@@ -149,12 +149,11 @@ Active products by group:
 ## Recommendations
 
 1. **Improve the Electronics margin.** Electronics has the biggest revenue, but only 19.7% margin, so it earns less than Home & Kitchen and Fashion. Talk with suppliers about lower purchase prices. Keep discounts on electronics small: with a 19.7% margin, even a small discount takes a big part of the profit. (part 1)
-2. **Keep Home & Kitchen and Fashion always in stock.** Together they bring about half of all profit. Start campaigns for them only when the stock is ready. (part 1)
-3. **Never let the top 5 products run out of stock.** Each of them earns 156-298 € per month. (part 1)
+2. **Keep Home & Kitchen and Fashion always in stock.** Together they bring about half of all profit. Start campaigns for them only when the stock is ready. I have no stock data, so I don't know if they ever run out. (part 1)
+3. **Never let the top 5 products run out of stock.** Each of them earns 156-298 € per month. I have no stock data, so I don't know if they ever run out. (part 1)
 4. **Test a small price increase on the top 5 "reprice" products.** People buy them often, each sale earns little, and their margin is below their category. For example, Petia Grain-Free Dog Treats sell about 11 units per month, earn only 1.96 € per unit and have a 23.80% margin, while Pets have 34.89%. If sales stay the same, do the same for other "reprice" products. (part 2)
-5. **Sell the top 5 "bundle" products together with other products.** They sell often and already have a good margin for their category, so the price is not the problem: each sale is just small. For example, Verdane Linen Cushion Cover sells about 13 units per month with a 53.45% margin (Home & Kitchen 45.88%). Sets or add-ons at checkout can make the order bigger. (part 2)
-6. **Advertise the top 5 "promote" products more.** Each sale earns a lot (75-145 € per unit), but people buy them rarely. Advertise the winter products (parkas, coat) before winter. If sales grow, do the same for other "promote" products. (part 2)
-7. **Stop ordering new stock for the 5 weakest "review" products and use this money for "keep" and "promote" products.** Together the 5 weakest products earn only about 23 € per month, so the same money can earn more on stronger products. Run this analysis again in a few months, because some "review" products can move to another group. (part 2)
+5. **Advertise the top 5 "promote" products more.** Each sale earns a lot (75-145 € per unit), but people buy them rarely. Advertise the winter products (parkas, coat) before winter. If sales grow, do the same for other "promote" products. (part 2)
+6. **Check the 5 weakest "review" products before ordering new stock.** Together they earn only about 23 € per month. The data has no stock costs, so I can't say how much stopping them would save. Run this analysis again in a few months, because some "review" products can move to another group. (part 2)
 
 ## Limitations
 

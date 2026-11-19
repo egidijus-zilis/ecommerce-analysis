@@ -21,7 +21,7 @@
 
 ## Answer
 
-**Customers bring about the same value in all groups. In the first 180 days a customer brings 31-33 € gross profit in each country, and cities, age groups and gender differ only a little. The one clear difference is margin: men buy more Electronics, so their margin is lower.**
+**Countries, cities and age groups bring a similar value per customer in the first 180 days (31-33 € gross profit by country). Men spend more than women and buy different products: more Electronics, so their margin is lower.**
 
 1. Countries: LT customers bring 32.92 € each (median 22.58 €), EE 32.29 € (median 21.30 €), LV 30.73 € (median 21.00 €).
 2. Cities: by mean Tallinn (36.11 €), Šiauliai (35.90 €) and Panevėžys (35.32 €) are on top, Klaipėda (28.31 €) is the lowest. By median all cities are between 20.83 € and 25.52 €.
@@ -109,7 +109,7 @@ Why men's margin is lower, by category (share of each group's spending in the sa
 
 ## Recommendations
 
-1. **Don't split offers or ads by country, city, age or gender.** In the first 180 days a customer brings 31-33 € in each country, and in other groups the medians differ only a few euros. (parts 1-4)
+1. **Don't split offers by country, city or age: the value per customer is close. But ads can show different products to men and women,** because they buy different things (Electronics 40.49% vs 16.92%, Beauty & Care 2.71% vs 15.50%). Test it first. (parts 1-4)
 2. **Start tracking marketing spend by country.** `marketing_spend` has no country, so now it is not possible to say in which country growing would pay off. (part 1)
 
 ## Limitations

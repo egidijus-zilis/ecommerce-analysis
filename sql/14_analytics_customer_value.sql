@@ -1,7 +1,7 @@
 -- View: one row per customer (main_customer_id), completed orders only.
 -- revenue_group: 1 = top 10% of customers by net revenue, 10 = bottom 10%.
 -- profit_group: 1 = top 10% of customers by gross profit, 10 = bottom 10%.
--- main_customer_id breaks ties, so customers with the same value always get the same group.
+-- main_customer_id breaks ties, so the groups are the same every time the view is run.
 -- second_order_date is NULL for customers with only 1 order.
 -- net_revenue_180d, gross_profit_180d: only orders within 180 days of the first order.
 -- has_180d = 1 if the first order is on or before 2026-04-03,

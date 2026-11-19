@@ -233,7 +233,7 @@ ORDER BY
 -- I assume today's at risk customers act like the 2025 ones (3c).
 -- est_gp_no_action = GP they will likely bring anyway.
 -- est_gp_if_like_active = GP if all of them bought like active customers.
--- max_extra_gp = the most a campaign could add. Real result will likely be lower.
+-- est_extra_gp = what a campaign could add (rough estimate from one back-test). Real result will likely be lower.
 WITH bt_orders AS (
 SELECT
     main_customer_id,
@@ -330,5 +330,5 @@ SELECT
     at_risk_today,
     ROUND(at_risk_today * x, 2) AS est_gp_no_action,
     ROUND(at_risk_today * y, 2) AS est_gp_if_like_active,
-    ROUND(at_risk_today * (y - x), 2) AS max_extra_gp
+    ROUND(at_risk_today * (y - x), 2) AS est_extra_gp
 FROM backtest CROSS JOIN today;
