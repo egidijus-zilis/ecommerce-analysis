@@ -162,9 +162,9 @@ ORDER BY 1, 2;
 
 -- 3b. How much of the growth comes from more orders and from bigger orders (Jan-Sep)
 -- Net revenue = orders x AOV. The change is split into three parts:
--- orders effect = new orders x last year's AOV,
+-- orders effect = extra orders x last year's AOV,
 -- AOV effect = last year's orders x AOV change,
--- both = new orders x AOV change.
+-- both = extra orders x AOV change.
 -- The three parts add up to the revenue change.
 WITH yearly AS (
 SELECT

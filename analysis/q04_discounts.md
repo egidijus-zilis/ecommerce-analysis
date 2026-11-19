@@ -96,7 +96,7 @@ By coupon:
 
 Customers grouped by the type of their first order:
 
-| First order | Customers | Bought again | Return rate |
+| First order | Customers | Bought again | Repeat rate |
 |---|---|---|---|
 | full_price | 3,757 | 1,162 | 30.9% |
 | sale | 930 | 279 | 30.0% |
@@ -107,7 +107,7 @@ Customers grouped by the type of their first order:
 
 Is the difference real or chance? I compared each group with full_price (two-proportion z-test, the same as in Q9):
 
-| First order | Customers | Return rate | Full price | z | Different? |
+| First order | Customers | Repeat rate | Full price | z | Different? |
 |---|---|---|---|---|---|
 | coupon | 1,619 | 25.76% | 30.93% | -3.82 | yes |
 | sale | 930 | 30.00% | 30.93% | -0.55 | no |
@@ -128,4 +128,4 @@ Is the difference real or chance? I compared each group with full_price (two-pro
 - The sale happens every July, so there is no July without a sale to compare with. I can't say that the sale had no effect, only that I see no clear jump.
 - In coupon orders, a 15% line can be a sale or EMAIL15. These lines are counted as coupon. A few lines in coupon orders have a smaller discount than the coupon or no discount, and the data does not explain why.
 - What the coupons are for (welcome, email, partners) is guessed from their names. It is not written in the data.
-- Return rate shows only if a customer bought again, not how much they spent.
+- Repeat rate shows only if a customer bought again, not how much they spent.

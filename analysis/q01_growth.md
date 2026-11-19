@@ -123,7 +123,7 @@ Growth split into more orders and bigger orders (January-September). Net revenue
 | 2025 | +103,195 € | +74,439 € | +14,653 € | +14,103 € |
 | 2026 | +35,360 € | +34,880 € | +402 € | +78 € |
 
-- "More orders" = new orders × last year's avg order value. "Bigger orders" = last year's orders × the change in avg order value. "Both together" = new orders × the change in avg order value.
+- "More orders" = extra orders × last year's avg order value. "Bigger orders" = last year's orders × the change in avg order value. "Both together" = extra orders × the change in avg order value.
 - In 2026, 99 % of the growth came from more orders. Bigger orders added only 402 €.
 
 ## Recommendations

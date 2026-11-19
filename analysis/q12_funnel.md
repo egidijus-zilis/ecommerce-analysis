@@ -48,9 +48,10 @@ Expected:
 | purchase | 9,673 | 84.81% |
 
 - From view to purchase: 4.62%.
+- Purchase counts sessions with a purchase event, including orders that were later cancelled or are still open.
 - The biggest drop is right after viewing. Most sessions end without adding anything to the cart.
-- The second drop is between cart and checkout. Almost half of the sessions with a cart don't start checkout.
-- After checkout starts, about 15% leave at each of the last two steps.
+- The second drop is between cart and checkout: only 55.44% of the sessions with a cart start checkout.
+- After checkout starts, 84.97% and 84.81% go on at the last two steps.
 
 ## 2. Is it different by device?
 

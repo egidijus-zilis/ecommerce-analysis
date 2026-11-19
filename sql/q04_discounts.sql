@@ -104,7 +104,7 @@ WHERE is_first_order = 1;
 
 -- Part 4. Do discounts bring customers who come back?
 
--- 4a. Return rate, grouped by the type of the customer's first order
+-- 4a. Repeat rate, grouped by the type of the customer's first order
 WITH all_orders AS (
 SELECT
     main_customer_id,
@@ -127,11 +127,11 @@ SELECT
     what_discount,
     COUNT(*) AS customers,
     COUNT(*) FILTER (WHERE all_orders > 1) AS returned_customers,
-    ROUND(COUNT(*) FILTER (WHERE all_orders > 1)::numeric / COUNT(*) * 100, 2) AS return_rate
+    ROUND(COUNT(*) FILTER (WHERE all_orders > 1)::numeric / COUNT(*) * 100, 2) AS repeat_rate
 FROM customers
 GROUP BY what_discount;
 
--- 4b. Is the return rate different from full_price? (two-proportion z-test)
+-- 4b. Is the repeat rate different from full_price? (two-proportion z-test)
 -- n, x = customers and returned customers in the group. n2, x2 = the same for full_price.
 -- 2 tests at once, so I use a stricter line: |z| >= 2.24 (0.05 / 2 tests, Bonferroni).
 WITH all_orders AS (
@@ -179,7 +179,7 @@ WHERE c.what_discount <> 'full_price')
 SELECT
     what_discount,
     n AS customers,
-    ROUND(p1 * 100, 2) AS return_rate,
+    ROUND(p1 * 100, 2) AS repeat_rate,
     ROUND(p2 * 100, 2) AS full_price_rate,
     ROUND((p1 - p2) / SQRT(p * (1 - p) * (1.0 / n + 1.0 / n2)), 2) AS z,
     CASE WHEN ABS((p1 - p2) / SQRT(p * (1 - p) * (1.0 / n + 1.0 / n2))) >= 2.24 THEN 'yes' ELSE 'no' END AS is_different
