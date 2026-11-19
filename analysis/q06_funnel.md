@@ -1,8 +1,8 @@
-# Q12. Where do shoppers stop before buying?
+# Q6. Where do shoppers stop before buying?
 
 **Question:** Where do shoppers stop before buying? Is it different by device or traffic source?
 
-**SQL:** `sql/q12_funnel.sql`
+**SQL:** `sql/q06_funnel.sql`
 
 **Period:** all data, 2024-01 to 2026-09.
 
@@ -10,7 +10,7 @@
 
 **Funnel steps:** view_item → add_to_cart → begin_checkout → add_payment_info → purchase. I count sessions that reached each step, and compare each step with the step before.
 
-**Traffic source:** the source of the session (visit), not the customer's first channel from Q9. The same person can come from email one day and from Google the next.
+**Traffic source:** the source of the session (visit), not the customer's first channel. The same person can come from email one day and from Google the next.
 
 **Expected** (written before SQL):
 - Most shoppers stop after view_item and do nothing else.

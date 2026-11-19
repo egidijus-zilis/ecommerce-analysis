@@ -1,4 +1,4 @@
--- Q4. Are discounts worth it?
+-- Q3. Are discounts worth it?
 -- Data: analytics.orders_discount (see sql/13_analytics_orders_discount.sql), completed orders only.
 
 

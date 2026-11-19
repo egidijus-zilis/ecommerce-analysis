@@ -1,8 +1,8 @@
-# Q6. Do customers buy again?
+# Q4. Do customers buy again?
 
 **Question:** What share of customers buy again and how soon? Do newer cohorts come back more or less than older ones?
 
-**SQL:** `sql/q06_repeat_customers.sql`
+**SQL:** `sql/q04_repeat_customers.sql`
 
 **Period:** all data, 2024-01 to 2026-09. Completed orders only. A customer is one person (`main_customer_id`).
 

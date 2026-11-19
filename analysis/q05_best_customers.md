@@ -1,8 +1,8 @@
-# Q7. How much do we depend on our best customers?
+# Q5. How much do we depend on our best customers?
 
 **Question:** How much revenue and gross profit depend on our best customers, what do they have in common, and how much gross profit could we win back from top customers who haven't ordered for longer than usual?
 
-**SQL:** `sql/q07_best_customers.sql`
+**SQL:** `sql/q05_best_customers.sql`
 
 **Period:** all data, 2024-01 to 2026-09. Completed orders only. A customer is one person (`main_customer_id`).
 
@@ -59,7 +59,7 @@ What they buy (share of each group's spending by category):
 | Pets | 2.52% | 4.13% |
 
 - 39.60% of top customers' money goes to Electronics. Other customers spend 19.56% there.
-- Electronics has the lowest margin of all categories (19.7%, see Q3). I think this is why top customers have a lower margin in part 1.
+- Electronics has the lowest margin of all categories (19.7%, see Q2). I think this is why top customers have a lower margin in part 1.
 
 Where they came from (acquisition channel):
 

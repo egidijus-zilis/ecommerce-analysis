@@ -1,8 +1,8 @@
-# Q4. Are discounts worth it?
+# Q3. Are discounts worth it?
 
 **Question:** Are discounts worth it? What do sale periods and coupons cost us, and do they bring more orders, new customers and customers who come back?
 
-**SQL:** `sql/q04_discounts.sql`
+**SQL:** `sql/q03_discounts.sql`
 
 **Period:** all data, 2024-01 to 2026-09. For the July sale check, 2024 is left out (launch year).
 
@@ -105,7 +105,7 @@ Customers grouped by the type of their first order:
 - Customers who started with a sale come back about as often as customers who paid full price.
 - Customers who started with a coupon come back less often.
 
-Is the difference real or chance? I compared each group with full_price (two-proportion z-test, the same as in Q9):
+Is the difference real or chance? I compared each group with full_price (two-proportion z-test):
 
 | First order | Customers | Repeat rate | Full price | z | Different? |
 |---|---|---|---|---|---|

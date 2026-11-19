@@ -1,6 +1,7 @@
 # E-commerce Analysis
 
 A portfolio project where I check, clean and analyse data from an online store.
+**Goal:** find where the shop makes gross profit and where it loses it: products, discounts, customers and the checkout.
 I made it while learning data analysis. I use it to practise the main parts of a data analyst's work:
 checking data quality, writing SQL, and building a dashboard.
 
@@ -21,7 +22,6 @@ checking data quality, writing SQL, and building a dashboard.
 | 3 | Answer the main business questions with SQL | Done |
 | 4 | Build a Power BI dashboard | In progress |
 | 5 | Write up findings and recommendations | Done |
-| 6 | Answer the extra questions | Planned |
 
 ---
 
@@ -138,43 +138,25 @@ How the problems were handled:
 
 These questions are answered with SQL. Each answer is in the `analysis/` folder.
 
-### Main questions (answered)
-
-**Growth and seasonality**
+**Growth**
 
 1. Is the business growing profitably? How do revenue, gross profit and order volume change month over month and year over year, and how much of the change comes from new customers, repeat customers and order value? ([answer](analysis/q01_growth.md))
-2. How seasonal is demand, overall and by category, and which months should inventory and campaign planning be built around? ([answer](analysis/q02_seasonality.md))
 
-**Profitability and products**
+**Products and discounts**
 
-3. Which categories and products earn the most and the least gross profit after discounts and returns, and which should we reprice, promote or drop? ([answer](analysis/q03_product_profit.md))
-4. Are discounts worth it? What do sale periods and coupons cost us, and do they bring more orders, new customers and customers who come back? ([answer](analysis/q04_discounts.md))
+2. Which categories and products earn the most and the least gross profit after discounts and returns, and which should we reprice, promote or drop? ([answer](analysis/q02_product_profit.md))
+3. Are discounts worth it? What do sale periods and coupons cost us, and do they bring more orders, new customers and customers who come back? ([answer](analysis/q03_discounts.md))
 
 **Customers**
 
-6. What share of customers buy again and how soon? Do newer cohorts come back more or less than older ones? ([answer](analysis/q06_repeat_customers.md))
-7. How much revenue and gross profit depend on our best customers, what do they have in common, and how much gross profit could we win back from top customers who haven't ordered for longer than usual? ([answer](analysis/q07_best_customers.md))
-8. Which countries (LT, LV, EE) and customer groups (city, age, gender) bring the most value per customer? ([answer](analysis/q08_customer_groups.md))
-
-**Acquisition and marketing**
-
-9. Which channels bring customers who buy again and bring profit, not just sign-ups? ([answer](analysis/q09_channels.md))
+4. What share of customers buy again and how soon? Do newer cohorts come back more or less than older ones? ([answer](analysis/q04_repeat_customers.md))
+5. How much revenue and gross profit depend on our best customers, what do they have in common, and how much gross profit could we win back from top customers who haven't ordered for longer than usual? ([answer](analysis/q05_best_customers.md))
 
 **Conversion**
 
-12. Where do shoppers stop before buying? Is it different by device or traffic source? ([answer](analysis/q12_funnel.md))
+6. Where do shoppers stop before buying? Is it different by device or traffic source? ([answer](analysis/q06_funnel.md))
 
 Each answer has the same parts: question → what I expected → short answer → one section for each part of the question → recommendations → limitations.
-
-### Extra questions (not answered yet)
-
-- **Q5.** Which products are often bought together? Can we use this for sets or "you may also like" offers?
-- **Q10.** How much does one new customer cost in each paid channel? How did this change over time, and how many months until the customer pays it back?
-- **Q11.** Do ad platforms report more orders than they really bring? How do their numbers compare with our own data?
-- **Q13.** How long does it take from first product view to purchase? Is it different for new and returning customers, and when should we show remarketing ads?
-- **Q14.** Do late deliveries lead to more returns and fewer repeat orders? Is it different by delivery method?
-- **Q15.** How much do returns cost us, and what are the main reasons? Where do returns and cancellations happen most?
-- **Q16.** Do order values group just above the free-shipping limit? Are our shipping fees and the limit set at a good level?
 
 ---
 
@@ -206,11 +188,11 @@ More metrics will be added when a business question needs them.
 
 ## Key findings
 
-1. **A small group of customers brings a big part of the profit.** The top 10% of customers by gross profit bring 36.95% of gross profit and 40.37% of net revenue. 193 of them have not ordered for longer than usual. Based on what similar customers did last year, winning them back could add about 3,500 € gross profit per year (estimate). ([Q7](analysis/q07_best_customers.md))
-2. **Discounts lower the margin, and I found no sign that they pay back.** They take about 9 points of margin in sale orders and about 6 in coupon orders (about 25,400 € in total). In July I saw no clear jump in orders or new customers from the sale. Customers who started with a coupon came back less often (25.8% vs 30.9% for full price), and a test shows this is not chance. ([Q4](analysis/q04_discounts.md))
-3. **Electronics brings the most revenue, but has the lowest margin (19.7%).** Groups that buy a lot of Electronics bring less profit than their revenue suggests. The top 10% of customers by gross profit spend 39.60% on Electronics. They bring 40.37% of revenue, but only 36.95% of profit. In their first 180 days, men spend 40.49% on Electronics. They spend more than women (101.04 € vs 74.61 €), but the profit is closer (34.64 € vs 31.12 €). ([Q3](analysis/q03_product_profit.md), [Q7](analysis/q07_best_customers.md), [Q8](analysis/q08_customer_groups.md))
-4. **Email and referral buyers come back more often than buyers from other channels.** About 1 in 5 of their buyers come back within 90 days, and a test shows this is not chance. Each sign-up brings about 33 € profit in 180 days. Paid_social and affiliate bring the weakest customers: about 1 in 10 come back. ([Q9](analysis/q09_channels.md))
-5. **Many mobile sessions end between checkout and payment.** On mobile 80.77% go from checkout to payment, on desktop 92.35%. Mobile has 68% of all sessions. If this step worked like desktop, my rough estimate is about 9,500 EUR more gross profit per year, more likely less. ([Q12](analysis/q12_funnel.md))
+1. **A small group of customers brings a big part of the profit.** The top 10% of customers by gross profit bring 36.95% of gross profit and 40.37% of net revenue. 193 of them have not ordered for longer than usual. Based on what similar customers did last year, winning them back could add about 3,500 € gross profit per year (estimate). ([Q5](analysis/q05_best_customers.md))
+2. **Discounts lower the margin, and I found no sign that they pay back.** They take about 9 points of margin in sale orders and about 6 in coupon orders (about 25,400 € in total). In July I saw no clear jump in orders or new customers from the sale. Customers who started with a coupon came back less often (25.8% vs 30.9% for full price), and a test shows this is not chance. ([Q3](analysis/q03_discounts.md))
+3. **Electronics brings the most revenue, but has the lowest margin (19.7%).** The top 10% of customers by gross profit spend 39.60% on Electronics. They bring 40.37% of revenue, but only 36.95% of profit. ([Q2](analysis/q02_product_profit.md), [Q5](analysis/q05_best_customers.md))
+4. **About 3 in 10 customers buy again, and half of those who come back do it within about 2.5 months.** 29.46% of all customers bought again, and the median time to the second order is 79 days. Newer cohorts come back about as often as older ones. ([Q4](analysis/q04_repeat_customers.md))
+5. **Many mobile sessions end between checkout and payment.** On mobile 80.77% go from checkout to payment, on desktop 92.35%. Mobile has 68% of all sessions. If this step worked like desktop, my rough estimate is about 9,500 EUR more gross profit per year, more likely less. ([Q6](analysis/q06_funnel.md))
 
 ---
 

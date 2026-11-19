@@ -1,4 +1,4 @@
--- Q3. Which products earn the most profit?
+-- Q2. Which products earn the most profit?
 -- Data: analytics.product_performance (see sql/12_analytics_product_performance.sql)
 
 

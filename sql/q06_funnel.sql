@@ -1,4 +1,4 @@
--- Q12. Where do shoppers stop before buying?
+-- Q6. Where do shoppers stop before buying?
 -- Data: clean.user_events (bot and double purchase events already removed).
 -- Each step counts sessions that had this event at least once.
 -- Share = sessions that reached this step / sessions in the step before.

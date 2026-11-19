@@ -1,4 +1,4 @@
--- Q7. How much do we depend on our best customers?
+-- Q5. How much do we depend on our best customers?
 -- Best customers = top 10% by gross profit (profit_group = 1 in analytics.customer_value).
 -- Part 3c builds the top 10% again from analytics.orders_enriched, with orders only up to 2025-09-30.
 

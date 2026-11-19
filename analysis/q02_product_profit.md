@@ -1,8 +1,8 @@
-# Q3. Which products earn the most profit?
+# Q2. Which products earn the most profit?
 
 **Question:** Which categories and products earn the most and the least gross profit after discounts and returns, and which should we reprice, promote or drop?
 
-**SQL:** `sql/q03_product_profit.sql`
+**SQL:** `sql/q02_product_profit.sql`
 
 **Period:** all data, 2024-01 to 2026-09. Products were on sale for a different number of months, so products are compared per month.
 

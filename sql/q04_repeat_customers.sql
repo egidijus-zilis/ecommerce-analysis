@@ -1,4 +1,4 @@
--- Q6. Do customers buy again?
+-- Q4. Do customers buy again?
 -- Data: analytics.orders_enriched, completed orders only.
 -- A customer is one person (main_customer_id).
 
