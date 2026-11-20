@@ -68,8 +68,8 @@ Share of customers who came back within 90 days, by cohort:
 
 ## Recommendations
 
-1. **Send a reminder email to one-time customers 60 days after their first order.** Half of returning customers come back within 79 days, so the email comes just before the usual return time. It can include a small discount code, for example 5%. (part 2)
-2. **Test it first on a part of the customers.** Split one-time customers into three groups: no email, email without a code, and email with a 5% code. After 90 days, compare how many came back in each group. This shows if the email works, and if the code is needed at all (in Q4, customers who started with a coupon came back less often). (parts 1, 2)
+1. **Test a reminder email to one-time customers 60 days after their first order.** Half of returning customers come back within 79 days, so the email comes just before the usual return time. Randomly send it to half of the one-time customers and not to the other half. After 90 days, compare how many came back in each half and how soon. This shows if the email brings customers back, or if they would come back anyway. (part 2)
+2. **Watch the 90-day return rate of each new cohort, and check it if it falls below 15%.** Since 2024 Q3 every cohort came back at 15.24-18.73% within 90 days. Only the launch cohorts were lower. So a new cohort below 15% is a sign that something changed, and then I would look at it by country to find where it fell. The 15% line comes from what I saw in the data, not from a test, and a cohort can be checked only 90 days after its quarter ends. (part 3)
 
 ## Limitations
 
