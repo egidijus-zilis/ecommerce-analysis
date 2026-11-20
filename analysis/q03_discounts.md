@@ -118,8 +118,8 @@ Is the difference real or chance? I compared each group with full_price (two-pro
 
 ## Recommendations
 
-1. **Test a smaller or shorter July sale.** The July sale lowers the margin, and I see no clear jump in orders or new customers. We don't know what would happen without it, so a smaller sale next July can show if the same orders come with a better margin. (parts 1, 2)
-2. **Test a coupon for the second order instead of only the first.** Customers who start with a coupon (mostly WELCOME10) come back less often (25.8% vs 30.9%). A second-order coupon costs margin again, but it can show if these customers start to come back. (part 4)
+1. **Next year, move the July sale to August.** The sale happens every July, so there is no July without a sale to compare with, and I can't say if it brings extra orders. With no sale in July, I can compare July with June (orders per day, new customers per day, gross profit) and check if this July/June ratio is lower than in the years with a July sale. June stays without a sale, so it is a fair base. (parts 1, 2)
+2. **Test WELCOME10 on half of new sign-ups.** Customers who start with a coupon come back less often (25.76% vs 30.93%, not chance), but the data does not say if the coupon brings new customers or only costs margin. Randomly give the code to half of new sign-ups, record who got it, and after 6 months compare both halves: first orders, repeat orders and gross profit per customer. (parts 3, 4)
 
 ## Limitations
 
