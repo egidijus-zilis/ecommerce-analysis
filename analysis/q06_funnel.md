@@ -148,8 +148,8 @@ The estimate does not count the cost of the fix. Compare the cost with this numb
 
 ## Recommendations
 
-1. **Find out why mobile users leave between checkout and payment, then fix it and test it.** On mobile only 80.77% go from checkout to payment, on desktop 92.35%. The data shows only where people leave, not why. Field events, error logs or session recordings (with typed text hidden) can show it. My rough estimate is that a fix could bring about 9,500 EUR more gross profit per year, more likely less. (parts 2 and 4c)
-2. **Check paid_social again after the mobile checkout is fixed, before changing its budget.** 78.15% of paid_social sessions are on mobile, and its mobile checkout → payment step is the weakest (71.34%). But paid_social is the weakest on desktop too (4.78%), so a mobile fix will not solve all of it. (part 3)
+1. **Find out why mobile users leave between checkout and payment, fix it, and test the fix.** On mobile 80.77% go from checkout to payment, on desktop 92.35%. The data shows where people leave, but not why. Error logs or session recordings (with typed text hidden) can show it. Then I would show the new checkout to half of mobile sessions and the old one to the other half. I would compare how many go to payment and the gross profit per session. The gap may also have another reason: some people only look on mobile and buy on desktop. My rough estimate is about 9,500 EUR more gross profit per year, more likely less. (parts 2 and 4c)
+2. **When looking for the reason, start with paid_social on mobile, and show its result separately in the test.** Its mobile checkout → payment step is the weakest (71.34%), and 78.15% of its sessions are on mobile. I would not change the paid_social budget before the test. It is the weakest on desktop too (4.78%), so the reason may be the visitors, not only the checkout. (part 3)
 
 ## Limitations
 
