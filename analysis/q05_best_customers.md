@@ -145,7 +145,7 @@ I assume that today's 193 at-risk customers act like last year's at-risk custome
 
 ## Recommendations
 
-1. **Try a cheap win-back email for at-risk top customers, and test it first.** 193 top customers have not ordered for longer than usual. Winning them back can add about 3,500 € gross profit per year (rough estimate), so the campaign must be cheap. Send it to half of them, and after 90 days compare gross profit with the other half. Give a discount only if the test shows that the extra profit is bigger than the discount cost. (part 3)
+1. **Send a win-back email to all 193 at-risk top customers, and compare with last year after 12 months.** An email costs almost nothing, so if it does not work, we lose very little. I would not split them into two halves, because I think groups of about 96 are too small to show a clear difference. I would save the list of the 193 customers on the day of sending. After 12 months I would check how many of them bought and how much gross profit they brought per customer. Then I would compare this with last year's at-risk top customers, who got no email: 26.67% bought and they brought 11.07 € each. This is not proof, because two different years are compared, but it shows if the email is worth sending again. No discount in the email: winning them back can add about 3,500 € gross profit per year at most (rough estimate), and a discount would take part of it. (part 3)
 
 ## Limitations
 
