@@ -59,6 +59,22 @@ Top 5 and bottom 5 active products by profit per month (without the 19 products 
 - Price alone does not decide profit: the best product costs only 49.99 € (Urbana Canvas Backpack), and three of the bottom 5 cost more than 50 €. Profit depends on how often people buy and how much one sale earns.
 - Margin % alone does not decide profit either. The smartphone and the laptop have a low margin (12-15 %), but they are in the top 5. Products 10, 57 and 127 have a margin over 50 %, but they are in the bottom 5.
 
+Returns by category (completed orders):
+
+| Category | Returned units | Returned (EUR) | Sales before returns (EUR) | Returned share |
+|---|---|---|---|---|
+| Fashion | 855 | 35,258 | 135,399 | 26.04% |
+| Sports & Outdoors | 185 | 7,141 | 81,508 | 8.76% |
+| Electronics | 140 | 13,444 | 186,321 | 7.22% |
+| Home & Kitchen | 224 | 8,754 | 134,312 | 6.52% |
+| Garden | 77 | 2,374 | 40,666 | 5.84% |
+| Toys & Kids | 59 | 1,482 | 40,104 | 3.69% |
+| Pets | 39 | 663 | 22,419 | 2.96% |
+| Beauty & Care | 83 | 1,466 | 55,104 | 2.66% |
+
+- Fashion has the most returns: 26.04% of its sales come back. In other categories it is 2.66-8.76%.
+- The 57.5% Fashion margin already counts that returned items go back to stock. But it does not count the cost of the return itself (shipping back, handling).
+
 ## 2. Which products should we reprice, promote or drop?
 
 How the groups are made (two steps):
@@ -148,12 +164,11 @@ Active products by group:
 
 ## Recommendations
 
-1. **Improve the Electronics margin.** Electronics has the biggest revenue, but only 19.7% margin, so it earns less than Home & Kitchen and Fashion. Talk with suppliers about lower purchase prices. Keep discounts on electronics small: with a 19.7% margin, even a small discount takes a big part of the profit. (part 1)
-2. **Keep Home & Kitchen and Fashion always in stock.** Together they bring about half of all profit. Start campaigns for them only when the stock is ready. I have no stock data, so I don't know if they ever run out. (part 1)
-3. **Never let the top 5 products run out of stock.** Each of them earns 156-298 € per month. I have no stock data, so I don't know if they ever run out. (part 1)
-4. **Test a small price increase on the top 5 "reprice" products.** People buy them often, each sale earns little, and their margin is below their category. For example, Petia Grain-Free Dog Treats sell about 11 units per month, earn only 1.96 € per unit and have a 23.80% margin, while Pets have 34.89%. If sales stay the same, do the same for other "reprice" products. (part 2)
-5. **Advertise the top 5 "promote" products more.** Each sale earns a lot (75-145 € per unit), but people buy them rarely. Advertise the winter products (parkas, coat) before winter. If sales grow, do the same for other "promote" products. (part 2)
-6. **Check the 5 weakest "review" products before ordering new stock.** Together they earn only about 23 € per month. The data has no stock costs, so I can't say how much stopping them would save. Run this analysis again in a few months, because some "review" products can move to another group. (part 2)
+1. **Keep discounts on Electronics small.** Electronics has the biggest revenue, but only 19.7% margin. With such a margin, even a small discount takes a big part of the profit. (part 1)
+2. **Find out who pays for returns and how much one return costs.** Fashion has the most returns (26.04% of sales) and a high margin (57.5%), but we don't know its real margin. If the shop pays for returns, the margin is lower, and we may need to act. (part 1)
+3. **Test a small price increase on the top 5 "reprice" products.** People buy them often, each sale earns little, and their margin is below their category. For example, Petia Grain-Free Dog Treats sell about 11 units per month, earn only 1.96 € per unit and have a 23.80% margin, while Pets have 34.89%. If sales stay the same, do the same for other "reprice" products. (part 2)
+4. **Advertise the top 5 "promote" products more.** Each sale earns a lot (75-145 € per unit), but people buy them rarely. Advertise the winter products (parkas, coat) before winter. If sales grow, do the same for other "promote" products. (part 2)
+5. **Check the 5 weakest "review" products before ordering new stock.** Together they earn only about 23 € per month. The data has no stock costs, so I can't say how much stopping them would save. Run this analysis again in a few months, because some "review" products can move to another group. (part 2)
 
 ## Limitations
 
@@ -165,3 +180,4 @@ Active products by group:
 - The data has no stock or storage costs, so the gain from removing weak products can't be measured.
 - Order 1240 is left out: its 2 lines were sold at 0 € (DQ-13).
 - 19 products are on sale for less than 6 months, so they have no group yet. The 6-month line is my own choice.
+- The data has no return costs or return reasons, so the real cost of returns is unknown.

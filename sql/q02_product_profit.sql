@@ -43,6 +43,20 @@ WHERE pp.is_active = 'yes' AND pp.product_recommendation <> 'insufficient_data'
 ORDER BY pp.profit_per_month ASC
 LIMIT 5;
 
+-- 1d. Returns by category (completed orders)
+-- Returned units and value = order lines with is_returned = 1.
+-- returned_share = returned value / all sales before returns (gross revenue).
+SELECT
+    category,
+    SUM(quantity) FILTER (WHERE is_returned = 1) AS returned_units,
+    SUM(gross_revenue) FILTER (WHERE is_returned = 1) AS returned_value,
+    SUM(gross_revenue) AS gross_revenue,
+    ROUND(SUM(gross_revenue) FILTER (WHERE is_returned = 1)::numeric / SUM(gross_revenue) * 100, 2) AS returned_share
+FROM analytics.order_items_enriched
+WHERE order_status = 'completed'
+GROUP BY category
+ORDER BY returned_share DESC;
+
 
 -- Part 2. Reprice, promote or drop
 -- Step 1: ABC analysis. C products always go to review.
