@@ -11,17 +11,112 @@ checking data quality, writing SQL, and building a dashboard.
 
 ---
 
-## Project status
+## Key findings
 
-| Stage | What | Status |
+1. **A small group of customers brings a big part of the profit.** The top 10% of customers by gross profit bring 36.95% of gross profit and 40.37% of net revenue. 193 of them have not ordered for longer than usual. Based on what similar customers did last year, winning them back could add about 3,500 € gross profit per year (estimate). ([Q5](analysis/q05_best_customers.md))
+2. **Discounts lower the margin, and I found no sign that they pay back.** They take about 9 points of margin in sale orders and about 6 in coupon orders (about 25,400 € in total). In July I saw no clear jump in orders or new customers from the sale. Customers who started with a coupon came back less often (25.8% vs 30.9% for full price), and a test shows this is not chance. ([Q3](analysis/q03_discounts.md))
+3. **Electronics brings the most revenue, but has the lowest margin (19.7%).** The top 10% of customers by gross profit spend 39.60% on Electronics. They bring 40.37% of revenue, but only 36.95% of profit. ([Q2](analysis/q02_product_profit.md), [Q5](analysis/q05_best_customers.md))
+4. **About 3 in 10 customers buy again, and half of those who come back do it within about 2.5 months.** 29.46% of all customers bought again, and the median time to the second order is 79 days. Newer cohorts come back about as often as older ones. ([Q4](analysis/q04_repeat_customers.md))
+5. **Many mobile sessions end between checkout and payment.** On mobile 80.77% go from checkout to payment, on desktop 92.35%. Mobile has 68% of all sessions. If this step worked like desktop, my rough estimate is about 9,500 EUR more gross profit per year, more likely less. ([Q6](analysis/q06_funnel.md))
+
+---
+
+## Dashboard
+
+The dashboard has 5 pages, one for each main question. It reads the same SQL views as the answers, so the numbers match.
+File: [powerbi/ecommerce_dashboard.pbix](powerbi/ecommerce_dashboard.pbix). Theme: [powerbi/stone_teal_theme.json](powerbi/stone_teal_theme.json).
+
+Colors mean the same on every page: gray = context, teal = what the chart is about, red = a problem found in the analysis.
+
+**1. Overview - How is business doing this year?** ([Q1](analysis/q01_growth.md))
+Jan-Sep 2026 compared with Jan-Sep 2025: revenue, profit, new and returning customers, and where the growth came from.
+
+![Overview](powerbi/screenshots/01_overview.png)
+
+**2. Products - Where does gross profit come from?** ([Q2](analysis/q02_product_profit.md))
+Profit, margin and returns by category, and the product groups (keep, promote, bundle, reprice, review).
+
+![Products](powerbi/screenshots/02_products.png)
+
+**3. Repeat customers - Do customers buy again?** ([Q4](analysis/q04_repeat_customers.md), [Q3](analysis/q03_discounts.md))
+How many customers buy again, how soon, and the 90-day return rate of each cohort. It also shows that customers who started with a coupon come back less often (from Q3).
+
+![Repeat customers](powerbi/screenshots/03_repeat_customers.png)
+
+**4. Top 10% customers - Which of our best customers are slipping away?** ([Q5](analysis/q05_best_customers.md))
+The top 10% of customers by gross profit, with their status (active, at risk, lost) and days left until the next status. Click a customer to see all their orders.
+
+![Top 10% customers](powerbi/screenshots/04_top10_customers.png)
+
+**5. Conversion - Where do shoppers stop before buying?** ([Q6](analysis/q06_funnel.md))
+The share of sessions that goes on to the next step, the weak mobile checkout step, and conversion by traffic source.
+
+![Conversion](powerbi/screenshots/05_conversion.png)
+
+---
+
+## Business questions
+
+These questions are answered with SQL. Each answer is in the `analysis/` folder.
+
+**Growth**
+
+1. Is the business growing profitably? How do revenue, gross profit and order volume change month over month and year over year, and how much of the change comes from new customers, repeat customers and order value? ([answer](analysis/q01_growth.md))
+
+**Products and discounts**
+
+2. Which categories and products earn the most and the least gross profit after discounts and returns, and which should we reprice, promote or drop? ([answer](analysis/q02_product_profit.md))
+3. Are discounts worth it? What do sale periods and coupons cost us, and do they bring more orders, new customers and customers who come back? ([answer](analysis/q03_discounts.md))
+
+**Customers**
+
+4. What share of customers buy again and how soon? Do newer cohorts come back more or less than older ones? ([answer](analysis/q04_repeat_customers.md))
+5. How much revenue and gross profit depend on our best customers, what do they have in common, and how much gross profit could we win back from top customers who haven't ordered for longer than usual? ([answer](analysis/q05_best_customers.md))
+
+**Conversion**
+
+6. Where do shoppers stop before buying? Is it different by device or traffic source? ([answer](analysis/q06_funnel.md))
+
+Each answer has the same parts: question → what I expected → short answer → one section for each part of the question → recommendations → limitations.
+
+---
+
+## How I work
+
+1. **Profile the data (Python).** I look at each table and write down problems. I do not fix anything in Python.
+2. **Log every problem** in [docs/data_issues.md](docs/data_issues.md) with an ID (DQ-01, DQ-02, ...).
+   Later each problem gets a decision: fix, remove, flag or keep.
+3. **Clean the data (PostgreSQL).** The raw data stays as it is. All fixes are done in SQL, so they can be repeated.
+   The database has three layers: `raw` → `clean` → `analytics` (views).
+4. **Answer the business questions (SQL).** Each question has its own SQL file.
+   Before running a query, I write down what I expect to see.
+5. **Show the results (Power BI).** The dashboard uses the same SQL views, so the numbers match.
+
+---
+
+## Data quality
+
+I found **21 data problems** (19 in profiling, 1 in cross-table checks, 1 during the analysis). 20 of them are fixed or documented in the `clean` layer. The last one (September 2026 is not complete, DQ-21) is handled in the answers and the dashboard.
+The full list, with the decision for each problem, is in [docs/data_issues.md](docs/data_issues.md).
+
+| Area | Examples | Issues |
 |---|---|---|
-| 0 | Set up the repository and Python environment | Done |
-| 1a | Profile each table in Python (find data problems) | Done |
-| 1b | Check how the tables match each other (cross-table checks) | Done |
-| 2 | Load the data into PostgreSQL and clean it | Done |
-| 3 | Answer the main business questions with SQL | Done |
-| 4 | Build a Power BI dashboard | In progress |
-| 5 | Write up findings and recommendations | Done |
+| Revenue, orders and products | duplicated orders, test orders, suspicious prices and quantities, cost 10× too high for 2 products, delivery before order, manual compensations | DQ-07 - DQ-13, DQ-18, DQ-20 |
+| Customers | duplicate accounts, a test account, city written in many ways, two gender codes, impossible birth years | DQ-01 - DQ-06 |
+| Web traffic and conversion | a bot, purchase events saved twice, missing traffic source | DQ-14, DQ-15, DQ-19 |
+| Marketing spend | 2 days counted twice, 3 days missing | DQ-16, DQ-17 |
+| Time | the last month (September 2026) is not complete | DQ-21 |
+
+What the cross-table checks (notebook 02) showed:
+- All IDs match between tables.
+- 44 orders don't match the sum of lines + shipping: 17 by 1 cent (rounding), 24 look like manual compensations, 3 have a wrong quantity.
+- 106 purchase events are saved twice.
+- Dates are in a logical order, except deliveries recorded before the order (DQ-18). All returns are in completed orders.
+
+How the problems were handled:
+- **Fixed:** wrong values were corrected (e.g. cost, quantity, category names, city spelling).
+- **Removed:** rows that are not real (test account, duplicates, bot).
+- **Flagged or kept:** real data that needs care in analysis (e.g. zero-price lines, duplicate accounts linked with `main_customer_id`, missing marketing days).
 
 ---
 
@@ -88,75 +183,13 @@ ecommerce-analysis/
 │   └── 02_cross_table_checks.ipynb   checks how the tables match each other
 ├── sql/                              SQL files: load (01-02), clean (03-09), analytics views (10+), answer queries (q01, q02, ...)
 ├── analysis/                         answers to the business questions (one file per question)
-├── powerbi/                          Power BI file and screenshots (coming later)
+├── powerbi/
+│   ├── ecommerce_dashboard.pbix      the dashboard (5 pages)
+│   ├── stone_teal_theme.json         colors and text styles
+│   └── screenshots/                  one image per dashboard page
 ├── requirements.txt
 └── README.md
 ```
-
----
-
-## How I work
-
-1. **Profile the data (Python).** I look at each table and write down problems. I do not fix anything in Python.
-2. **Log every problem** in [docs/data_issues.md](docs/data_issues.md) with an ID (DQ-01, DQ-02, ...).
-   Later each problem gets a decision: fix, remove, flag or keep.
-3. **Clean the data (PostgreSQL).** The raw data stays as it is. All fixes are done in SQL, so they can be repeated.
-   The database has three layers: `raw` → `clean` → `analytics` (views).
-4. **Answer the business questions (SQL).** Each question has its own SQL file.
-   Before running a query, I write down what I expect to see.
-5. **Show the results (Power BI).** The dashboard uses the same SQL views, so the numbers match.
-
----
-
-## Data quality
-
-I found **21 data problems** (19 in profiling, 1 in cross-table checks, 1 during the analysis). 20 of them are fixed or documented in the `clean` layer. The last one (September 2026 is not complete, DQ-21) is handled in the answers and the dashboard.
-The full list, with the decision for each problem, is in [docs/data_issues.md](docs/data_issues.md).
-
-| Area | Examples | Issues |
-|---|---|---|
-| Revenue, orders and products | duplicated orders, test orders, suspicious prices and quantities, cost 10× too high for 2 products, delivery before order, manual compensations | DQ-07 - DQ-13, DQ-18, DQ-20 |
-| Customers | duplicate accounts, a test account, city written in many ways, two gender codes, impossible birth years | DQ-01 - DQ-06 |
-| Web traffic and conversion | a bot, purchase events saved twice, missing traffic source | DQ-14, DQ-15, DQ-19 |
-| Marketing spend | 2 days counted twice, 3 days missing | DQ-16, DQ-17 |
-| Time | the last month (September 2026) is not complete | DQ-21 |
-
-What the cross-table checks (notebook 02) showed:
-- All IDs match between tables.
-- 44 orders don't match the sum of lines + shipping: 17 by 1 cent (rounding), 24 look like manual compensations, 3 have a wrong quantity.
-- 106 purchase events are saved twice.
-- Dates are in a logical order, except deliveries recorded before the order (DQ-18). All returns are in completed orders.
-
-How the problems were handled:
-- **Fixed:** wrong values were corrected (e.g. cost, quantity, category names, city spelling).
-- **Removed:** rows that are not real (test account, duplicates, bot).
-- **Flagged or kept:** real data that needs care in analysis (e.g. zero-price lines, duplicate accounts linked with `main_customer_id`, missing marketing days).
-
----
-
-## Business questions
-
-These questions are answered with SQL. Each answer is in the `analysis/` folder.
-
-**Growth**
-
-1. Is the business growing profitably? How do revenue, gross profit and order volume change month over month and year over year, and how much of the change comes from new customers, repeat customers and order value? ([answer](analysis/q01_growth.md))
-
-**Products and discounts**
-
-2. Which categories and products earn the most and the least gross profit after discounts and returns, and which should we reprice, promote or drop? ([answer](analysis/q02_product_profit.md))
-3. Are discounts worth it? What do sale periods and coupons cost us, and do they bring more orders, new customers and customers who come back? ([answer](analysis/q03_discounts.md))
-
-**Customers**
-
-4. What share of customers buy again and how soon? Do newer cohorts come back more or less than older ones? ([answer](analysis/q04_repeat_customers.md))
-5. How much revenue and gross profit depend on our best customers, what do they have in common, and how much gross profit could we win back from top customers who haven't ordered for longer than usual? ([answer](analysis/q05_best_customers.md))
-
-**Conversion**
-
-6. Where do shoppers stop before buying? Is it different by device or traffic source? ([answer](analysis/q06_funnel.md))
-
-Each answer has the same parts: question → what I expected → short answer → one section for each part of the question → recommendations → limitations.
 
 ---
 
@@ -186,16 +219,6 @@ More metrics will be added when a business question needs them.
 
 ---
 
-## Key findings
-
-1. **A small group of customers brings a big part of the profit.** The top 10% of customers by gross profit bring 36.95% of gross profit and 40.37% of net revenue. 193 of them have not ordered for longer than usual. Based on what similar customers did last year, winning them back could add about 3,500 € gross profit per year (estimate). ([Q5](analysis/q05_best_customers.md))
-2. **Discounts lower the margin, and I found no sign that they pay back.** They take about 9 points of margin in sale orders and about 6 in coupon orders (about 25,400 € in total). In July I saw no clear jump in orders or new customers from the sale. Customers who started with a coupon came back less often (25.8% vs 30.9% for full price), and a test shows this is not chance. ([Q3](analysis/q03_discounts.md))
-3. **Electronics brings the most revenue, but has the lowest margin (19.7%).** The top 10% of customers by gross profit spend 39.60% on Electronics. They bring 40.37% of revenue, but only 36.95% of profit. ([Q2](analysis/q02_product_profit.md), [Q5](analysis/q05_best_customers.md))
-4. **About 3 in 10 customers buy again, and half of those who come back do it within about 2.5 months.** 29.46% of all customers bought again, and the median time to the second order is 79 days. Newer cohorts come back about as often as older ones. ([Q4](analysis/q04_repeat_customers.md))
-5. **Many mobile sessions end between checkout and payment.** On mobile 80.77% go from checkout to payment, on desktop 92.35%. Mobile has 68% of all sessions. If this step worked like desktop, my rough estimate is about 9,500 EUR more gross profit per year, more likely less. ([Q6](analysis/q06_funnel.md))
-
----
-
 ## Limitations
 
 - The data is synthetic, so the findings describe a made-up store, not a real business.
@@ -221,6 +244,10 @@ Then open the notebooks in the `notebooks/` folder.
 1. Create a database and run `sql/01_create_raw_tables.sql`.
 2. Load the CSV files from `data/raw/` into the `raw` tables (I used DBeaver: Import Data, empty strings as NULL).
 3. Run the other numbered files in `sql/` in order (02, 03, ..., 15). Each file can be run again: it drops and creates its table or view. Files 03-09 also drop the views that use their table (CASCADE), so after running one of them, run 10-15 again.
+
+**Power BI**
+1. Open `powerbi/ecommerce_dashboard.pbix` in Power BI Desktop.
+2. The file connects to my local PostgreSQL database. To use your own, go to Home → Transform data → Data source settings, change the server and database, and refresh.
 
 ---
 
