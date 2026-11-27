@@ -57,16 +57,17 @@ Share of sale orders by month (months with the most sale orders):
 
 July sale vs June and August:
 
-| Month | Orders per day | New customers per day | AOV (EUR) | Margin |
-|---|---|---|---|---|
-| 2025-06 | 10.13 | 5.97 | 59.27 | 42.3% |
-| **2025-07 (sale)** | **10.26** | **6.35** | **58.21** | **37.8%** |
-| 2025-08 | 10.29 | 6.35 | 57.87 | 37.7% |
-| 2026-06 | 11.37 | 6.13 | 69.65 | 38.0% |
-| **2026-07 (sale)** | **12.90** | **6.77** | **66.81** | **34.9%** |
-| 2026-08 | 13.26 | 7.13 | 64.73 | 39.7% |
+| Month | Orders per day | New customers per day | AOV (EUR) | Margin | Sale discounts (EUR) |
+|---|---|---|---|---|---|
+| 2025-06 | 10.13 | 5.97 | 59.27 | 42.3% | 137.90 |
+| **2025-07 (sale)** | **10.26** | **6.35** | **58.21** | **37.8%** | **1,044.12** |
+| 2025-08 | 10.29 | 6.35 | 57.87 | 37.7% | 263.69 |
+| 2026-06 | 11.37 | 6.13 | 69.65 | 38.0% | 97.50 |
+| **2026-07 (sale)** | **12.90** | **6.77** | **66.81** | **34.9%** | **1,374.33** |
+| 2026-08 | 13.26 | 7.13 | 64.73 | 39.7% | 317.61 |
 
 - July is between June and August in orders per day and in AOV. In these months the business grows month by month, so July follows this growth. I see no extra jump in July. But the sale happens every July, so I can't compare with a July without a sale. If July would be weaker without the sale, the sale could still bring some orders.
+- Sale discounts: in July the sale gave away 1,044.12 € (2025) and 1,374.33 € (2026) as discounts on kept items. Other months have a few sale orders too (97.50-317.61 €). This is the most the July sale could cost us. If the sale brought some extra orders, the real cost is lower. I can't say how much lower, because there is no July without a sale.
 
 ## 3. Do discounts bring new customers?
 
@@ -118,7 +119,7 @@ Is the difference real or chance? I compared each group with full_price (two-pro
 
 ## Recommendations
 
-1. **Next year, move the July sale to August.** The sale happens every July, so there is no July without a sale to compare with, and I can't say if it brings extra orders. With no sale in July, I can compare July with June (orders per day, new customers per day, gross profit) and check if this July/June ratio is lower than in the years with a July sale. June stays without a sale, so it is a fair base. (parts 1, 2)
+1. **Next year, move the July sale to August.** The sale happens every July, so there is no July without a sale to compare with, and I can't say if it brings extra orders. With no sale in July, I can compare July with June (orders per day, new customers per day, gross profit) and check if this July/June ratio is lower than in the years with a July sale. June stays without a sale, so it is a fair base. Now the July sale gives away up to 1,374.33 € a year in discounts (2026), and the test shows how much of this money brings extra orders. (parts 1, 2)
 2. **Test WELCOME10 on half of new sign-ups.** Customers who start with a coupon come back less often (25.76% vs 30.93%, not chance), but the data does not say if the coupon brings new customers or only costs margin. Randomly give the code to half of new sign-ups, record who got it, and after 6 months compare both halves: first orders, repeat orders and gross profit per customer. (parts 3, 4)
 
 ## Limitations

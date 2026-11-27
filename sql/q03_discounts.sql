@@ -55,7 +55,8 @@ SELECT
     ROUND(SUM(net_revenue) / COUNT(DISTINCT order_id), 2) AS aov,
     ROUND(SUM(net_revenue) / MAX(EXTRACT(DAY FROM order_date_local)), 2) AS revenue_per_day,
     ROUND(SUM(gross_profit), 2) AS gross_profit,
-    ROUND(SUM(gross_profit) / SUM(net_revenue) * 100.0, 2) AS gross_margin
+    ROUND(SUM(gross_profit) / SUM(net_revenue) * 100.0, 2) AS gross_margin,
+    SUM(discount_eur) FILTER (WHERE what_discount = 'sale') AS sale_discount_eur
 FROM analytics.orders_discount
 WHERE TO_CHAR(order_date_local, 'YYYY-MM') IN ('2025-06', '2025-07', '2025-08', '2026-06', '2026-07', '2026-08')
 GROUP BY year_month
